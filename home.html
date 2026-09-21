@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="description" content="Team Selwanism - Moroccan Cybersecurity Team">
+<meta name="theme-color" content="#02040a">
+<title>Team Selwanism | منصة الأمن السيبراني</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Orbitron:wght@500;700;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --cyber-blue: #00d1ff;
+    --cyber-blue-dark: #0099cc;
+    --cyber-glow: rgba(0, 209, 255, 0.5);
+    --cyber-glow-strong: rgba(0, 209, 255, 0.9);
+    --cyber-dark: #02040a;
+    --cyber-dark-2: #050b18;
+    --cyber-card: #0a1424;
+    --cyber-border: #1a2a44;
+    --text-light: #e6f7ff;
+    --text-dim: #7a92a8;
+    --gold: #ffb800;
+    --font-fancy: 'Cinzel', serif;
+    --font-cyber: 'Orbitron', sans-serif;
+    --font-ar: 'Cairo', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 80px; }
+
+body {
+    font-family: var(--font-ar);
+    background: var(--cyber-dark);
+    color: var(--text-light);
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==================== Header ==================== */
+.site-header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(2, 4, 10, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--cyber-border);
+    transition: all 0.3s ease;
+}
+
+.header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.header-logo svg {
+    width: 45px; height: 45px;
+    filter: drop-shadow(0 0 10px var(--cyber-glow));
+}
+
+.header-logo-text {
+    font-family: var(--font-fancy);
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(180deg, #ffffff 0%, #7dd8ff 50%, #00d1ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px var(--cyber-glow));
+}
+
+.main-nav {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    align-items: center;
+}
+
+.main-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    width: 0; height: 2px;
+    background: var(--cyber-blue);
+    box-shadow: 0 0 10px var(--cyber-glow);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.main-nav a:hover { color: var(--cyber-blue); }
+.main-nav a:hover::after { width: 100%; }
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.lang-switch {
+    display: flex;
+    gap: 5px;
+    background: rgba(0, 209, 255, 0.1);
+    border: 1px solid var(--cyber-border);
+    border-radius: 6px;
+    padding: 3px;
+}
+
+.lang-switch button {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+    font-family: var(--font-cyber);
+    letter-spacing: 1px;
+}
+
+.lang-switch button.active {
+    background: var(--cyber-blue);
+    color: #001018;
+    box-shadow: 0 0 15px var(--cyber-glow);
+}
+
+.hamburger {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--cyber-border);
+    border-radius: 6px;
+    width: 42px; height: 42px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 22px; height: 2px;
+    background: var(--cyber-blue);
+    transition: all 0.3s;
+    box-shadow: 0 0 5px var(--cyber-glow);
+}
+
+/* ==================== Hero ==================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 30px 80px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+
+.hero-grid {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 60%;
+    background-image:
+        linear-gradient(rgba(0, 209, 255, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 209, 255, 0.18) 1px, transparent 1px);
+    background-size: 60px 60px;
+    transform: perspective(350px) rotateX(65deg);
+    transform-origin: center bottom;
+    -webkit-mask-image: linear-gradient(to top, black 0%, transparent 90%);
+    mask-image: linear-gradient(to top, black 0%, transparent 90%);
+    animation: heroGridMove 6s linear infinite;
+}
+
+@keyframes heroGridMove { from { background-position: 0 0; } to { background-position: 0 60px; } }
+
+#particles-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    opacity: 0.75;
+    pointer-events: none;
+}
+
+#matrix-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    opacity: 0.22;
+    pointer-events: none;
+}
+
+.hero-light-beam {
+    position: absolute;
+    top: -10%;
+    width: 2px;
+    height: 130%;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 209, 255, 0.6) 30%, rgba(0, 209, 255, 0.9) 50%, rgba(0, 209, 255, 0.6) 70%, transparent 100%);
+    box-shadow: 0 0 15px rgba(0, 209, 255, 0.8), 0 0 30px rgba(0, 209, 255, 0.4);
+    filter: blur(0.5px);
+    pointer-events: none;
+}
+
+.beam-1 { left: 15%; animation: beamScan 8s ease-in-out infinite; }
+.beam-2 { left: 50%; animation: beamScan 10s ease-in-out infinite; animation-delay: 2s; opacity: 0.3; }
+.beam-3 { left: 85%; animation: beamScan 9s ease-in-out infinite; animation-delay: 4s; opacity: 0.4; }
+
+@keyframes beamScan {
+    0% { transform: translateY(-10%) scaleY(0.8); opacity: 0; }
+    20% { opacity: 1; }
+    50% { transform: translateY(0%) scaleY(1.1); opacity: 0.8; }
+    80% { opacity: 1; }
+    100% { transform: translateY(10%) scaleY(0.8); opacity: 0; }
+}
+
+.hero-orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+
+.orb-a {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0, 209, 255, 0.4), transparent 70%);
+    top: -100px; right: -100px;
+    animation: heroOrbFloat 12s ease-in-out infinite alternate;
+}
+
+.orb-b {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(120, 0, 255, 0.35), transparent 70%);
+    bottom: -80px; left: -80px;
+    animation: heroOrbFloat2 15s ease-in-out infinite alternate;
+}
+
+@keyframes heroOrbFloat { 0% { transform: translate(0, 0) scale(1); opacity: 0.5; } 100% { transform: translate(-80px, 60px) scale(1.15); opacity: 0.8; } }
+@keyframes heroOrbFloat2 { 0% { transform: translate(0, 0) scale(1); opacity: 0.4; } 100% { transform: translate(100px, -50px) scale(1.1); opacity: 0.7; } }
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+        radial-gradient(circle at center, transparent 0%, rgba(2, 4, 10, 0.85) 70%),
+        linear-gradient(180deg, rgba(2, 4, 10, 0.6) 0%, transparent 40%, rgba(2, 4, 10, 0.95) 100%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1000px;
+    animation: fadeInUp 1.2s ease-out both;
+}
+
+.hero-badge {
+    display: inline-block;
+    font-family: var(--font-cyber);
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: var(--cyber-blue);
+    border: 1px solid var(--cyber-glow);
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    background: rgba(0, 209, 255, 0.05);
+    backdrop-filter: blur(5px);
+}
+
+.hero-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+.hero-title .highlight {
+    background: linear-gradient(180deg, #7dd8ff 0%, #00d1ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 25px var(--cyber-glow));
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
+    color: var(--text-dim);
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.9;
+}
+
+.hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    font-family: var(--font-ar);
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--cyber-blue);
+    color: #001018;
+    box-shadow: 0 0 25px var(--cyber-glow);
+}
+
+.btn-primary:hover { background: #00e5ff; transform: translateY(-4px); box-shadow: 0 0 40px var(--cyber-glow-strong); }
+
+.btn-outline {
+    background: transparent;
+    border-color: var(--cyber-blue);
+    color: var(--cyber-blue);
+}
+
+.btn-outline:hover { background: var(--cyber-blue); color: #001018; transform: translateY(-4px); box-shadow: 0 0 30px var(--cyber-glow); }
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    color: var(--cyber-blue);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    font-family: var(--font-cyber);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--cyber-blue), transparent);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* ==================== الأقسام العامة ==================== */
+.section { padding: 100px 30px; position: relative; }
+.section-inner { max-width: 1300px; margin: 0 auto; }
+
+.section-header { text-align: center; margin-bottom: 60px; }
+
+.section-tag {
+    font-family: var(--font-cyber);
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: var(--cyber-blue);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.section-title .highlight {
+    background: linear-gradient(180deg, #7dd8ff 0%, #00d1ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-desc {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    max-width: 780px;
+    margin: 0 auto;
+    line-height: 1.9;
+}
+
+/* ==================== نظرة عامة على الموقع ==================== */
+.overview-section { background: var(--cyber-dark-2); }
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.overview-card {
+    background: var(--cyber-card);
+    border: 1px solid var(--cyber-border);
+    border-radius: 14px;
+    padding: 35px 30px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.overview-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--cyber-blue), transparent);
+    opacity: 0.5;
+    transition: opacity 0.4s;
+}
+
+.overview-card:hover {
+    border-color: var(--cyber-blue);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 209, 255, 0.15);
+}
+
+.overview-card:hover::before { opacity: 1; }
+
+.overview-icon {
+    width: 65px; height: 65px;
+    border-radius: 12px;
+    background: rgba(0, 209, 255, 0.1);
+    border: 2px solid rgba(0, 209, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.overview-card:hover .overview-icon {
+    background: var(--cyber-blue);
+    border-color: var(--cyber-blue);
+    box-shadow: 0 0 25px var(--cyber-glow);
+}
+
+.overview-icon svg {
+    width: 32px; height: 32px;
+    fill: var(--cyber-blue);
+    transition: all 0.3s ease;
+}
+
+.overview-card:hover .overview-icon svg { fill: #001018; }
+
+.overview-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.overview-desc {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.overview-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-cyber);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--cyber-blue);
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: gap 0.3s ease;
+}
+
+.overview-card:hover .overview-cta { gap: 14px; }
+
+[dir="ltr"] .overview-cta .arrow { transform: scaleX(-1); }
+
+/* ==================== الرسالة والرؤية ==================== */
+.mission-section {
+    background: var(--cyber-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-section::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 209, 255, 0.15), transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.mission-text h3 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 25px;
+    line-height: 1.3;
+}
+
+.mission-text h3 .highlight {
+    background: linear-gradient(180deg, #7dd8ff 0%, #00d1ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mission-text p {
+    color: var(--text-dim);
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+.mission-points {
+    list-style: none;
+    margin-top: 25px;
+}
+
+.mission-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.mission-points li::before {
+    content: '▸';
+    color: var(--cyber-blue);
+    font-weight: 900;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    flex-shrink: 0;
+    text-shadow: 0 0 10px var(--cyber-glow);
+}
+
+.mission-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.mission-shield {
+    width: 280px;
+    height: 280px;
+    position: relative;
+    animation: shieldFloat 4s ease-in-out infinite;
+}
+
+@keyframes shieldFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.mission-shield svg {
+    width: 100%; height: 100%;
+    filter: drop-shadow(0 0 40px var(--cyber-glow));
+}
+
+.mission-ring {
+    position: absolute;
+    inset: -40px;
+    border-radius: 50%;
+    border: 1px dashed rgba(0, 209, 255, 0.3);
+    animation: rotate 25s linear infinite;
+}
+
+.mission-ring::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 209, 255, 0.2);
+    animation: rotate 15s linear infinite reverse;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ==================== لماذا هذا الموقع ==================== */
+.why-section { background: var(--cyber-dark-2); }
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.why-card {
+    background: var(--cyber-card);
+    border: 1px solid var(--cyber-border);
+    border-radius: 14px;
+    padding: 30px 25px;
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.why-card:hover {
+    border-color: var(--cyber-blue);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 209, 255, 0.1);
+}
+
+.why-icon {
+    width: 60px; height: 60px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: rgba(0, 209, 255, 0.1);
+    border: 2px solid var(--cyber-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 0 20px var(--cyber-glow);
+    transition: all 0.3s;
+}
+
+.why-card:hover .why-icon {
+    background: var(--cyber-blue);
+    box-shadow: 0 0 35px var(--cyber-glow-strong);
+}
+
+.why-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.why-desc {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+/* ==================== CTA النهائي ==================== */
+.cta-section {
+    padding: 100px 30px;
+    text-align: center;
+    background:
+        radial-gradient(circle at center, rgba(0, 209, 255, 0.15) 0%, transparent 60%),
+        linear-gradient(180deg, var(--cyber-dark) 0%, #03060d 100%);
+    border-top: 1px solid var(--cyber-border);
+    border-bottom: 1px solid var(--cyber-border);
+}
+
+.cta-content { max-width: 800px; margin: 0 auto; }
+
+.cta-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.cta-title .highlight {
+    background: linear-gradient(180deg, #7dd8ff 0%, #00d1ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-desc {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==================== Footer ==================== */
+.site-footer {
+    background: #01020a;
+    padding: 70px 30px 30px;
+    border-top: 1px solid var(--cyber-border);
+}
+
+.footer-inner { max-width: 1300px; margin: 0 auto; }
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.footer-brand { max-width: 400px; }
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.footer-logo svg {
+    width: 50px; height: 50px;
+    filter: drop-shadow(0 0 10px var(--cyber-glow));
+}
+
+.footer-logo-text {
+    font-family: var(--font-fancy);
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--cyber-blue);
+    text-shadow: 0 0 15px var(--cyber-glow);
+}
+
+.footer-desc {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+    line-height: 1.9;
+}
+
+.footer-col h4 {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 40px; height: 2px;
+    background: var(--cyber-blue);
+    box-shadow: 0 0 10px var(--cyber-glow);
+}
+
+[dir="ltr"] .footer-col h4::after { right: auto; left: 0; }
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 12px; }
+
+.footer-col ul a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-col ul a::before {
+    content: '›';
+    color: var(--cyber-blue);
+    font-weight: 700;
+}
+
+.footer-col ul a:hover { color: var(--cyber-blue); padding-right: 5px; }
+
+[dir="ltr"] .footer-col ul a:hover { padding-right: 0; padding-left: 5px; }
+
+.footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid var(--cyber-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.footer-bottom-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-bottom-links a:hover { color: var(--cyber-blue); }
+
+.footer-disclaimer {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(26, 42, 68, 0.5);
+    color: #555;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+/* ==================== الحركات ==================== */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ==================== Responsive ==================== */
+@media (max-width: 1024px) {
+    .header-inner { padding: 12px 20px; }
+    .main-nav { gap: 18px; }
+    .main-nav a { font-size: 0.88rem; }
+    .mission-grid { gap: 40px; }
+}
+
+@media (max-width: 900px) {
+    .hamburger { display: flex; }
+
+    .main-nav {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 70px);
+        background: rgba(2, 4, 10, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 25px;
+        gap: 5px;
+        transition: right 0.4s ease;
+        border-left: 1px solid var(--cyber-border);
+        overflow-y: auto;
+    }
+
+    [dir="ltr"] .main-nav {
+        right: auto; left: -100%;
+        border-left: none;
+        border-right: 1px solid var(--cyber-border);
+        transition: left 0.4s ease;
+    }
+
+    .main-nav.open { right: 0; }
+    [dir="ltr"] .main-nav.open { left: 0; }
+
+    .main-nav li {
+        width: 100%;
+        border-bottom: 1px solid var(--cyber-border);
+    }
+
+    .main-nav a { display: block; padding: 15px 5px; width: 100%; }
+
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    .mission-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    .mission-visual { min-height: 300px; }
+
+    .mission-shield { width: 200px; height: 200px; }
+}
+
+@media (max-width: 768px) {
+    .header-logo-text { font-size: 1rem; letter-spacing: 2px; }
+    .header-logo svg { width: 38px; height: 38px; }
+
+    .hero { padding: 100px 20px 60px; }
+
+    .hero-light-beam { display: none; }
+    .hero-orb { display: none; }
+    .hero-grid { animation: none; opacity: 0.5; }
+    #matrix-canvas { display: none; }
+    #particles-canvas { opacity: 0.5; }
+
+    .section { padding: 70px 20px; }
+
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .footer-bottom-links { justify-content: center; gap: 15px; }
+}
+
+@media (max-width: 480px) {
+    .header-inner { padding: 10px 15px; gap: 10px; }
+    .lang-switch button { padding: 4px 8px; font-size: 0.7rem; }
+
+    .hero-buttons { flex-direction: column; width: 100%; }
+    .btn { width: 100%; justify-content: center; padding: 14px 25px; }
+
+    .cta-buttons { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+    .hero-light-beam, .hero-orb { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     Header
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+    <div class="header-inner">
+
+        <a href="home.html" class="header-logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="hLogoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#e8f7ff"/>
+                        <stop offset="50%" stop-color="#00d1ff"/>
+                        <stop offset="100%" stop-color="#005f80"/>
+                    </linearGradient>
+                </defs>
+                <path d="M 50 5 L 88 22 L 88 55 Q 88 82 50 95 Q 12 82 12 55 L 12 22 Z"
+                      fill="none" stroke="url(#hLogoGrad)" stroke-width="3"/>
+                <polygon points="50,20 54,32 67,32 57,40 60,52 50,45 40,52 43,40 33,32 46,32"
+                         fill="none" stroke="#00d1ff" stroke-width="1.5" opacity="0.7"/>
+                <path d="M 63 45 Q 63 38 50 38 Q 37 38 37 47 Q 37 53 50 56 Q 63 59 63 68 Q 63 78 50 78 Q 37 78 37 71"
+                      fill="none" stroke="url(#hLogoGrad)" stroke-width="5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="header-logo-text">SELWANISM</span>
+        </a>
+
+        <ul class="main-nav" id="mainNav">
+            <li><a href="home.html" data-i18n="nav_home">الرئيسية</a></li>
+            <li><a href="services.html" data-i18n="nav_services">الخدمات</a></li>
+            <li><a href="team.html" data-i18n="nav_team">الفريق</a></li>
+            <li><a href="lab.html" data-i18n="nav_lab">المختبر</a></li>
+            <li><a href="testimonials.html" data-i18n="nav_testimonials">شهادات العملاء</a></li>
+            <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+        </ul>
+
+        <div class="header-actions">
+            <div class="lang-switch">
+                <button data-lang="ar" class="active">AR</button>
+                <button data-lang="en">EN</button>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+    </div>
+</header>
+
+<!-- ============================================================
+     Hero — الترحيب والتعريف بالموقع
+     ============================================================ -->
+<section class="hero" id="home">
+
+    <div class="hero-bg" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <canvas id="matrix-canvas"></canvas>
+        <canvas id="particles-canvas"></canvas>
+        <div class="hero-light-beam beam-1"></div>
+        <div class="hero-light-beam beam-2"></div>
+        <div class="hero-light-beam beam-3"></div>
+        <div class="hero-orb orb-a"></div>
+        <div class="hero-orb orb-b"></div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <span class="hero-badge" data-i18n="hero_badge">CYBERSECURITY PLATFORM</span>
+        <h1 class="hero-title">
+            <span data-i18n="hero_title_1">مرحباً بكم في</span>
+            <span class="highlight">Team Selwanism</span>
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+            منصة مغربية متخصصة في الأمن السيبراني واختبار الاختراق الأخلاقي. هذا الموقع هو بوابتكم لاكتشاف خدماتنا، فريقنا، مختبرنا التدريبي، وشهادات عملائنا. تصفحوا الأقسام بالأسفل للتعرف على كل ما نقدمه.
+        </p>
+        <div class="hero-buttons">
+            <a href="#overview" class="btn btn-primary" data-i18n="hero_btn_explore">استكشف الموقع</a>
+            <a href="#mission" class="btn btn-outline" data-i18n="hero_btn_mission">رسالتنا</a>
+        </div>
+    </div>
+
+    <div class="scroll-indicator">
+        <span data-i18n="scroll_down">SCROLL</span>
+    </div>
+
+</section>
+
+<!-- ============================================================
+     نظرة عامة على الموقع — بطاقات الأقسام
+     ============================================================ -->
+<section class="section overview-section" id="overview">
+    <div class="section-inner">
+        <div class="section-header">
+            <span class="section-tag" data-i18n="overview_tag">SITE OVERVIEW</span>
+            <h2 class="section-title">
+                <span data-i18n="overview_title_1">ماذا تجد في</span>
+                <span class="highlight" data-i18n="overview_title_2">هذا الموقع؟</span>
+            </h2>
+            <p class="section-desc" data-i18n="overview_desc">
+                موقعنا مقسم إلى عدة أقسام رئيسية، كل قسم مخصص لجانب معين من خدماتنا ومحتوانا. اضغط على أي بطاقة للانتقال إلى القسم المخصص.
+            </p>
+        </div>
+
+        <div class="overview-grid">
+
+            <!-- بطاقة: الخدمات -->
+            <a href="services.html" class="overview-card">
+                <div class="overview-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                    </svg>
+                </div>
+                <h3 class="overview-title" data-i18n="ov_services_title">الخدمات</h3>
+                <p class="overview-desc" data-i18n="ov_services_desc">
+                    قائمة شاملة بجميع خدمات الأمن السيبراني التي نقدمها: اختبار الاختراق، الفريق الأحمر والأزرق، الاستجابة للحوادث، التدقيق الأمني، وغيرها.
+                </p>
+                <span class="overview-cta">
+                    <span data-i18n="ov_services_cta">استكشف الخدمات</span>
+                    <span class="arrow">→</span>
+                </span>
+            </a>
+
+            <!-- بطاقة: الفريق -->
+            <a href="team.html" class="overview-card">
+                <div class="overview-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                    </svg>
+                </div>
+                <h3 class="overview-title" data-i18n="ov_team_title">الفريق</h3>
+                <p class="overview-desc" data-i18n="ov_team_desc">
+                    تعرف على أعضاء فريقنا، مؤهلاتهم، شهاداتهم الدولية المعتمدة، ومجالات تخصصهم في الأمن السيبراني.
+                </p>
+                <span class="overview-cta">
+                    <span data-i18n="ov_team_cta">تعرف على الفريق</span>
+                    <span class="arrow">→</span>
+                </span>
+            </a>
+
+            <!-- بطاقة: المختبر -->
+            <a href="lab.html" class="overview-card">
+                <div class="overview-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
+                    </svg>
+                </div>
+                <h3 class="overview-title" data-i18n="ov_lab_title">المختبر</h3>
+                <p class="overview-desc" data-i18n="ov_lab_desc">
+                    بيئة تدريبية تفاعلية بنمط ثلاثي الأبعاد لتعلم الأمن السيبراني، مع تحديات عملية ومسارات تعليمية.
+                </p>
+                <span class="overview-cta">
+                    <span data-i18n="ov_lab_cta">دخول المختبر</span>
+                    <span class="arrow">→</span>
+                </span>
+            </a>
+
+            <!-- بطاقة: شهادات العملاء -->
+            <a href="testimonials.html" class="overview-card">
+                <div class="overview-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                </div>
+                <h3 class="overview-title" data-i18n="ov_test_title">شهادات العملاء</h3>
+                <p class="overview-desc" data-i18n="ov_test_desc">
+                    آراء وتجارب عملائنا السابقين مع خدماتنا، تتضمن مشاريع حقيقية ونتائج موثقة.
+                </p>
+                <span class="overview-cta">
+                    <span data-i18n="ov_test_cta">اقرأ الشهادات</span>
+                    <span class="arrow">→</span>
+                </span>
+            </a>
+
+            <!-- بطاقة: الخصوصية -->
+            <a href="privacy.html" class="overview-card">
+                <div class="overview-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+                    </svg>
+                </div>
+                <h3 class="overview-title" data-i18n="ov_privacy_title">الخصوصية</h3>
+                <p class="overview-desc" data-i18n="ov_privacy_desc">
+                    سياسة الخصوصية، حماية المعطيات، حقوق النشر، وشروط الاستخدام. نحترم القوانين المغربية والدولية.
+                </p>
+                <span class="overview-cta">
+                    <span data-i18n="ov_privacy_cta">اطلع على السياسة</span>
+                    <span class="arrow">→</span>
+                </span>
+            </a>
+
+            <!-- بطاقة: تواصل معنا -->
+            <a href="contact.html" class="overview-card">
+                <div class="overview-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </div>
+                <h3 class="overview-title" data-i18n="ov_contact_title">تواصل معنا</h3>
+                <p class="overview-desc" data-i18n="ov_contact_desc">
+                    قنوات التواصل المباشر مع الفريق: للحصول على استشارة أو طلب خدمة أو أي استفسار.
+                </p>
+                <span class="overview-cta">
+                    <span data-i18n="ov_contact_cta">اتصل بنا</span>
+                    <span class="arrow">→</span>
+                </span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     الرسالة والرؤية
+     ============================================================ -->
+<section class="section mission-section" id="mission">
+    <div class="section-inner">
+        <div class="mission-grid">
+
+            <div class="mission-text">
+                <span class="section-tag" data-i18n="mission_tag">OUR MISSION</span>
+                <h3>
+                    <span data-i18n="mission_title_1">رسالتنا هي حماية</span>
+                    <span class="highlight" data-i18n="mission_title_2">الفضاء الرقمي</span>
+                </h3>
+                <p data-i18n="mission_p1">
+                    نؤمن بأن الأمن السيبراني ليس مجرد خدمة تقنية، بل هو مسؤولية وطنية وشراكة استراتيجية مع عملائنا. هدفنا هو رفع مستوى الوعي الأمني وتمكين المؤسسات والأفراد من حماية أصولهم الرقمية بفعالية.
+                </p>
+                <p data-i18n="mission_p2">
+                    هذا الموقع تم تصميمه ليكون بوابة تعريفية شاملة، تتيح لكم التعرف على فريقنا، خدماتنا، ومنهجيتنا في العمل، مع الالتزام الكامل بالقوانين والأخلاقيات المهنية.
+                </p>
+
+                <ul class="mission-points">
+                    <li data-i18n="mission_li1">العمل بقانون واحترافية عالية في جميع مشاريعنا</li>
+                    <li data-i18n="mission_li2">احترام الخصوصية وسرية بيانات العملاء</li>
+                    <li data-i18n="mission_li3">تطوير مستمر لمهارات الفريق وأدوات العمل</li>
+                    <li data-i18n="mission_li4">نشر ثقافة الأمن السيبراني في المجتمع المغربي والعربي</li>
+                </ul>
+            </div>
+
+            <div class="mission-visual">
+                <div class="mission-shield">
+                    <div class="mission-ring"></div>
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#e8f7ff"/>
+                                <stop offset="50%" stop-color="#00d1ff"/>
+                                <stop offset="100%" stop-color="#005f80"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M 50 5 L 88 22 L 88 55 Q 88 82 50 95 Q 12 82 12 55 L 12 22 Z"
+                              fill="none" stroke="url(#shieldGrad)" stroke-width="2"/>
+                        <polygon points="50,20 54,32 67,32 57,40 60,52 50,45 40,52 43,40 33,32 46,32"
+                                 fill="none" stroke="#00d1ff" stroke-width="1.5" opacity="0.8"/>
+                        <path d="M 63 45 Q 63 38 50 38 Q 37 38 37 47 Q 37 53 50 56 Q 63 59 63 68 Q 63 78 50 78 Q 37 78 37 71"
+                              fill="none" stroke="url(#shieldGrad)" stroke-width="4"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     لماذا هذا الموقع
+     ============================================================ -->
+<section class="section why-section">
+    <div class="section-inner">
+        <div class="section-header">
+            <span class="section-tag" data-i18n="why_tag">WHY THIS SITE</span>
+            <h2 class="section-title">
+                <span data-i18n="why_title_1">لماذا</span>
+                <span class="highlight" data-i18n="why_title_2">هذا الموقع؟</span>
+            </h2>
+            <p class="section-desc" data-i18n="why_desc">
+                موقعنا يوفر تجربة شاملة واحترافية للتعرف على فريقنا وخدماتنا بكل شفافية.
+            </p>
+        </div>
+
+        <div class="why-grid">
+
+            <div class="why-card">
+                <div class="why-icon">🛡️</div>
+                <h3 class="why-title" data-i18n="why1_title">شفافية كاملة</h3>
+                <p class="why-desc" data-i18n="why1_desc">كل خدمة وكل معلومة معروضة بوضوح تام، بلا غموض ولا التزامات خفية.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon">⚖️</div>
+                <h3 class="why-title" data-i18n="why2_title">التزام قانوني</h3>
+                <p class="why-desc" data-i18n="why2_desc">نعمل باحترام تام للقوانين المغربية (09-08) والدولية، ولا نقوم بأي عملية بدون تصريح رسمي.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon">🌐</div>
+                <h3 class="why-title" data-i18n="why3_title">ثنائي اللغة</h3>
+                <p class="why-desc" data-i18n="why3_desc">الموقع متوفر بالعربية والإنجليزية لخدمة أكبر شريحة من الزوار.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon">⚡</div>
+                <h3 class="why-title" data-i18n="why4_title">تجربة تفاعلية</h3>
+                <p class="why-desc" data-i18n="why4_desc">تصميم عصري بتقنيات متقدمة، مع مختبر تدريبي ثلاثي الأبعاد ومحتوى تعليمي.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CTA — دعوة للاستكشاف
+     ============================================================ -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2 class="cta-title">
+            <span data-i18n="cta_title_1">ابدأ رحلتك مع</span>
+            <span class="highlight"> Team Selwanism</span>
+        </h2>
+        <p class="cta-desc" data-i18n="cta_desc">
+            اختر القسم الذي يهمك من الأعلى، أو انتقل مباشرة إلى صفحة الخدمات لمعرفة ما يمكننا تقديمه لك.
+        </p>
+        <div class="cta-buttons">
+            <a href="services.html" class="btn btn-primary" data-i18n="cta_btn_services">عرض الخدمات</a>
+            <a href="contact.html" class="btn btn-outline" data-i18n="cta_btn_contact">تواصل معنا</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     Footer
+     ============================================================ -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="fLogoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#e8f7ff"/>
+                                <stop offset="50%" stop-color="#00d1ff"/>
+                                <stop offset="100%" stop-color="#005f80"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M 50 5 L 88 22 L 88 55 Q 88 82 50 95 Q 12 82 12 55 L 12 22 Z"
+                              fill="none" stroke="url(#fLogoGrad)" stroke-width="3"/>
+                        <polygon points="50,20 54,32 67,32 57,40 60,52 50,45 40,52 43,40 33,32 46,32"
+                                 fill="none" stroke="#00d1ff" stroke-width="1.5" opacity="0.7"/>
+                        <path d="M 63 45 Q 63 38 50 38 Q 37 38 37 47 Q 37 53 50 56 Q 63 59 63 68 Q 63 78 50 78 Q 37 78 37 71"
+                              fill="none" stroke="url(#fLogoGrad)" stroke-width="5"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="footer-logo-text">SELWANISM</span>
+                </div>
+                <p class="footer-desc" data-i18n="footer_desc">
+                    منصة مغربية متخصصة في الأمن السيبراني. نقدم حلولاً شاملة لحماية الأنظمة والشبكات وفق أعلى المعايير العالمية.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-i18n="footer_links">روابط سريعة</h4>
+                <ul>
+                    <li><a href="home.html" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="services.html" data-i18n="nav_services">الخدمات</a></li>
+                    <li><a href="team.html" data-i18n="nav_team">الفريق</a></li>
+                    <li><a href="lab.html" data-i18n="nav_lab">المختبر</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-i18n="footer_legal">قانوني</h4>
+                <ul>
+                    <li><a href="privacy.html#privacy" data-i18n="legal_privacy">سياسة الخصوصية</a></li>
+                    <li><a href="privacy.html#data" data-i18n="legal_data">حماية المعطيات</a></li>
+                    <li><a href="privacy.html#copyright" data-i18n="legal_copyright">حقوق النشر</a></li>
+                    <li><a href="privacy.html#terms" data-i18n="legal_terms">شروط الاستخدام</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p data-i18n="footer_copy">© 2026 Team Selwanism — جميع الحقوق محفوظة</p>
+            <div class="footer-bottom-links">
+                <a href="privacy.html#privacy" data-i18n="legal_privacy">سياسة الخصوصية</a>
+                <a href="privacy.html#data" data-i18n="legal_data">حماية المعطيات</a>
+                <a href="privacy.html#copyright" data-i18n="legal_copyright">حقوق النشر</a>
+            </div>
+        </div>
+
+        <p class="footer-disclaimer" data-i18n="footer_disclaimer">
+            جميع خدماتنا تتم بإذن قانوني مسبق. نحترم القوانين المغربية (09-08) والدولية. لا نقوم بأي عملية اختراق بدون تصريح رسمي.
+        </p>
+
+    </div>
+</footer>
+<script>
+/* ============================================================
+   1. الترجمة الكاملة (AR / EN)
+   ============================================================ */
+const TRANSLATIONS = {
+    ar: {
+        // Navigation
+        nav_home: "الرئيسية",
+        nav_services: "الخدمات",
+        nav_team: "الفريق",
+        nav_lab: "المختبر",
+        nav_testimonials: "شهادات العملاء",
+        nav_contact: "تواصل معنا",
+
+        // Hero
+        hero_badge: "منصة الأمن السيبراني",
+        hero_title_1: "مرحباً بكم في",
+        hero_subtitle: "منصة مغربية متخصصة في الأمن السيبراني واختبار الاختراق الأخلاقي. هذا الموقع هو بوابتكم لاكتشاف خدماتنا، فريقنا، مختبرنا التدريبي، وشهادات عملائنا. تصفحوا الأقسام بالأسفل للتعرف على كل ما نقدمه.",
+        hero_btn_explore: "استكشف الموقع",
+        hero_btn_mission: "رسالتنا",
+        scroll_down: "اسحب للأسفل",
+
+        // Overview
+        overview_tag: "نظرة على الموقع",
+        overview_title_1: "ماذا تجد في",
+        overview_title_2: "هذا الموقع؟",
+        overview_desc: "موقعنا مقسم إلى عدة أقسام رئيسية، كل قسم مخصص لجانب معين من خدماتنا ومحتوانا. اضغط على أي بطاقة للانتقال إلى القسم المخصص.",
+
+        ov_services_title: "الخدمات",
+        ov_services_desc: "قائمة شاملة بجميع خدمات الأمن السيبراني التي نقدمها: اختبار الاختراق، الفريق الأحمر والأزرق، الاستجابة للحوادث، التدقيق الأمني، وغيرها.",
+        ov_services_cta: "استكشف الخدمات",
+
+        ov_team_title: "الفريق",
+        ov_team_desc: "تعرف على أعضاء فريقنا، مؤهلاتهم، شهاداتهم الدولية المعتمدة، ومجالات تخصصهم في الأمن السيبراني.",
+        ov_team_cta: "تعرف على الفريق",
+
+        ov_lab_title: "المختبر",
+        ov_lab_desc: "بيئة تدريبية تفاعلية بنمط ثلاثي الأبعاد لتعلم الأمن السيبراني، مع تحديات عملية ومسارات تعليمية.",
+        ov_lab_cta: "دخول المختبر",
+
+        ov_test_title: "شهادات العملاء",
+        ov_test_desc: "آراء وتجارب عملائنا السابقين مع خدماتنا، تتضمن مشاريع حقيقية ونتائج موثقة.",
+        ov_test_cta: "اقرأ الشهادات",
+
+        ov_privacy_title: "الخصوصية",
+        ov_privacy_desc: "سياسة الخصوصية، حماية المعطيات، حقوق النشر، وشروط الاستخدام. نحترم القوانين المغربية والدولية.",
+        ov_privacy_cta: "اطلع على السياسة",
+
+        ov_contact_title: "تواصل معنا",
+        ov_contact_desc: "قنوات التواصل المباشر مع الفريق: للحصول على استشارة أو طلب خدمة أو أي استفسار.",
+        ov_contact_cta: "اتصل بنا",
+
+        // Mission
+        mission_tag: "رسالتنا",
+        mission_title_1: "رسالتنا هي حماية",
+        mission_title_2: "الفضاء الرقمي",
+        mission_p1: "نؤمن بأن الأمن السيبراني ليس مجرد خدمة تقنية، بل هو مسؤولية وطنية وشراكة استراتيجية مع عملائنا. هدفنا هو رفع مستوى الوعي الأمني وتمكين المؤسسات والأفراد من حماية أصولهم الرقمية بفعالية.",
+        mission_p2: "هذا الموقع تم تصميمه ليكون بوابة تعريفية شاملة، تتيح لكم التعرف على فريقنا، خدماتنا، ومنهجيتنا في العمل، مع الالتزام الكامل بالقوانين والأخلاقيات المهنية.",
+        mission_li1: "العمل بقانون واحترافية عالية في جميع مشاريعنا",
+        mission_li2: "احترام الخصوصية وسرية بيانات العملاء",
+        mission_li3: "تطوير مستمر لمهارات الفريق وأدوات العمل",
+        mission_li4: "نشر ثقافة الأمن السيبراني في المجتمع المغربي والعربي",
+
+        // Why
+        why_tag: "لماذا الموقع",
+        why_title_1: "لماذا",
+        why_title_2: "هذا الموقع؟",
+        why_desc: "موقعنا يوفر تجربة شاملة واحترافية للتعرف على فريقنا وخدماتنا بكل شفافية.",
+        why1_title: "شفافية كاملة",
+        why1_desc: "كل خدمة وكل معلومة معروضة بوضوح تام، بلا غموض ولا التزامات خفية.",
+        why2_title: "التزام قانوني",
+        why2_desc: "نعمل باحترام تام للقوانين المغربية (09-08) والدولية، ولا نقوم بأي عملية بدون تصريح رسمي.",
+        why3_title: "ثنائي اللغة",
+        why3_desc: "الموقع متوفر بالعربية والإنجليزية لخدمة أكبر شريحة من الزوار.",
+        why4_title: "تجربة تفاعلية",
+        why4_desc: "تصميم عصري بتقنيات متقدمة، مع مختبر تدريبي ثلاثي الأبعاد ومحتوى تعليمي.",
+
+        // CTA
+        cta_title_1: "ابدأ رحلتك مع",
+        cta_desc: "اختر القسم الذي يهمك من الأعلى، أو انتقل مباشرة إلى صفحة الخدمات لمعرفة ما يمكننا تقديمه لك.",
+        cta_btn_services: "عرض الخدمات",
+        cta_btn_contact: "تواصل معنا",
+
+        // Footer
+        footer_desc: "منصة مغربية متخصصة في الأمن السيبراني. نقدم حلولاً شاملة لحماية الأنظمة والشبكات وفق أعلى المعايير العالمية.",
+        footer_links: "روابط سريعة",
+        footer_legal: "قانوني",
+        legal_privacy: "سياسة الخصوصية",
+        legal_data: "حماية المعطيات",
+        legal_copyright: "حقوق النشر",
+        legal_terms: "شروط الاستخدام",
+        footer_copy: "© 2026 Team Selwanism — جميع الحقوق محفوظة",
+        footer_disclaimer: "جميع خدماتنا تتم بإذن قانوني مسبق. نحترم القوانين المغربية (09-08) والدولية. لا نقوم بأي عملية اختراق بدون تصريح رسمي."
+    },
+
+    en: {
+        // Navigation
+        nav_home: "Home",
+        nav_services: "Services",
+        nav_team: "Team",
+        nav_lab: "Lab",
+        nav_testimonials: "Testimonials",
+        nav_contact: "Contact Us",
+
+        // Hero
+        hero_badge: "CYBERSECURITY PLATFORM",
+        hero_title_1: "Welcome to",
+        hero_subtitle: "A Moroccan platform specialized in cybersecurity and ethical penetration testing. This website is your gateway to explore our services, team, training lab, and client testimonials. Browse the sections below to learn everything we offer.",
+        hero_btn_explore: "Explore Site",
+        hero_btn_mission: "Our Mission",
+        scroll_down: "SCROLL",
+
+        // Overview
+        overview_tag: "SITE OVERVIEW",
+        overview_title_1: "What will you find on",
+        overview_title_2: "this website?",
+        overview_desc: "Our website is divided into several main sections, each dedicated to a specific aspect of our services and content. Click on any card to navigate to its dedicated section.",
+
+        ov_services_title: "Services",
+        ov_services_desc: "A comprehensive list of all cybersecurity services we provide: penetration testing, red and blue team, incident response, security audit, and more.",
+        ov_services_cta: "Explore Services",
+
+        ov_team_title: "Team",
+        ov_team_desc: "Meet our team members, their qualifications, internationally recognized certifications, and areas of expertise in cybersecurity.",
+        ov_team_cta: "Meet the Team",
+
+        ov_lab_title: "Lab",
+        ov_lab_desc: "An interactive 3D training environment for learning cybersecurity, with practical challenges and learning paths.",
+        ov_lab_cta: "Enter Lab",
+
+        ov_test_title: "Testimonials",
+        ov_test_desc: "Feedback and experiences of our previous clients, including real projects and documented results.",
+        ov_test_cta: "Read Testimonials",
+
+        ov_privacy_title: "Privacy",
+        ov_privacy_desc: "Privacy policy, data protection, copyright, and terms of use. We comply with Moroccan and international laws.",
+        ov_privacy_cta: "View Policy",
+
+        ov_contact_title: "Contact Us",
+        ov_contact_desc: "Direct communication channels with the team: for consultation, service requests, or any inquiry.",
+        ov_contact_cta: "Get in Touch",
+
+        // Mission
+        mission_tag: "OUR MISSION",
+        mission_title_1: "Our mission is to protect",
+        mission_title_2: "the digital space",
+        mission_p1: "We believe cybersecurity is not just a technical service, but a national responsibility and a strategic partnership with our clients. Our goal is to raise security awareness and empower organizations and individuals to effectively protect their digital assets.",
+        mission_p2: "This website was designed to be a comprehensive introductory gateway, allowing you to learn about our team, services, and work methodology, with full commitment to laws and professional ethics.",
+        mission_li1: "Working legally and professionally in all our projects",
+        mission_li2: "Respecting privacy and client data confidentiality",
+        mission_li3: "Continuous development of team skills and tools",
+        mission_li4: "Spreading cybersecurity culture in Moroccan and Arab society",
+
+        // Why
+        why_tag: "WHY THIS SITE",
+        why_title_1: "Why",
+        why_title_2: "this website?",
+        why_desc: "Our website provides a comprehensive and professional experience to discover our team and services with full transparency.",
+        why1_title: "Full Transparency",
+        why1_desc: "Every service and information is presented with complete clarity, no ambiguity, no hidden commitments.",
+        why2_title: "Legal Commitment",
+        why2_desc: "We work in full compliance with Moroccan (09-08) and international laws, and never perform operations without official authorization.",
+        why3_title: "Bilingual",
+        why3_desc: "The site is available in both Arabic and English to serve the widest possible audience.",
+        why4_title: "Interactive Experience",
+        why4_desc: "Modern design with advanced technologies, a 3D training lab, and educational content.",
+
+        // CTA
+        cta_title_1: "Start your journey with",
+        cta_desc: "Choose the section you're interested in from above, or go directly to the services page to see what we can offer you.",
+        cta_btn_services: "View Services",
+        cta_btn_contact: "Contact Us",
+
+        // Footer
+        footer_desc: "A Moroccan platform specialized in cybersecurity. We provide comprehensive solutions to protect systems and networks following the highest international standards.",
+        footer_links: "Quick Links",
+        footer_legal: "Legal",
+        legal_privacy: "Privacy Policy",
+        legal_data: "Data Protection",
+        legal_copyright: "Copyright",
+        legal_terms: "Terms of Use",
+        footer_copy: "© 2026 Team Selwanism — All Rights Reserved",
+        footer_disclaimer: "All our services are performed with prior legal authorization. We comply with Moroccan (09-08) and international laws. We never perform any hacking without official permission."
+    }
+};
+
+/* ============================================================
+   2. تطبيق اللغة
+   ============================================================ */
+function applyLanguage(lang) {
+    if (!TRANSLATIONS[lang]) lang = 'ar';
+
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (TRANSLATIONS[lang][key] !== undefined) {
+            el.textContent = TRANSLATIONS[lang][key];
+        }
+    });
+
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    try {
+        localStorage.setItem('ts_lang', lang);
+    } catch (e) {}
+}
+
+/* ============================================================
+   3. الخلفية: Matrix + Particles
+   ============================================================ */
+(function initHeroBackground() {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    /* -------- Matrix -------- */
+    const matrixCanvas = document.getElementById('matrix-canvas');
+    if (matrixCanvas && !isMobile) {
+        const mCtx = matrixCanvas.getContext('2d');
+        const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノABCDEF01';
+        const fontSize = 14;
+        let columns, drops, W, H;
+
+        function resizeMatrix() {
+            W = matrixCanvas.width = window.innerWidth;
+            H = matrixCanvas.height = window.innerHeight;
+            columns = Math.floor(W / fontSize);
+            drops = Array(columns).fill(1);
+        }
+
+        function drawMatrix() {
+            mCtx.fillStyle = 'rgba(2, 4, 10, 0.08)';
+            mCtx.fillRect(0, 0, W, H);
+            mCtx.fillStyle = '#00d1ff';
+            mCtx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                mCtx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > H && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        resizeMatrix();
+        window.addEventListener('resize', resizeMatrix);
+        setInterval(drawMatrix, 60);
+    }
+
+    /* -------- Particles -------- */
+    const pCanvas = document.getElementById('particles-canvas');
+    if (pCanvas) {
+        const pCtx = pCanvas.getContext('2d', { alpha: true });
+        const PARTICLE_COUNT = isMobile ? 20 : 55;
+        const CONNECT_DIST = isMobile ? 90 : 140;
+        const CONNECT_SQ = CONNECT_DIST * CONNECT_DIST;
+        let particles = [];
+        let W, H;
+        let mouse = { x: null, y: null };
+
+        function resizeParticles() {
+            const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
+            W = window.innerWidth;
+            H = window.innerHeight;
+            pCanvas.width = W * dpr;
+            pCanvas.height = H * dpr;
+            pCanvas.style.width = W + 'px';
+            pCanvas.style.height = H + 'px';
+            pCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        function createParticles() {
+            particles = [];
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                particles.push({
+                    x: Math.random() * W,
+                    y: Math.random() * H,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: (Math.random() - 0.5) * 0.4,
+                    size: Math.random() * 2 + 0.5
+                });
+            }
+        }
+
+        function drawParticles() {
+            pCtx.clearRect(0, 0, W, H);
+
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > W) p.vx *= -1;
+                if (p.y < 0 || p.y > H) p.vy *= -1;
+
+                pCtx.beginPath();
+                pCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                pCtx.fillStyle = 'rgba(0, 209, 255, 0.85)';
+                if (!isMobile) {
+                    pCtx.shadowBlur = 10;
+                    pCtx.shadowColor = '#00d1ff';
+                }
+                pCtx.fill();
+            }
+            pCtx.shadowBlur = 0;
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distSq = dx * dx + dy * dy;
+
+                    if (distSq < CONNECT_SQ) {
+                        const opacity = (1 - Math.sqrt(distSq) / CONNECT_DIST) * 0.4;
+                        pCtx.beginPath();
+                        pCtx.moveTo(particles[i].x, particles[i].y);
+                        pCtx.lineTo(particles[j].x, particles[j].y);
+                        pCtx.strokeStyle = `rgba(0, 209, 255, ${opacity})`;
+                        pCtx.lineWidth = 0.8;
+                        pCtx.stroke();
+                    }
+                }
+            }
+
+            if (!isMobile && mouse.x !== null) {
+                const MOUSE_DIST = 180;
+                const MOUSE_SQ = MOUSE_DIST * MOUSE_DIST;
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const distSq = dx * dx + dy * dy;
+                    if (distSq < MOUSE_SQ) {
+                        const opacity = (1 - Math.sqrt(distSq) / MOUSE_DIST) * 0.5;
+                        pCtx.beginPath();
+                        pCtx.moveTo(p.x, p.y);
+                        pCtx.lineTo(mouse.x, mouse.y);
+                        pCtx.strokeStyle = `rgba(0, 209, 255, ${opacity})`;
+                        pCtx.lineWidth = 1;
+                        pCtx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(drawParticles);
+        }
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                resizeParticles();
+                createParticles();
+            }, 200);
+        });
+
+        if (!isMobile) {
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+            window.addEventListener('mouseleave', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+        }
+
+        resizeParticles();
+        createParticles();
+        drawParticles();
+    }
+})();
+
+/* ============================================================
+   4. قائمة الجوال
+   ============================================================ */
+const hamburger = document.getElementById('hamburger');
+const mainNav = document.getElementById('mainNav');
+
+if (hamburger && mainNav) {
+    hamburger.addEventListener('click', () => {
+        mainNav.classList.toggle('open');
+    });
+
+    mainNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => mainNav.classList.remove('open'));
+    });
+}
+
+/* ============================================================
+   5. Header عند السكرول
+   ============================================================ */
+(function initHeaderScroll() {
+    const header = document.getElementById('siteHeader');
+    if (!header) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.style.background = 'rgba(2, 4, 10, 0.98)';
+            header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.5)';
+        } else {
+            header.style.background = 'rgba(2, 4, 10, 0.85)';
+            header.style.boxShadow = 'none';
+        }
+    });
+})();
+
+/* ============================================================
+   6. أزرار اللغة
+   ============================================================ */
+document.querySelectorAll('.lang-switch button').forEach(btn => {
+    btn.addEventListener('click', () => {
+        applyLanguage(btn.dataset.lang);
+    });
+});
+
+/* ============================================================
+   7. تحميل اللغة المحفوظة عند الفتح
+   ============================================================ */
+(function initLanguage() {
+    let savedLang = 'ar';
+    try {
+        savedLang = localStorage.getItem('ts_lang') || 'ar';
+    } catch (e) {}
+
+    // استخراج اللغة من الرابط إن وُجدت
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    if (urlLang && TRANSLATIONS[urlLang]) {
+        savedLang = urlLang;
+    }
+
+    if (!TRANSLATIONS[savedLang]) savedLang = 'ar';
+
+    applyLanguage(savedLang);
+})();
+</script>
+
+<script src="agent.js"></script>
+</body>
+</html>

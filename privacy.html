@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الخصوصية وحماية المعطيات | Team Selwanism</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Cinzel:wght@700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #02040a;
+    color: #e6f7ff;
+    line-height: 1.9;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background: rgba(5,11,24,0.95);
+    border-bottom: 1px solid #1a2a44;
+    padding: 15px 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+.header .logo {
+    color: #00d1ff;
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+}
+.header .nav {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    list-style: none;
+}
+.header .nav a {
+    color: #e6f7ff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+.header .nav a:hover,
+.header .nav a.active { color: #00d1ff; }
+
+/* Container */
+.container {
+    max   -width: 1300px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Hero */
+.hero { text-align top: center; padding: 40px 20px; margin-bottom: 50px; }
+.hero-tag {
+    display: inline-block:;
+    color: #00d1ff;
+    border: 1px solid #00d1ff;
+    padding: 6px  18px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    font-family: '20Orbitron', sans-serif;
+}
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rempx);
+    color: #fff;
+    margin-bottom: 18px;
+    font-weight: 900;
+    line-height: 1.;
+3;
+}
+h1 span {
+    background: linear-gradient(180deg, #7dd8ff, #00d1ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(0,209,255,0.5));
+}
+.intro {
+    color: #7a92a8;
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+/* Layout */
+.layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Sidebar */
+.sidebar {
+    background: #0a1424;
+    border: 1px solid #1a2a44;
+    border-radius: 14px;
+    padding: 25px 20px;
+    position: sticky;
+}
+.sidebar h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: #00d1ff;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1a2a44;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar li { margin-bottom: 8px; }
+.sidebar a {
+    display: block;
+    color: #b0c4d8;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    border-right: 3px solid transparent;
+}
+.sidebar a:hover {
+    background: rgba(0,209,255,0.08);
+    color: #00d1ff;
+    border-right-color: #00d1ff;
+}
+.sidebar a.active {
+    background: rgba(0,209,255,0.1);
+    color: #00d1ff;
+    border-right-color: #00d1ff;
+}
+
+/* Content */
+.content { min-width: 0; }
+
+.section {
+    background: #0a1424;
+    border: 1px solid #1a2a44;
+    border-radius: 16px;
+    padding: 40px 35px;
+    margin-bottom: 30px;
+    scroll-margin-top: 20px;
+    transition: all 0.3s;
+}
+.section:hover { border-color: rgba(0,209,255,0.3); }
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #1a2a44;
+}
+.section-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    background: rgba(0,209,255,0.1);
+    border: 2px solid #00d1ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+.section-title {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 900;
+}
+.section-title span { color: #00d1ff; }
+.section-subtitle {
+    color: #7a92a8;
+    font-size: 0.85rem;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.section h3 {
+    color: #00d1ff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 28px 0 12px 0;
+    padding-right: 15px;
+    position: relative;
+}
+.section h3::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 18px;
+    background: #00d1ff;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0,209,255,0.5);
+}
+.section h3:first-of-type { margin-top: 0; }
+
+.section p {
+    color: #b0c4d8;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.9;
+}
+
+.section ul, .section ol {
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+.section li {
+    color: #b0c4d8;
+    font-size: 0.93rem;
+    margin-bottom: 10px;
+    line-height: 1.8;
+    padding-right: 10px;
+}
+.section li::marker { color: #00d1ff; font-weight: 900; }
+.section strong { color: #e6f7ff; }
+
+/* Highlight Box */
+.highlight-box {
+    background: linear-gradient(135deg, rgba(0,209,255,0.08), rgba(37,211,102,0.05));
+    border: 1px solid rgba(0,209,255,0.3);
+    border-radius: 12px;
+    padding: 22px 25px;
+    margin: 20px 0;
+    position: relative;
+}
+.highlight-box::before {
+    content: '!';
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+    background: #00d1ff;
+    color: #001018;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 0.85rem;
+    box-shadow: 0 0 15px rgba(0,209,255,0.5);
+}
+.highlight-box p {
+    color: #e6f7ff;
+    margin: 0;
+    font-size: 0.92rem;
+}
+
+/* Law Box */
+.law-box {
+    background: rgba(37,211,102,0.05);
+    border: 1px solid rgba(37,211,102,0.3);
+    border-radius: 12px;
+    padding: 20px 25px;
+    margin: 15px 0;
+}
+.law-box h4 {
+    color: #25D366;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+.law-box p {
+    color: #b0c4d8;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Rights Grid */
+.rights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+.right-card {
+    background: #050b18;
+    border: 1px solid #1a2a44;
+    border-radius: 10px;
+    padding: 18px;
+    transition: all 0.3s;
+}
+.right-card:hover {
+    border-color: #00d1ff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,209,255,0.1);
+}
+.right-card h5 {
+    color: #00d1ff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.right-card p {
+    color: #7a92a8;
+    font-size: 0.82rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Date Badge */
+.last-update {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,184,0,0.1);
+    border: 1px solid rgba(255,184,0,0.3);
+    color: #ffb800;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-top: 15px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Contact Box */
+.contact-box {
+    background: #050b18;
+    border: 1px solid #1a2a44;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 20px;
+    text-align: center;
+}
+.contact-box p {
+    color: #b0c4d8;
+    margin-bottom: 18px;
+}
+.contact-box .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25D366;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    box-shadow: 0 0 20px rgba(37,211,102,0.4);
+}
+.contact-box .contact-btn:hover {
+    background: #20bd5a;
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(37,211,102,0.6);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #7a92a8;
+    font-size: 0.85rem;
+    border-top: 1px solid #1a2a44;
+    margin-top: 40px;
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.footer-links a {
+    color: #7a92a8;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+}
+.footer-links a:hover { color: #00d1ff; }
+
+/* Back to Top */
+.back-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: #00d1ff;
+    color: #001018;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px rgba(0,209,255,0.5);
+    transition: all 0.3s;
+    z-index: 100;
+}
+.back-top.show { display: flex; }
+.back-top:hover {
+    background: #00e5ff;
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(0,209,255,0.7);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .sidebar {
+        position: static;
+    }
+    .sidebar ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+}
+@media (max-width: 640px) {
+    h1 { font-size: 1.6rem; }
+    .container { padding: 40px 15px; }
+    .section { padding: 28px 22px; }
+    .section-header { flex-direction: column; text-align: center; }
+    .section-title { font-size: 1.25rem; }
+    .sidebar ul { grid-template-columns: 1fr; }
+    .rights-grid { grid-template-columns: 1fr; }
+    .back-top { bottom: 20px; left: 20px; width: 45px; height: 45px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <a href="home.html" class="logo">SELWANISM</a>
+    <ul class="nav">
+        <li><a href="home.html">الرئيسية</a></li>
+        <li><a href="services.html">الخدمات</a></li>
+        <li><a href="team.html">الفريق</a></li>
+        <li><a href="lab.html">المختبر</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+    </ul>
+</header>
+
+<main class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+        <span class="hero-tag">LEGAL & PRIVACY</span>
+        <h1>سياسة <span>الخصوصية</span> وحماية المعطيات</h1>
+        <p class="intro">
+            نلتزم في Team Selwanism بحماية خصوصيتك ومعطياتك الشخصية وفقاً للقوانين المغربية والدولية، بما فيها القانون 09-08 واللائحة الأوروبية GDPR.
+        </p>
+        <div class="last-update">
+            📅 آخر تحديث: 20 سبتمبر 2026
+        </div>
+    </section>
+
+    <!-- Layout -->
+    <div class="layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>المحتويات</h3>
+            <ul>
+                <li><a href="#privacy" class="active">سياسة الخصوصية</a></li>
+                <li><a href="#data">حماية المعطيات</a></li>
+                <li><a href="#copyright">حقوق النشر</a></li>
+                <li><a href="#terms">شروط الاستخدام</a></li>
+            </ul>
+        </aside>
+
+        <!-- Content -->
+        <div class="content">
+
+            <!-- ============================================================
+                 Section 1: سياسة الخصوصية
+                 ============================================================ -->
+            <section class="section" id="privacy">
+                <div class="section-header">
+                    <div class="section-icon">🔒</div>
+                    <div>
+                        <h2 class="section-title">سياسة <span>الخصوصية</span></h2>
+                        <p class="section-subtitle">Privacy Policy</p>
+                    </div>
+                </div>
+
+                <p>
+                    نحن في <strong>Team Selwanism</strong> نأخذ خصوصيتك على محمل الجد. توضح هذه السياسة كيفية جمعنا واستخدامنا وحمايتنا للمعلومات التي تقدمها عند استخدام موقعنا أو خدماتنا.
+                </p>
+
+                <h3>1. المعلومات التي نجمعها</h3>
+                <p>نجمع أنواعاً محدودة من المعلومات، فقط ما هو ضروري لتقديم خدماتنا:</p>
+                <ul>
+                    <li><strong>معلومات التعريف:</strong> الاسم الذي تختاره عند التسجيل في المختبر.</li>
+                    <li><strong>بيانات الاختبار:</strong> النتائج والنقاط التي تحصل عليها.</li>
+                    <li><strong>معلومات تقنية:</strong> عنوان IP، نوع المتصفح، ونظام التشغيل (لأغراض أمنية وإحصائية).</li>
+                    <li><strong>بيانات التواصل:</strong> في حال تواصلك معنا عبر الواتساب أو البريد الإلكتروني.</li>
+                </ul>
+
+                <h3>2. كيف نستخدم معلوماتك</h3>
+                <ul>
+                    <li>تقديم وتحسين خدماتنا الأمنية.</li>
+                    <li>تتبع تقدمك في مسارات التعلم.</li>
+                    <li>التواصل معك بخصوص استفساراتك.</li>
+                    <li>حماية الموقع من الاستخدام المسيء.</li>
+                    <li>الامتثال للالتزامات القانونية.</li>
+                </ul>
+
+                <h3>3. ما لا نفعله بمعلوماتك</h3>
+                <ul>
+                    <li>❌ لا نبيع معلوماتك لأي طرف ثالث.</li>
+                    <li>❌ لا نشاركها مع جهات إعلانية.</li>
+                    <li>❌ لا نستخدمها لأغراض غير مصرح بها.</li>
+                    <li>❌ لا نحتفظ بها لأكثر من المدة اللازمة.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p>
+                        <strong>التزامنا:</strong> لن نشارك معلوماتك مع أي طرف ثالث إلا بموافقتك الصريحة أو بموجب أمر قضائي رسمي.
+                    </p>
+                </div>
+
+                <h3>4. ملفات تعريف الارتباط (Cookies)</h3>
+                <p>
+                    نستخدم <strong>LocalStorage</strong> في متصفحك لحفظ تقدمك واسمك فقط. لا نستخدم ملفات تعريف ارتباط تتبعية لأغراض إعلانية.
+                </p>
+
+                <h3>5. التعديلات على السياسة</h3>
+                <p>
+                    قد نقوم بتحديث سياسة الخصوصية من وقت لآخر. سيتم نشر أي تغييرات على هذه الصفحة مع تحديث التاريخ أعلاها.
+                </p>
+            </section>
+
+            <!-- ============================================================
+                 Section 2: حماية المعطيات
+                 ============================================================ -->
+            <section class="section" id="data">
+                <div class="section-header">
+                    <div class="section-icon">🛡️</div>
+                    <div>
+                        <h2 class="section-title">حماية <span>المعطيات</span></h2>
+                        <p class="section-subtitle">Data Protection</p>
+                    </div>
+                </div>
+
+                <p>
+                    نلتزم بحماية معطياتك الشخصية وفقاً لأعلى المعايير الدولية، مع احترام كامل للقوانين المغربية والدولية ذات الصلة.
+                </p>
+
+                <h3>الإطار القانوني</h3>
+
+                <div class="law-box">
+                    <h4>🇲🇦 القانون المغربي 09-08</h4>
+                    <p>
+                        القانون رقم 09-08 المتعلق بحماية الأشخاص الذاتيين تجاه معالجة المعطيات ذات الطابع الشخصي. نلتزم بجميع أحكامه، بما فيها:
+                    </p>
+                    <ul style="margin-top: 10px;">
+                        <li>الحصول على الموافقة الصريحة على معالجة المعطيات.</li>
+                        <li>الغرض المشروع والمحدد لمعالجة المعطيات.</li>
+                        <li>ضمان دقة المعطيات وتحديثها.</li>
+                        <li>حماية المعطيات من الوصول غير المصرح به.</li>
+                    </ul>
+                </div>
+
+                <div class="law-box">
+                    <h4>🇪🇺 اللائحة الأوروبية GDPR</h4>
+                    <p>
+                        نطبق مبادئ اللائحة العامة لحماية البيانات الأوروبية (GDPR) حتى خارج الاتحاد الأوروبي، إيماناً منا بحقوق الأفراد في الخصوصية.
+                    </p>
+                </div>
+
+                <h3>حقوقك</h3>
+                <p>وفقاً للقوانين السارية، لك الحقوق التالية:</p>
+
+                <div class="rights-grid">
+                    <div class="right-card">
+                        <h5>🔍 حق الوصول</h5>
+                        <p>طلب نسخة من معطياتك المحفوظة لدينا.</p>
+                    </div>
+                    <div class="right-card">
+                        <h5>✏️ حق التصحيح</h5>
+                        <p>تصحيح أي معطيات غير دقيقة أو ناقصة.</p>
+                    </div>
+                    <div class="right-card">
+                        <h5>🗑️ حق الحذف</h5>
+                        <p>طلب حذف معطياتك نهائياً من أنظمتنا.</p>
+                    </div>
+                    <div class="right-card">
+                        <h5>🚫 حق الاعتراض</h5>
+                        <p>الاعتراض على معالجة معطياتك لأغراض معينة.</p>
+                    </div>
+                    <div class="right-card">
+                        <h5>📦 حق النقل</h5>
+                        <p>الحصول على معطياتك بصيغة قابلة للنقل.</p>
+                    </div>
+                    <div class="right-card">
+                        <h5>⏸️ حق التقييد</h5>
+                        <p>تقييد معالجة معطياتك في حالات محددة.</p>
+                    </div>
+                </div>
+
+                <h3>إجراءاتنا الأمنية</h3>
+                <ul>
+                    <li>🔐 تشفير كلمات المرور باستخدام تقنيات Hash قوية.</li>
+                    <li>🛡️ حماية الجلسات بـ JWT (JSON Web Tokens).</li>
+                    <li>🔥 جدران نارية ومراقبة مستمرة للسيرفر.</li>
+                    <li>📊 سجلات آمنة لمراجعة النشاطات.</li>
+                    <li>🔄 نسخ احتياطية دورية للبيانات.</li>
+                    <li>👥 وصول محدود للمعطيات (فقط المصرح لهم).</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p>
+                        <strong>للتواصل بخصوص معطياتك:</strong> يمكنك مراسلتنا في أي وقت لممارسة حقوقك. سنستجيب لطلبك خلال 30 يوماً كحد أقصى.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 Section 3: حقوق النشر
+                 ============================================================ -->
+            <section class="section" id="copyright">
+                <div class="section-header">
+                    <div class="section-icon">©️</div>
+                    <div>
+                        <h2 class="section-title">حقوق <span>النشر</span></h2>
+                        <p class="section-subtitle">Copyright Notice</p>
+                    </div>
+                </div>
+
+                <p>
+                    جميع المحتويات المعروضة على هذا الموقع محمية بحقوق النشر والملكية الفكرية، وفقاً للقوانين المغربية والدولية.
+                </p>
+
+                <h3>ما يشمله حق النشر</h3>
+                <ul>
+                    <li><strong>التصميم والشعارات:</strong> تصميم الموقع، الشعارات، والأيقونات الحصرية.</li>
+                    <li><strong>النصوص والمحتوى:</strong> المقالات، الشروحات، والأوصاف.</li>
+                    <li><strong>الأكواد البرمجية:</strong> الكود المصدري للموقع والأنظمة.</li>
+                    <li><strong>الصور والرسومات:</strong> جميع الصور والرسومات الأصلية.</li>
+                    <li><strong>المحتوى التعليمي:</strong> التحديات، الأسئلة، ومسارات التعلم.</li>
+                </ul>
+
+                <h3>ما هو مسموح</h3>
+                <ul>
+                    <li>✅ تصفح الموقع واستخدامه للأغراض الشخصية.</li>
+                    <li>✅ مشاركة الروابط مع الآخرين.</li>
+                    <li>✅ اقتباس فقرات قصيرة مع ذكر المصدر.</li>
+                    <li>✅ استخدام المحتوى التعليمي للتعلم الذاتي.</li>
+                </ul>
+
+                <h3>ما هو ممنوع</h3>
+                <ul>
+                    <li>❌ نسخ أو إعادة نشر المحتوى بدون إذن كتابي.</li>
+                    <li>❌ استخدام الشعارات أو العلامات التجارية لأغراض تجارية.</li>
+                    <li>❌ تعديل أو إعادة توزيع الأكواد البرمجية.</li>
+                    <li>❌ بيع المحتوى التعليمي أو التربح منه.</li>
+                    <li>❌ استخدام المحتوى بطريقة تضر بسمعة الفريق.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p>
+                        <strong>للحصول على ترخيص:</strong> لأي استخدام تجاري أو إعادة نشر، يجب الحصول على إذن كتابي مسبق من إدارة Team Selwanism.
+                    </p>
+                </div>
+
+                <h3>الإبلاغ عن انتهاكات</h3>
+                <p>
+                    إذا لاحظت أي استخدام غير مصرح به لمحتوى هذا الموقع، المرجو إبلاغنا فوراً عبر قنوات التواصل المتاحة.
+                </p>
+
+                <p style="margin-top: 20px; color: #7a92a8; font-size: 0.85rem;">
+                    © 2026 Team Selwanism — جميع الحقوق محفوظة.
+                </p>
+            </section>
+
+            <!-- ============================================================
+                 Section 4: شروط الاستخدام
+                 ============================================================ -->
+            <section class="section" id="terms">
+                <div class="section-header">
+                    <div class="section-icon">📜</div>
+                    <div>
+                        <h2 class="section-title">شروط <span>الاستخدام</span></h2>
+                        <p class="section-subtitle">Terms of Use</p>
+                    </div>
+                </div>
+
+                <p>
+                    باستخدامك هذا الموقع، فإنك توافق على الشروط التالية. المرجو قراءتها بعناية قبل استخدام أي من خدماتنا.
+                </p>
+
+                <h3>1. قبول الشروط</h3>
+                <p>
+                    استخدامك للموقع يعني موافقتك الكاملة على هذه الشروط. إذا كنت لا توافق على أي منها، المرجو التوقف عن استخدام الموقع.
+                </p>
+
+                <h3>2. الاستخدام المسموح</h3>
+                <p>يُسمح لك باستخدام الموقع للأغراض التالية فقط:</p>
+                <ul>
+                    <li>التعلم الذاتي في مجال الأمن السيبراني.</li>
+                    <li>التعرف على خدماتنا وفريقنا.</li>
+                    <li>التواصل معنا بشكل محترم.</li>
+                    <li>حل التحديات المتاحة في المختبر.</li>
+                </ul>
+
+                <h3>3. الاستخدام الممنوع</h3>
+                <p>يُمنع منعاً باتاً:</p>
+                <ul>
+                    <li>❌ محاولة اختراق الموقع أو سيرفره.</li>
+                    <li>❌ استخدام الموقع لأنشطة غير قانونية.</li>
+                    <li>❌ محاولة الوصول لبيانات مستخدمين آخرين.</li>
+                    <li>❌ نشر محتوى ضار أو مسيء عبر الموقع.</li>
+                    <li>❌ انتحال شخصية أعضاء الفريق أو إدارة الموقع.</li>
+                    <li>❌ تعطيل أو إبطاء الموقع عن قصد.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p>
+                        <strong>عقوبات:</strong> أي انتهاك لهذه الشروط قد يؤدي إلى حظر فوري ودائم، بالإضافة إلى الملاحقة القانونية حسب الأصول.
+                    </p>
+                </div>
+
+                <h3>4. الخدمات الأمنية</h3>
+                <p>
+                    جميع خدمات اختبار الاختراق والتدقيق الأمني التي يقدمها الفريق <strong>تتم بإذن قانوني مسبق وموثق</strong> من العميل. لا نقوم بأي عملية اختراق بدون تصريح رسمي، ونتعاون بشكل كامل مع السلطات المختصة.
+                </p>
+
+                <h3>5. إخلاء المسؤولية</h3>
+                <ul>
+                    <li>المعلومات على الموقع تُقدَّم "كما هي" دون أي ضمانات.</li>
+                    <li>لا نتحمل مسؤولية أي استخدام غير قانوني للمحتوى التعليمي.</li>
+                    <li>المستخدم مسؤول بالكامل عن أي أضرار ناتجة عن سوء استخدام الموقع.</li>
+                    <li>لا نضمن توفّر الموقع بشكل مستمر بلا انقطاع.</li>
+                </ul>
+
+                <h3>6. الروابط الخارجية</h3>
+                <p>
+                    قد يحتوي الموقع على روابط لمواقع خارجية (مثل تيليجرام، واتساب). لسنا مسؤولين عن سياسات الخصوصية أو المحتوى لتلك المواقع.
+                </p>
+
+                <h3>7. التعديلات</h3>
+                <p>
+                    نحتفظ بالحق في تعديل هذه الشروط في أي وقت. التعديلات تسري فور نشرها على هذه الصفحة. استمرارك في استخدام الموقع يعني موافقتك على الشروط المحدثة.
+                </p>
+
+                <h3>8. القانون المطبق</h3>
+                <p>
+                    تخضع هذه الشروط للقوانين المغربية. أي نزاع ينشأ عن استخدام الموقع يخضع للاختصاص القضائي الحصري للمحاكم المغربية.
+                </p>
+
+                <!-- Contact Box -->
+                <div class="contact-box">
+                    <p>هل لديك أي أسئلة حول سياساتنا؟</p>
+                    <a href="https://wa.me/212630084313" target="_blank" rel="noopener" class="contact-btn">
+                        تواصل معنا
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-links">
+        <a href="home.html">الرئيسية</a>
+        <a href="services.html">الخدمات</a>
+        <a href="team.html">الفريق</a>
+        <a href="lab.html">المختبر</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="privacy.html">الخصوصية</a>
+    </div>
+    <p>© 2026 Team Selwanism — جميع الحقوق محفوظة</p>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    ↑
+</button>
+
+<script>
+/* ============================================================
+   🎯 التنقل بين الأقسام (Smooth Scroll + Active)
+   ============================================================ */
+document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            const offset = 30;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+
+            // Active state
+            document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+            link.classList.add('active');
+        }
+    });
+});
+
+/* ============================================================
+   📊 Active Link on Scroll
+   ============================================================ */
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.sidebar a');
+
+function updateActiveSection() {
+    const scrollPos = window.scrollY + 120;
+
+    let current = 'privacy';
+    sections.forEach(section => {
+        if (section.offsetTop <= scrollPos) {
+            current = section.id;
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+}
+
+window.addEventListener('scroll', updateActiveSection);
+
+/* ============================================================
+   🔝 Back to Top Button
+   ============================================================ */
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        backTop.classList.add('show');
+    } else {
+        backTop.classList.remove('show');
+    }
+});
+
+/* ============================================================
+   🎬 تحميل مباشر للقسم من الرابط (URL Hash)
+   ============================================================ */
+window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash;
+    if (hash) {
+        const target = document.querySelector(hash);
+        if (target) {
+            setTimeout(() => {
+                const offset = 30;
+                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }, 200);
+        }
+    }
+});
+</script>
+
+<script src="agent.js"></script>
+</body>
+</html>

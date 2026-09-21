@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شهادات العملاء | Team Selwanism</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Cinzel:wght@700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #02040a;
+    color: #e6f7ff;
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background: rgba(5,11,24,0.95);
+    border-bottom: 1px solid #1a2a44;
+    padding: 15px 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.header .logo {
+    color: #00d1ff;
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+}
+.header .nav {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    list-style: none;
+}
+.header .nav a {
+    color: #e6f7ff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+.header .nav a:hover,
+.header .nav a.active { color: #00d1ff; }
+
+/* Container */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Hero */
+.hero { text-align: center; padding: 40px 20px; margin-bottom: 50px; }
+.hero-tag {
+    display: inline-block;
+    color: #00d1ff;
+    border: 1px solid #00d1ff;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: #fff;
+    margin-bottom: 18px;
+    font-weight: 900;
+    line-height: 1.3;
+}
+h1 span {
+    background: linear-gradient(180deg, #7dd8ff, #00d1ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(0,209,255,0.5));
+}
+.intro {
+    color: #7a92a8;
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+/* Rating Summary */
+.rating-summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    padding: 20px 30px;
+    background: #0a1424;
+    border: 1px solid #1a2a44;
+    border-radius: 14px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.rating-big {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ffb800;
+    line-height: 1;
+    text-shadow: 0 0 25px rgba(255,184,0,0.5);
+}
+.rating-info { text-align: right; }
+.rating-stars {
+    color: #ffb800;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 4px;
+}
+.rating-count {
+    color: #7a92a8;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+/* Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto 70px;
+}
+.stat {
+    background: #0a1424;
+    border: 1px solid #1a2a44;
+    border-radius: 14px;
+    padding: 25px 15px;
+    text-align: center;
+    transition: all 0.3s;
+}
+.stat:hover {
+    border-color: #00d1ff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,209,255,0.15);
+}
+.stat-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: #00d1ff;
+    display: block;
+    margin-bottom: 6px;
+    text-shadow: 0 0 15px rgba(0,209,255,0.5);
+}
+.stat-num.green { color: #25D366; text-shadow: 0 0 15px rgba(37,211,102,0.5); }
+.stat-num.gold { color: #ffb800; text-shadow: 0 0 15px rgba(255,184,0,0.5); }
+.stat-label { color: #7a92a8; font-size: 0.85rem; font-weight: 600; }
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 1.7rem;
+    color: #fff;
+    margin-bottom: 12px;
+    font-weight: 900;
+}
+.section-title span { color: #00d1ff; }
+.section-sub {
+    text-align: center;
+    color: #7a92a8;
+    margin-bottom: 45px;
+    font-size: 0.95rem;
+}
+
+/* Testimonials Grid */
+.testimonials-section { margin-bottom: 80px; }
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.testimonial-card {
+    background: #0a1424;
+    border: 1px solid #1a2a44;
+    border-radius: 16px;
+    padding: 32px 28px;
+    position: relative;
+    transition: all 0.4s;
+    overflow: hidden;
+}
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    right: 22px;
+    font-size: 5rem;
+    color: #00d1ff;
+    opacity: 0.12;
+    font-family: Georgia, serif;
+    line-height: 1;
+    pointer-events: none;
+}
+.testimonial-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, #00d1ff, transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+.testimonial-card:hover {
+    border-color: #00d1ff;
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,209,255,0.15);
+}
+.testimonial-card:hover::after { opacity: 1; }
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #001018;
+    border: 2px solid #00d1ff;
+    box-shadow: 0 0 20px rgba(0,209,255,0.4);
+    flex-shrink: 0;
+}
+.avatar-1 { background: linear-gradient(135deg, #00d1ff, #005f80); }
+.avatar-2 { background: linear-gradient(135deg, #25D366, #0f7a3d); }
+.avatar-3 { background: linear-gradient(135deg, #ffb800, #8a6000); color: #1a1100 !important; }
+.avatar-4 { background: linear-gradient(135deg, #ff3860, #a01530); }
+.avatar-5 { background: linear-gradient(135deg, #b197fc, #5500aa); }
+.avatar-6 { background: linear-gradient(135deg, #ff922b, #aa4400); }
+.avatar-7 { background: linear-gradient(135deg, #4dabf7, #0033aa); }
+.avatar-8 { background: linear-gradient(135deg, #f783ac, #aa0055); }
+
+.testimonial-info { flex: 1; min-width: 0; }
+.testimonial-name {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 900;
+    margin-bottom: 3px;
+    word-break: break-word;
+}
+.testimonial-role {
+    color: #7a92a8;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.testimonial-stars {
+    color: #ffb800;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+}
+.testimonial-text {
+    color: #b0c4d8;
+    font-size: 0.92rem;
+    line-height: 1.9;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+}
+.testimonial-footer {
+    padding-top: 15px;
+    border-top: 1px solid #1a2a44;
+    position: relative;
+    z-index: 1;
+}
+.testimonial-project {
+    color: #00d1ff;
+    font-size: 0.72rem;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.testimonial-project::before {
+    content: '◆';
+    color: #00d1ff;
+    font-size: 0.6rem;
+}
+
+/* Foreign Testimonials */
+.testimonial-text[dir="ltr"] {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.85;
+    text-align: left;
+}
+.testimonial-role[dir="ltr"] {
+    text-align: right;
+}
+
+/* Trust Section */
+.trust-section {
+    background: linear-gradient(135deg, rgba(0,209,255,0.06), rgba(37,211,102,0.04));
+    border: 1px solid rgba(0,209,255,0.3);
+    border-radius: 20px;
+    padding: 50px 35px;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+}
+.trust-section::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,209,255,0.15), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+}
+.trust-section h2 {
+    color: #fff;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    margin-bottom: 15px;
+    font-weight: 900;
+    position: relative;
+}
+.trust-section h2 span { color: #00d1ff; }
+.trust-section p {
+    color: #b0c4d8;
+    max-width: 650px;
+    margin: 0 auto 30px;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    position: relative;
+}
+.trust-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #00d1ff;
+    color: #001018;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 0 25px rgba(0,209,255,0.5);
+    position: relative;
+}
+.trust-cta:hover {
+    background: #00e5ff;
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(0,209,255,0.7);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #7a92a8;
+    font-size: 0.85rem;
+    border-top: 1px solid #1a2a44;
+    margin-top: 60px;
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.footer-links a {
+    color: #7a92a8;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+}
+.footer-links a:hover { color: #00d1ff; }
+
+/* Responsive */
+@media (max-width: 640px) {
+    h1 { font-size: 1.6rem; }
+    .container { padding: 40px 15px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial-card { padding: 25px 22px; }
+    .rating-summary { flex-direction: column; text-align: center; }
+    .rating-info { text-align: center; }
+    .rating-big { font-size: 2.5rem; }
+    .trust-section { padding: 35px 22px; }
+    .trust-cta { padding: 13px 30px; font-size: 0.88rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <a href="home.html" class="logo">SELWANISM</a>
+    <ul class="nav">
+        <li><a href="home.html">الرئيسية</a></li>
+        <li><a href="services.html">الخدمات</a></li>
+        <li><a href="team.html">الفريق</a></li>
+        <li><a href="lab.html">المختبر</a></li>
+        <li><a href="testimonials.html" class="active">شهادات العملاء</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+    </ul>
+</header>
+
+<main class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+        <span class="hero-tag">TESTIMONIALS</span>
+        <h1>شهادات <span>العملاء</span></h1>
+        <p class="intro">
+            آراء وتجارب عملائنا حول خدماتنا في مجال الأمن السيبراني. نحن فخورون بثقتهم ورضاهم عن جودة عملنا.
+        </p>
+
+        <!-- Rating Summary -->
+        <div class="rating-summary">
+            <div class="rating-big">4.9</div>
+            <div class="rating-info">
+                <div class="rating-stars">★★★★★</div>
+                <div class="rating-count">بناءً على 87 تقييم</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+        <div class="stat">
+            <span class="stat-num">120+</span>
+            <span class="stat-label">عميل راضٍ</span>
+        </div>
+        <div class="stat">
+            <span class="stat-num green">98%</span>
+            <span class="stat-label">نسبة الرضا</span>
+        </div>
+        <div class="stat">
+            <span class="stat-num gold">4.9</span>
+            <span class="stat-label">متوسط التقييم</span>
+        </div>
+        <div class="stat">
+            <span class="stat-num">100+</span>
+            <span class="stat-label">مشروع منجز</span>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <h2 class="section-title">ماذا يقول <span>عملاؤنا؟</span></h2>
+        <p class="section-sub">تجارب حقيقية من عملاء استفادوا من خدماتنا</p>
+
+        <div class="testimonials-grid">
+
+            <!-- 1 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-1">أ</div>
+                    <div class="testimonial-info">
+                        <h3 class="testimonial-name">أحمد المنصوري</h3>
+                        <p class="testimonial-role">مدير تقني - شركة تقنية معلومات</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">
+                    "فريق محترف عالي المستوى، اكتشفوا ثغرات حساسة في نظامنا قبل أن يستغلها المهاجمون. التقارير مفصلة وواضحة، والالتزام بالمواعيد ممتاز. أنصح بهم بشدة لأي شركة تهتم بأمنها الرقمي."
+                </p>
+                <div class="testimonial-footer">
+                    <span class="testimonial-project">اختبار اختراق تطبيق ويب</span>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-2">س</div>
+                    <div class="testimonial-info">
+                        <h3 class="testimonial-name">سارة بن علي</h3>
+                        <p class="testimonial-role">مديرة أمن المعلومات - بنك</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">
+                    "تقارير مفصلة واحترافية، وفريق متعاون يشرح كل التفاصيل بوضوح. ساعدونا في الحصول على شهادة ISO 27001، وكانوا معنا في كل خطوة. شكراً Team Selwanism."
+                </p>
+                <div class="testimonial-footer">
+                    <span class="testimonial-project">التحضير لشهادة ISO 27001</span>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-3">ي</div>
+                    <div class="testimonial-info">
+                        <h3 class="testimonial-name">ياسين مروان</h3>
+                        <p class="testimonial-role">مؤسس - شركة تجارة إلكترونية</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">
+                    "استجابة سريعة لحادث أمني كاد يكلفنا خسائر كبيرة. فريق محترف وملتزم بالقانون والأخلاقيات المهنية. تعاملهم راقٍ ومهني، وسعرهم مناسب جداً مقارنة بجودة الخدمة."
+                </p>
+                <div class="testimonial-footer">
+                    <span class="testimonial-project">الاستجابة لحادث أمني</span>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-4">ع</div>
+                    <div class="testimonial-info">
+                        <h3 class="testimonial-name">عبد الرحمن خالد</h3>
+                        <p class="testimonial-role">CTO - منصة تعليمية</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">
+                    "كنا نخاف من اختبار الاختراق لأننا لم نتعامل مع فريق من قبل. ولكن Team Selwanism طمأنونا وشرحوا لنا كل خطوة. النتيجة كانت اكتشاف 7 ثغرات خطيرة تم إصلاحها."
+                </p>
+                <div class="testimonial-footer">
+                    <span class="testimonial-project">اختبار اختراق منصة تعليمية</span>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-5">ن</div>
+                    <div class="testimonial-info">
+                        <h3 class="testimonial-name">نورة السالم</h3>
+                        <p class="testimonial-role">مديرة تسويق - وكالة رقمية</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">
+                    "كنا نعاني من اختراقات متكررة لموقعنا. بعد التدقيق الأمني الذي أجراه الفريق، تم إغلاق جميع الثغرات. لم نسجل أي اختراق منذ 8 أشهر. شكراً لكم."
+                </p>
+                <div class="testimonial-footer">
+                    <span class="testimonial-project">تدقيق أمني شامل</span>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-6">م</div>
+                    <div class="testimonial-info">
+                        <h3 class="testimonial-name">محمد الفهد</h3>
+                        <p class="testimonial-role">مدير أمني - شركة نفط</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">
+                    "فريق متخصص في أمن الأنظمة الصناعية ICS/SCADA. أجروا لنا تدقيقاً شاملاً على البنية التحتية الحرجة، وقدموا توصيات عملية ساعدتنا على تقوية الدفاعات بشكل كبير."
+                </p>
+                <div class="testimonial-footer">
+                    <span class="testimonial-project">أمن الأنظمة الصناعية</span>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-7">ل</div>
+                    <div class="testimonial-info">
+                        <h3 class="testimonial-name">ليلى الأحمد</h3>
+                        <p class="testimonial-role">قانونية - مكتب محاماة</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">
+                    "ساعدونا على الامتثال لقانون حماية المعطيات 09-08 واللائحة الأوروبية GDPR. الفريق على دراية كاملة بالجوانب القانونية والتقنية، مما سهل عملية الامتثال بشكل كبير."
+                </p>
+                <div class="testimonial-footer">
+                    <span class="testimonial-project">الامتثال لـ 09-08 و GDPR</span>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-8">ح</div>
+                    <div class="testimonial-info">
+                        <h3 class="testimonial-name">حسام الدين</h3>
+                        <p class="testimonial-role">مطور - Start-up</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">
+                    "كنت أبحث عن فريق يقدم اختبار اختراق بأسعار معقولة. Team Selwanism فاق توقعاتي. الاحترافية عالية، والتقارير ممتازة، والأهم أنهم يشرحون كل تفصيل بلغة واضحة."
+                </p>
+                <div class="testimonial-footer">
+                    <span class="testimonial-project">اختبار اختراق تطبيق</span>
+                </div>
+            </div>
+
+            <!-- 9 — French Client -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-1">JM</div>
+                    <div class="testimonial-info">
+                        <h3 class="testimonial-name">Jean-Marc Dubois</h3>
+                        <p class="testimonial-role" dir="ltr">CTO - Paris, France 🇫🇷</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text" dir="ltr">
+                    "Excellent service. The team discovered critical vulnerabilities in our infrastructure that other pentest firms missed. Their reports are detailed and well-structured. Highly recommended for anyone serious about security."
+                </p>
+                <div class="testimonial-footer">
+                    <span class="testimonial-project">Web Application Pentest</span>
+                </div>
+            </div>
+
+            <!-- 10 — UK Client -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-2">SK</div>
+                    <div class="testimonial-info">
+                        <h3 class="testimonial-name">Sarah Kensington</h3>
+                        <p class="testimonial-role" dir="ltr">CISO - London, UK 🇬🇧</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text" dir="ltr">
+                    "Very professional team with deep expertise. They conducted a thorough security audit and provided actionable recommendations. Communication was smooth despite the time zone difference. Will work with them again."
+                </p>
+                <div class="testimonial-footer">
+                    <span class="testimonial-project">Security Audit</span>
+                </div>
+            </div>
+
+            <!-- 11 — USA Client -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-3">MR</div>
+                    <div class="testimonial-info">
+                        <h3 class="testimonial-name">Michael Rodriguez</h3>
+                        <p class="testimonial-role" dir="ltr">Founder - New York, USA 🇺🇸</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text" dir="ltr">
+                    "Fast response, fair pricing, and top-notch quality. Team Selwanism helped us secure our SaaS platform before launch. They identified 12 critical issues we had no idea about. Worth every penny."
+                </p>
+                <div class="testimonial-footer">
+                    <span class="testimonial-project">SaaS Platform Pentest</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <h2>هل تريد أن تكون <span>عميلنا القادم؟</span></h2>
+        <p>
+            انضم إلى مئات العملاء الذين يثقون بنا لحماية أصولهم الرقمية. تواصل معنا اليوم للحصول على استشارة مجانية وتقييم أمني لأعمالك.
+        </p>
+        <a href="https://wa.me/212630084313" target="_blank" rel="noopener" class="trust-cta">
+            تواصل معنا الآن
+        </a>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-links">
+        <a href="home.html">الرئيسية</a>
+        <a href="services.html">الخدمات</a>
+        <a href="team.html">الفريق</a>
+        <a href="lab.html">المختبر</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="privacy.html">الخصوصية</a>
+    </div>
+    <p>© 2026 Team Selwanism — جميع الحقوق محفوظة</p>
+</footer>
+
+<script src="agent.js"></script>
+</body>
+</html>

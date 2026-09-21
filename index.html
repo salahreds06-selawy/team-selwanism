@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="description" content="Team Selwanism - Moroccan Cybersecurity Team">
+<meta name="theme-color" content="#02040a">
+<title>Team Selwanism | اختر اللغة</title>
+
+<!-- الخطوط -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Orbitron:wght@500;700;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================================
+   1. المتغيرات
+   ======================================================== */
+:root {
+    --cyber-blue: #00d1ff;
+    --cyber-glow: rgba(0, 209, 255, 0.5);
+    --cyber-glow-strong: rgba(0, 209, 255, 0.9);
+    --cyber-dark: #02040a;
+    --cyber-dark-2: #050b18;
+    --text-light: #e6f7ff;
+    --text-dim: #7a92a8;
+    --font-fancy: 'Cinzel', serif;
+    --font-cyber: 'Orbitron', sans-serif;
+    --font-ar: 'Cairo', sans-serif;
+}
+
+/* ========================================================
+   2. Reset & Body (مع سكرول)
+   ======================================================== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-ar);
+    background: var(--cyber-dark);
+    color: var(--text-light);
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ========================================================
+   3. الخلفية السيبرانية
+   ======================================================== */
+#cyber-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    pointer-events: none;
+}
+
+.grid-floor {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    z-index: 2;
+    background-image:
+        linear-gradient(rgba(0, 209, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 209, 255, 0.15) 1px, transparent 1px);
+    background-size: 60px 60px;
+    transform: perspective(300px) rotateX(60deg);
+    transform-origin: center bottom;
+    -webkit-mask-image: linear-gradient(to top, black 0%, transparent 100%);
+    mask-image: linear-gradient(to top, black 0%, transparent 100%);
+    animation: gridMove 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes gridMove {
+    from { background-position: 0 0; }
+    to   { background-position: 0 60px; }
+}
+
+.glow-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 209, 255, 0.5), transparent 70%);
+    top: -150px;
+    left: -150px;
+    animation: orbFloat1 12s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(120, 0, 255, 0.4), transparent 70%);
+    bottom: -100px;
+    right: -100px;
+    animation: orbFloat2 15s ease-in-out infinite alternate;
+}
+
+.orb-3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 209, 255, 0.4), transparent 70%);
+    top: 40%;
+    left: 45%;
+    animation: orbFloat3 10s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat1 {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(80px, 60px) scale(1.2); }
+}
+@keyframes orbFloat2 {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-70px, -50px) scale(1.15); }
+}
+@keyframes orbFloat3 {
+    0%   { transform: translate(0, 0) scale(0.9); opacity: 0.3; }
+    100% { transform: translate(-40px, 30px) scale(1.1); opacity: 0.6; }
+}
+
+/* ========================================================
+   4. الحاوية الرئيسية
+   ======================================================== */
+.splash-wrap {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    gap: 20px;
+}
+
+/* ========================================================
+   5. الشريط العلوي
+   ======================================================== */
+.brand-header {
+    text-align: center;
+    animation: fadeInDown 1.2s ease-out both;
+    padding-top: 10px;
+}
+
+.brand-name {
+    font-family: var(--font-fancy);
+    font-size: clamp(1.4rem, 4vw, 3rem);
+    font-weight: 900;
+    letter-spacing: 6px;
+    background: linear-gradient(180deg, #ffffff 0%, #7dd8ff 40%, #00d1ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow:
+        0 0 30px var(--cyber-glow),
+        0 0 60px rgba(0, 209, 255, 0.4);
+    filter: drop-shadow(0 0 20px var(--cyber-glow));
+    margin-bottom: 6px;
+}
+
+.brand-line {
+    width: 200px;
+    height: 2px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, var(--cyber-blue), transparent);
+    box-shadow: 0 0 15px var(--cyber-blue);
+}
+
+.brand-sub {
+    font-family: var(--font-cyber);
+    font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+    letter-spacing: 8px;
+    color: var(--text-dim);
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* ========================================================
+   6. الوسط: الشعار + النصوص
+   ======================================================== */
+.center-stage {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1300px;
+    animation: fadeIn 1.5s ease-out 0.3s both;
+    padding: 20px 0;
+}
+
+.welcome-side {
+    padding: 20px;
+    text-align: center;
+}
+
+.welcome-side.ar {
+    text-align: right;
+    direction: rtl;
+}
+
+.welcome-side.en {
+    text-align: left;
+    direction: ltr;
+}
+
+.welcome-side h2 {
+    font-size: clamp(1rem, 1.6vw, 1.35rem);
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.welcome-side h2 span {
+    color: var(--cyber-blue);
+    text-shadow: 0 0 15px var(--cyber-glow);
+}
+
+.welcome-side p {
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+    color: var(--text-dim);
+    line-height: 1.8;
+}
+
+.welcome-side .lang-tag {
+    display: inline-block;
+    font-family: var(--font-cyber);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--cyber-blue);
+    border: 1px solid var(--cyber-glow);
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* ========================================================
+   7. الشعار
+   ======================================================== */
+.logo-stage {
+    position: relative;
+    width: clamp(180px, 22vw, 280px);
+    height: clamp(180px, 22vw, 280px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-float {
+    animation: logoFloat 4s ease-in-out infinite;
+    filter:
+        drop-shadow(0 0 25px var(--cyber-glow))
+        drop-shadow(0 0 50px rgba(0, 209, 255, 0.35));
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-20px); }
+}
+
+.logo-ring {
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 209, 255, 0.3);
+    animation: ringPulse 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.logo-ring::before,
+.logo-ring::after {
+    content: '';
+    position: absolute;
+    inset: 15px;
+    border-radius: 50%;
+    border: 1px dashed rgba(0, 209, 255, 0.2);
+    animation: rotate 20s linear infinite;
+}
+
+.logo-ring::after {
+    inset: 40px;
+    border-style: solid;
+    border-color: rgba(0, 209, 255, 0.15);
+    animation-direction: reverse;
+    animation-duration: 15s;
+}
+
+@keyframes ringPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50%      { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* ========================================================
+   8. أزرار اللغة
+   ======================================================== */
+.lang-actions {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    padding-bottom: 30px;
+    animation: fadeInUp 1.3s ease-out 0.6s both;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.lang-btn {
+    position: relative;
+    padding: 16px 50px;
+    min-width: 200px;
+    background: rgba(0, 20, 40, 0.35);
+    border: 2px solid var(--cyber-blue);
+    color: var(--cyber-blue);
+    font-family: var(--font-cyber);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: buttonPulse 2.5s ease-in-out infinite;
+    overflow: hidden;
+}
+
+.lang-btn .btn-label {
+    position: relative;
+    z-index: 2;
+}
+
+.lang-btn .btn-label small {
+    display: block;
+    font-family: var(--font-ar);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin-top: 4px;
+    text-transform: none;
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow:
+            0 0 15px var(--cyber-glow),
+            0 0 30px rgba(0, 209, 255, 0.2),
+            inset 0 0 15px rgba(0, 209, 255, 0.1);
+        border-color: rgba(0, 209, 255, 0.6);
+    }
+    50% {
+        box-shadow:
+            0 0 30px var(--cyber-glow-strong),
+            0 0 60px rgba(0, 209, 255, 0.5),
+            inset 0 0 25px rgba(0, 209, 255, 0.2);
+        border-color: var(--cyber-blue);
+    }
+}
+
+.lang-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(0, 209, 255, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.lang-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.lang-btn:hover {
+    background: var(--cyber-blue);
+    color: #001018;
+    transform: translateY(-5px) scale(1.05);
+    animation: none;
+    box-shadow:
+        0 0 40px var(--cyber-glow-strong),
+        0 0 80px rgba(0, 209, 255, 0.6);
+}
+
+.lang-btn:hover .btn-label small {
+    opacity: 0.9;
+    color: #001018;
+}
+
+.lang-btn:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* ========================================================
+   9. شاشة الترحيب
+   ======================================================== */
+.welcome-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: radial-gradient(circle at center, #06101f 0%, #02040a 100%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    overflow-y: auto;
+}
+
+.welcome-overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+.welcome-content {
+    text-align: center;
+    max-width: 800px;
+    animation: welcomeIn 1.2s ease-out both;
+    padding: 20px 0;
+}
+
+.welcome-content .welcome-logo {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 30px;
+    filter: drop-shadow(0 0 30px var(--cyber-glow));
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.welcome-content h1 {
+    font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    margin-bottom: 20px;
+    background: linear-gradient(180deg, #fff 0%, #7dd8ff 50%, #00d1ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px var(--cyber-glow));
+    line-height: 1.4;
+}
+
+.welcome-content p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: var(--text-dim);
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.home-btn {
+    display: inline-block;
+    padding: 18px 60px;
+    background: transparent;
+    border: 2px solid var(--cyber-blue);
+    color: var(--cyber-blue);
+    font-family: var(--font-cyber);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    animation: buttonPulse 2.5s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-btn:hover {
+    background: var(--cyber-blue);
+    color: #001018;
+    transform: translateY(-5px) scale(1.05);
+    animation: none;
+    box-shadow:
+        0 0 40px var(--cyber-glow-strong),
+        0 0 80px rgba(0, 209, 255, 0.6);
+}
+
+@keyframes welcomeIn {
+    from { opacity: 0; transform: scale(0.9) translateY(30px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ========================================================
+   10. التذييل
+   ======================================================== */
+.footer-bar {
+    font-family: var(--font-cyber);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    text-align: center;
+    animation: fadeIn 2s ease-out 1s both;
+    padding-bottom: 10px;
+}
+
+/* ========================================================
+   11. الحركات العامة
+   ======================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================================
+   12. التابلت
+   ======================================================== */
+@media (max-width: 1024px) {
+    .center-stage {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 20px;
+    }
+    .welcome-side.ar,
+    .welcome-side.en {
+        text-align: center;
+        order: 2;
+    }
+    .logo-stage { order: 1; }
+}
+
+/* ========================================================
+   13. الهاتف (تحسينات الأداء)
+   ======================================================== */
+@media (max-width: 768px) {
+    /* ✅ إيقاف الحركات الثقيلة */
+    .grid-floor {
+        animation: none;
+    }
+    .glow-orb {
+        animation: none;
+        filter: blur(60px);
+    }
+    .logo-float,
+    .welcome-content .welcome-logo {
+        animation: none;
+    }
+    .logo-ring::before,
+    .logo-ring::after {
+        animation: none;
+    }
+    .lang-btn {
+        animation: none;
+        box-shadow: 0 0 20px var(--cyber-glow);
+    }
+    .home-btn {
+        animation: none;
+        box-shadow: 0 0 20px var(--cyber-glow);
+    }
+    .orb-1, .orb-2, .orb-3 {
+        opacity: 0.3;
+    }
+}
+
+@media (max-width: 640px) {
+    .splash-wrap {
+        padding: 20px 18px;
+        gap: 15px;
+    }
+    .brand-name { letter-spacing: 3px; }
+    .brand-sub { letter-spacing: 4px; font-size: 0.6rem; }
+    .brand-line { width: 140px; }
+    
+    .lang-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 340px;
+        gap: 15px;
+        padding-bottom: 20px;
+    }
+    
+    .lang-btn {
+        width: 100%;
+        min-width: unset;
+        padding: 14px 30px;
+        font-size: 0.9rem;
+    }
+    
+    .logo-stage {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .welcome-side { padding: 10px; }
+    .welcome-side h2 { font-size: 0.95rem; }
+    .welcome-side p { font-size: 0.8rem; }
+    .welcome-side .lang-tag { font-size: 0.6rem; letter-spacing: 2px; }
+
+    .welcome-content h1 { font-size: 1.4rem; }
+    .home-btn {
+        padding: 15px 40px;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+}
+
+/* ========================================================
+   14. تقليل الحركة (احترام تفضيلات المستخدم)
+   ======================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- الخلفية السيبرانية -->
+<canvas id="cyber-canvas"></canvas>
+<div class="grid-floor"></div>
+<div class="glow-orb orb-1"></div>
+<div class="glow-orb orb-2"></div>
+<div class="glow-orb orb-3"></div>
+
+<!-- الواجهة الرئيسية -->
+<main class="splash-wrap">
+
+    <!-- الشريط العلوي -->
+    <header class="brand-header">
+        <h1 class="brand-name">TEAM SELWANISM</h1>
+        <div class="brand-line"></div>
+        <p class="brand-sub">Cyber Security Division</p>
+    </header>
+
+    <!-- الوسط -->
+    <section class="center-stage">
+
+        <!-- النص العربي -->
+        <div class="welcome-side ar">
+            <span class="lang-tag">Arabic</span>
+            <h2>مرحباً بكم في فريق <span>Team Selwanism</span> للأمن السيبراني</h2>
+            <p>المرجو اختيار اللغة المناسبة لتصفح الموقع</p>
+        </div>
+
+        <!-- الشعار -->
+        <div class="logo-stage">
+            <div class="logo-ring"></div>
+            <div class="logo-float">
+                <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#e8f7ff"/>
+                            <stop offset="30%" stop-color="#7dd8ff"/>
+                            <stop offset="60%" stop-color="#00a8d6"/>
+                            <stop offset="100%" stop-color="#005f80"/>
+                        </linearGradient>
+                        <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    
+                    <circle cx="100" cy="100" r="88" fill="none" stroke="url(#metalGrad)" stroke-width="2" opacity="0.6"/>
+                    <circle cx="100" cy="100" r="78" fill="none" stroke="#00d1ff" stroke-width="0.5" opacity="0.4" stroke-dasharray="4 6"/>
+                    
+                    <path d="M 100 30 L 160 55 L 160 105 Q 160 145 100 170 Q 40 145 40 105 L 40 55 Z"
+                          fill="none" stroke="url(#metalGrad)" stroke-width="3" filter="url(#glowFilter)"/>
+                    
+                    <path d="M 130 75 Q 130 60 100 60 Q 70 60 70 78 Q 70 92 100 98 Q 130 104 130 122 Q 130 142 100 142 Q 70 142 70 127"
+                          fill="none" stroke="url(#metalGrad)" stroke-width="9"
+                          stroke-linecap="round" stroke-linejoin="round"
+                          filter="url(#glowFilter)"/>
+                    
+                    <circle cx="100" cy="100" r="3" fill="#00d1ff" opacity="0.8">
+                        <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <line x1="30" y1="100" x2="45" y2="100" stroke="#00d1ff" stroke-width="1.5" opacity="0.7"/>
+                    <line x1="155" y1="100" x2="170" y2="100" stroke="#00d1ff" stroke-width="1.5" opacity="0.7"/>
+                    <line x1="100" y1="185" x2="100" y2="170" stroke="#00d1ff" stroke-width="1.5" opacity="0.7"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- النص الإنجليزي -->
+        <div class="welcome-side en">
+            <span class="lang-tag">English</span>
+            <h2>Welcome to <span>Team Selwanism</span> Cybersecurity</h2>
+            <p>Please choose the appropriate language to browse</p>
+        </div>
+
+    </section>
+
+    <!-- الأزرار -->
+    <section class="lang-actions">
+        <button class="lang-btn" data-lang="ar" aria-label="Choose Arabic">
+            <span class="btn-label">
+                العربية
+                <small>Arabic</small>
+            </span>
+        </button>
+        <button class="lang-btn" data-lang="en" aria-label="Choose English">
+            <span class="btn-label">
+                English
+                <small>الإنجليزية</small>
+            </span>
+        </button>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="footer-bar">
+        © 2026 TEAM SELWANISM — ALL RIGHTS RESERVED
+    </footer>
+
+</main>
+
+<!-- شاشة الترحيب -->
+<div class="welcome-overlay" id="welcomeOverlay">
+    <div class="welcome-content">
+        <div class="welcome-logo">
+            <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="metalGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#e8f7ff"/>
+                        <stop offset="30%" stop-color="#7dd8ff"/>
+                        <stop offset="60%" stop-color="#00a8d6"/>
+                        <stop offset="100%" stop-color="#005f80"/>
+                    </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="88" fill="none" stroke="url(#metalGrad2)" stroke-width="2" opacity="0.6"/>
+                <path d="M 100 30 L 160 55 L 160 105 Q 160 145 100 170 Q 40 145 40 105 L 40 55 Z"
+                      fill="none" stroke="url(#metalGrad2)" stroke-width="3"/>
+                <path d="M 130 75 Q 130 60 100 60 Q 70 60 70 78 Q 70 92 100 98 Q 130 104 130 122 Q 130 142 100 142 Q 70 142 70 127"
+                      fill="none" stroke="url(#metalGrad2)" stroke-width="9"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <h1 id="welcomeTitle">—</h1>
+        <p id="welcomeSubtitle">—</p>
+        <a href="home.html" class="home-btn" id="homeBtn">—</a>
+    </div>
+</div>
+
+<script>
+/* ============================================================
+   1. الخلفية السيبرانية — Canvas (محسّن للهاتف)
+   ============================================================ */
+(function initCyberCanvas() {
+    const canvas = document.getElementById('cyber-canvas');
+    if (!canvas) return;
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+
+    const PARTICLE_COUNT = isMobile ? 25 : (isLowEnd ? 40 : 70);
+    const CONNECT_DIST = isMobile ? 90 : 130;
+    const MOUSE_DIST = isMobile ? 0 : 180;
+    const SHADOW_BLUR = isMobile ? 0 : 8;
+
+    const ctx = canvas.getContext('2d', {
+        alpha: true,
+        desynchronized: true
+    });
+
+    let particles = [];
+    let mouse = { x: null, y: null };
+    let W, H;
+    let animationId;
+    let isRunning = true;
+
+    function resize() {
+        const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
+        W = window.innerWidth;
+        H = window.innerHeight;
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function createParticles() {
+        particles = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push({
+                x: Math.random() * W,
+                y: Math.random() * H,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                size: Math.random() * 1.8 + 0.5
+            });
+        }
+    }
+
+    function draw() {
+        if (!isRunning) return;
+        ctx.clearRect(0, 0, W, H);
+
+        for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > W) p.vx *= -1;
+            if (p.y < 0 || p.y > H) p.vy *= -1;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(0, 209, 255, 0.7)';
+            if (SHADOW_BLUR) {
+                ctx.shadowBlur = SHADOW_BLUR;
+                ctx.shadowColor = '#00d1ff';
+            }
+            ctx.fill();
+        }
+        ctx.shadowBlur = 0;
+
+        const connectSq = CONNECT_DIST * CONNECT_DIST;
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distSq = dx * dx + dy * dy;
+
+                if (distSq < connectSq) {
+                    const opacity = (1 - Math.sqrt(distSq) / CONNECT_DIST) * 0.35;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(0, 209, 255, ${opacity})`;
+                    ctx.lineWidth = 0.6;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        if (MOUSE_DIST && mouse.x !== null) {
+            const mouseSq = MOUSE_DIST * MOUSE_DIST;
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                const dx = p.x - mouse.x;
+                const dy = p.y - mouse.y;
+                const distSq = dx * dx + dy * dy;
+                if (distSq < mouseSq) {
+                    const opacity = (1 - Math.sqrt(distSq) / MOUSE_DIST) * 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.strokeStyle = `rgba(0, 209, 255, ${opacity})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        animationId = requestAnimationFrame(draw);
+    }
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            resize();
+            createParticles();
+        }, 200);
+    });
+
+    if (MOUSE_DIST) {
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+    }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            isRunning = false;
+            cancelAnimationFrame(animationId);
+        } else {
+            isRunning = true;
+            draw();
+        }
+    });
+
+    resize();
+    createParticles();
+    draw();
+})();
+
+/* ============================================================
+   2. نظام الصوت
+   ============================================================ */
+let audioCtx = null;
+
+function initAudio() {
+    if (!audioCtx) {
+        try {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        } catch (e) {
+            console.warn('Audio غير مدعوم');
+        }
+    }
+}
+
+function playClickSound() {
+    initAudio();
+    if (!audioCtx) return;
+
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(1760, audioCtx.currentTime + 0.08);
+
+    gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.18);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.2);
+
+    setTimeout(() => {
+        const osc2 = audioCtx.createOscillator();
+        const gain2 = audioCtx.createGain();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(1320, audioCtx.currentTime);
+        gain2.gain.setValueAtTime(0.06, audioCtx.currentTime);
+        gain2.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+        osc2.connect(gain2);
+        gain2.connect(audioCtx.destination);
+        osc2.start();
+        osc2.stop(audioCtx.currentTime + 0.15);
+    }, 60);
+}
+
+/* ============================================================
+   3. نصوص الترحيب
+   ============================================================ */
+const welcomeTexts = {
+    ar: {
+        title: 'مرحباً بكم في فريق Team Selwanism للأمن السيبراني',
+        subtitle: 'نعمل على حماية أنظمتكم واختبار اختراقها بشكل قانوني واحترافي. تفضلوا بالدخول إلى الموقع.',
+        button: 'الدخول إلى الرئيسية'
+    },
+    en: {
+        title: 'Welcome to Team Selwanism Cybersecurity',
+        subtitle: 'We protect your systems and ethically test them with full legal authorization. Please proceed to the website.',
+        button: 'Enter Homepage'
+    }
+};
+
+/* ============================================================
+   4. اختيار اللغة
+   ============================================================ */
+function selectLanguage(lang) {
+    playClickSound();
+
+    try {
+        localStorage.setItem('ts_lang', lang);
+    } catch (e) {}
+
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+
+    const overlay = document.getElementById('welcomeOverlay');
+    const title = document.getElementById('welcomeTitle');
+    const subtitle = document.getElementById('welcomeSubtitle');
+    const homeBtn = document.getElementById('homeBtn');
+
+    const texts = welcomeTexts[lang];
+    title.textContent = texts.title;
+    subtitle.textContent = texts.subtitle;
+    homeBtn.textContent = texts.button;
+    homeBtn.href = 'home.html?lang=' + lang;
+
+    overlay.classList.add('show');
+}
+
+/* ============================================================
+   5. ربط الأزرار
+   ============================================================ */
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        selectLanguage(lang);
+    });
+});
+
+/* ============================================================
+   6. تفعيل AudioContext
+   ============================================================ */
+document.body.addEventListener('click', initAudio, { once: true });
+</script>
+
+</body>
+</html>

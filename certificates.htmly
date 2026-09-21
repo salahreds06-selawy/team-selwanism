@@ -1,0 +1,695 @@
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الشهادات | Team Selwanism</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Cinzel:wght@700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #02040a;
+    color: #e6f7ff;
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background: rgba(5,11,24,0.95);
+    border-bottom: 1px solid #1a2a44;
+    padding: 15px 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.header .logo {
+    color: #00d1ff;
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+}
+.header .nav {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    list-style: none;
+}
+.header .nav a {
+    color: #e6f7ff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+.header .nav a:hover,
+.header .nav a.active { color: #00d1ff; }
+
+/* Container */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Hero */
+.hero { text-align: center; padding: 40px 20px; margin-bottom: 40px; }
+.hero-tag {
+    display: inline-block;
+    color: #00d1ff;
+    border: 1px solid #00d1ff;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: #fff;
+    margin-bottom: 18px;
+    font-weight: 900;
+    line-height: 1.3;
+}
+h1 span {
+    background: linear-gradient(180deg, #7dd8ff, #00d1ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(0,209,255,0.5));
+}
+.intro {
+    color: #7a92a8;
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 1.7rem;
+    color: #fff;
+    margin-bottom: 12px;
+    font-weight: 900;
+}
+.section-title span { color: #00d1ff; }
+.section-sub {
+    text-align: center;
+    color: #7a92a8;
+    margin-bottom: 45px;
+    font-size: 0.95rem;
+}
+
+/* Certificates Grid */
+.certs-section { margin-bottom: 80px; }
+.certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.cert-card {
+    background: #0a1424;
+    border: 2px solid #1a2a44;
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.4s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.cert-card:hover {
+    transform: translateY(-8px);
+}
+.cert-card.free { border-color: rgba(37,211,102,0.4); }
+.cert-card.free:hover { border-color: #25D366; box-shadow: 0 20px 60px rgba(37,211,102,0.2); }
+.cert-card.medium { border-color: rgba(255,184,0,0.4); }
+.cert-card.medium:hover { border-color: #ffb800; box-shadow: 0 20px 60px rgba(255,184,0,0.2); }
+.cert-card.advanced { border-color: rgba(255,56,96,0.4); }
+.cert-card.advanced:hover { border-color: #ff3860; box-shadow: 0 20px 60px rgba(255,56,96,0.2); }
+
+/* Badge */
+.cert-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    z-index: 2;
+    text-transform: uppercase;
+}
+.cert-card.free .cert-badge { background: #25D366; color: #001018; }
+.cert-card.medium .cert-badge { background: #ffb800; color: #1a1100; }
+.cert-card.advanced .cert-badge { background: #ff3860; color: #fff; }
+
+/* Header */
+.cert-header {
+    padding: 45px 30px 25px;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid #1a2a44;
+}
+.cert-card.free .cert-header { background: linear-gradient(135deg, rgba(37,211,102,0.08), transparent); }
+.cert-card.medium .cert-header { background: linear-gradient(135deg, rgba(255,184,0,0.08), transparent); }
+.cert-card.advanced .cert-header { background: linear-gradient(135deg, rgba(255,56,96,0.08), transparent); }
+
+.cert-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    border: 3px solid;
+    position: relative;
+}
+.cert-card.free .cert-icon {
+    background: rgba(37,211,102,0.12);
+    border-color: #25D366;
+    box-shadow: 0 0 30px rgba(37,211,102,0.5);
+}
+.cert-card.medium .cert-icon {
+    background: rgba(255,184,0,0.12);
+    border-color: #ffb800;
+    box-shadow: 0 0 30px rgba(255,184,0,0.5);
+}
+.cert-card.advanced .cert-icon {
+    background: rgba(255,56,96,0.12);
+    border-color: #ff3860;
+    box-shadow: 0 0 30px rgba(255,56,96,0.5);
+}
+
+.cert-type {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: #7a92a8;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.cert-name {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+.cert-card.free .cert-name { color: #25D366; }
+.cert-card.medium .cert-name { color: #ffb800; }
+.cert-card.advanced .cert-name { color: #ff3860; }
+
+.cert-desc {
+    color: #b0c4d8;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Price */
+.cert-price {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 5px;
+}
+.cert-card.free .cert-price { background: rgba(37,211,102,0.1); border: 2px solid #25D366; }
+.cert-card.medium .cert-price { background: rgba(255,184,0,0.1); border: 2px solid #ffb800; }
+.cert-card.advanced .cert-price { background: rgba(255,56,96,0.1); border: 2px solid #ff3860; }
+
+.price-value {
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1;
+}
+.cert-card.free .price-value { color: #25D366; }
+.cert-card.medium .price-value { color: #ffb800; }
+.cert-card.advanced .price-value { color: #ff3860; }
+
+.price-currency {
+    font-size: 0.85rem;
+    color: #7a92a8;
+}
+
+.price-note {
+    color: #7a92a8;
+    font-size: 0.78rem;
+    font-family: 'Cairo', sans-serif;
+    display: block;
+    margin-top: 8px;
+}
+
+/* Body */
+.cert-body {
+    padding: 25px 30px 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.cert-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    flex: 1;
+}
+.cert-features li {
+    color: #b0c4d8;
+    font-size: 0.88rem;
+    padding: 9px 0 9px 28px;
+    position: relative;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(26,42,68,0.5);
+}
+.cert-features li:last-child { border-bottom: none; }
+.cert-features li::before {
+    content: '✓';
+    position: absolute;
+    right: 0;
+    top: 9px;
+    font-weight: 900;
+    font-size: 1rem;
+}
+.cert-card.free .cert-features li::before { color: #25D366; }
+.cert-card.medium .cert-features li::before { color: #ffb800; }
+.cert-card.advanced .cert-features li::before { color: #ff3860; }
+
+/* Button */
+.cert-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 900;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+.cert-card.free .cert-btn {
+    background: #25D366;
+    color: #001018;
+    box-shadow: 0 0 25px rgba(37,211,102,0.4);
+}
+.cert-card.free .cert-btn:hover {
+    background: #20bd5a;
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(37,211,102,0.6);
+}
+.cert-card.medium .cert-btn {
+    background: #ffb800;
+    color: #1a1100;
+    box-shadow: 0 0 25px rgba(255,184,0,0.4);
+}
+.cert-card.medium .cert-btn:hover {
+    background: #ffc933;
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(255,184,0,0.6);
+}
+.cert-card.advanced .cert-btn {
+    background: #ff3860;
+    color: #fff;
+    box-shadow: 0 0 25px rgba(255,56,96,0.4);
+}
+.cert-card.advanced .cert-btn:hover {
+    background: #ff5075;
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(255,56,96,0.6);
+}
+
+/* How it works */
+.how-section {
+    background: #050b18;
+    border: 1px solid #1a2a44;
+    border-radius: 20px;
+    padding: 50px 35px;
+    margin-bottom: 60px;
+}
+.how-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+.how-step {
+    text-align: center;
+    position: relative;
+}
+.how-num {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: rgba(0,209,255,0.1);
+    border: 2px solid #00d1ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #00d1ff;
+    box-shadow: 0 0 20px rgba(0,209,255,0.4);
+}
+.how-title {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.how-desc {
+    color: #7a92a8;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Verify CTA */
+.verify-cta {
+    text-align: center;
+    padding: 40px 30px;
+    background: linear-gradient(135deg, rgba(0,209,255,0.08), rgba(37,211,102,0.05));
+    border: 2px solid rgba(0,209,255,0.3);
+    border-radius: 20px;
+    margin-bottom: 60px;
+}
+.verify-cta h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    font-weight: 900;
+}
+.verify-cta h3 span { color: #00d1ff; }
+.verify-cta p {
+    color: #b0c4d8;
+    margin-bottom: 22px;
+    font-size: 0.95rem;
+}
+.verify-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #00d1ff;
+    color: #001018;
+    padding: 13px 35px;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 0 25px rgba(0,209,255,0.5);
+}
+.verify-cta a:hover {
+    background: #00e5ff;
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(0,209,255,0.7);
+}
+
+/* Notice */
+.notice {
+    background: rgba(255,184,0,0.05);
+    border: 1px solid rgba(255,184,0,0.3);
+    border-radius: 12px;
+    padding: 20px 25px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+.notice-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+.notice-text {
+    color: #b0c4d8;
+    font-size: 0.88rem;
+    line-height: 1.8;
+}
+.notice-text strong { color: #ffb800; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #7a92a8;
+    font-size: 0.85rem;
+    border-top: 1px solid #1a2a44;
+    margin-top: 60px;
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.footer-links a {
+    color: #7a92a8;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+}
+.footer-links a:hover { color: #00d1ff; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .certs-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+}
+@media (max-width: 640px) {
+    h1 { font-size: 1.6rem; }
+    .container { padding: 40px 15px; }
+    .cert-body { padding: 20px 22px 25px; }
+    .cert-header { padding: 40px 22px 22px; }
+    .how-section { padding: 35px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <a href="home.html" class="logo">SELWANISM</a>
+    <ul class="nav">
+        <li><a href="home.html">الرئيسية</a></li>
+        <li><a href="services.html">الخدمات</a></li>
+        <li><a href="team.html">الفريق</a></li>
+        <li><a href="lab.html">المختبر</a></li>
+        <li><a href="testimonials.html">شهادات العملاء</a></li>
+        <li><a href="certificates.html" class="active">الشهادات</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+    </ul>
+</header>
+
+<main class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+        <span class="hero-tag">CERTIFICATES</span>
+        <h1>شهادات <span>Team Selwanism</span></h1>
+        <p class="intro">
+            احصل على شهادة رسمية من الفريق تُثبت مهاراتك في الأمن السيبراني. اختر المسار المناسب لك: من الشهادة الأساسية المجانية إلى الاحترافية.
+        </p>
+    </section>
+
+    <!-- Notice -->
+    <div class="notice">
+        <div class="notice-icon">💡</div>
+        <div class="notice-text">
+            <strong>ملاحظة مهمة:</strong> جميع الشهادات هي "شهادات إتمام" (Certificate of Completion) صادرة عن Team Selwanism، وتوثق اجتيازك للمسار التعليمي. كل شهادة تحمل <strong>رقم فريد</strong> يمكن التحقق منه عبر <a href="verify.html" style="color:#00d1ff;">صفحة التحقق</a>.
+        </div>
+    </div>
+
+    <!-- Certificates -->
+    <section class="certs-section">
+        <h2 class="section-title">أنواع <span>الشهادات</span></h2>
+        <p class="section-sub">اختر المسار الذي يناسب مستواك وأهدافك</p>
+
+        <div class="certs-grid">
+
+            <!-- ============================================
+                 BASIC — Free
+                 ============================================ -->
+            <div class="cert-card free">
+                <span class="cert-badge">مجاني</span>
+
+                <div class="cert-header">
+                    <div class="cert-icon">🎓</div>
+                    <div class="cert-type">Beginner Path</div>
+                    <h3 class="cert-name">الشهادة الأساسية</h3>
+                    <p class="cert-desc">
+                        مقابلة مباشرة مع المدرب + اختبار شفهي. مثالية للمبتدئين الذين يريدون إثبات أساسياتهم في الأمن السيبراني.
+                    </p>
+                    <div class="cert-price">
+                        <span class="price-value">مجاناً</span>
+                    </div>
+                    <span class="price-note">بدون أي رسوم</span>
+                </div>
+
+                <div class="cert-body">
+                    <ul class="cert-features">
+                        <li>مقابلة مباشرة 30 دقيقة (واتساب / تيليجرام)</li>
+                        <li>20 سؤال شفهي متنوع</li>
+                        <li>اختبار أساسيات الأمن السيبراني</li>
+                        <li>الشهادة تُسلّم خلال ساعة من النجاح</li>
+                        <li>رقم شهادة فريد + رابط تحقق</li>
+                        <li>صلاحية دولية (بالإنجليزية)</li>
+                    </ul>
+
+                    <a href="https://wa.me/212630084313?text=السلام عليكم، أريد اجتياز اختبار الشهادة الأساسية المجانية" target="_blank" class="cert-btn">
+                        ابدأ الاختبار المجاني
+                    </a>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 INTERMEDIATE — $10
+                 ============================================ -->
+            <div class="cert-card medium">
+                <span class="cert-badge">الأكثر طلباً</span>
+
+                <div class="cert-header">
+                    <div class="cert-icon">💼</div>
+                    <div class="cert-type">Intermediate Path</div>
+                    <h3 class="cert-name">الشهادة المتوسطة</h3>
+                    <p class="cert-desc">
+                        تدريب مكثف 3 ساعات يغطي اختبار اختراق الويب والشبكات، مع مشاريع عملية وتقرير نهائي.
+                    </p>
+                    <div class="cert-price">
+                        <span class="price-value">$10</span>
+                        <span class="price-currency">USD</span>
+                    </div>
+                    <span class="price-note">دفعة واحدة</span>
+                </div>
+
+                <div class="cert-body">
+                    <ul class="cert-features">
+                        <li>3 ساعات تدريب مباشر</li>
+                        <li>Web Application Pentesting</li>
+                        <li>Network Penetration Testing</li>
+                        <li>مشاريع عملية حقيقية</li>
+                        <li>تقرير مفصل بمهاراتك</li>
+                        <li>شهادة بالإنجليزية + رقم تحقق</li>
+                        <li>دعم عبر واتساب لمدة أسبوع</li>
+                    </ul>
+
+                    <a href="https://wa.me/212630084313?text=السلام عليكم، أريد الحصول على الشهادة المتوسطة (10 دولار)" target="_blank" class="cert-btn">
+                        تواصل للاشتراك — $10
+                    </a>
+                </div>
+            </div>
+
+            <!-- ============================================
+                 ADVANCED — $15
+                 ============================================ -->
+            <div class="cert-card advanced">
+                <span class="cert-badge">الأقوى</span>
+
+                <div class="cert-header">
+                    <div class="cert-icon">🏆</div>
+                    <div class="cert-type">Advanced Path</div>
+                    <h3 class="cert-name">الشهادة الاحترافية</h3>
+                    <p class="cert-desc">
+                        6 ساعات تدريب مكثف يغطي Red Team، الاستغلال المتقدم، ومحاكاة هجمات واقعية بمنهجية احترافية.
+                    </p>
+                    <div class="cert-price">
+                        <span class="price-value">$15</span>
+                        <span class="price-currency">USD</span>
+                    </div>
+                    <span class="price-note">دفعة واحدة</span>
+                </div>
+
+                <div class="cert-body">
+                    <ul class="cert-features">
+                        <li>6 ساعات تدريب متقدم</li>
+                        <li>Red Team Operations</li>
+                        <li>Advanced Exploitation</li>
+                        <li>محاكاة هجمات APT</li>
+                        <li>مشروع نهائي + تقرير احترافي</li>
+                        <li>شهادة بالإنجليزية + رقم تحقق</li>
+                        <li>دعم عبر واتساب لمدة شهر</li>
+                        <li>أولوية في الاستشارات المستقبلية</li>
+                    </ul>
+
+                    <a href="https://wa.me/212630084313?text=السلام عليكم، أريد الحصول على الشهادة الاحترافية (15 دولار)" target="_blank" class="cert-btn">
+                        تواصل للاشتراك — $15
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section">
+        <h2 class="section-title">كيف <span>تحصل</span> على الشهادة؟</h2>
+        <p class="section-sub">4 خطوات بسيطة للحصول على شهادتك</p>
+
+        <div class="how-grid">
+            <div class="how-step">
+                <div class="how-num">1</div>
+                <h3 class="how-title">التواصل</h3>
+                <p class="how-desc">تواصل معنا عبر واتساب أو تيليجرام لاختيار المسار المناسب</p>
+            </div>
+            <div class="how-step">
+                <div class="how-num">2</div>
+                <h3 class="how-title">الاختبار</h3>
+                <p class="how-desc">اختبار أساسي (مجاني) أو تدريب مكثف (مدفوع) حسب اختيارك</p>
+            </div>
+            <div class="how-step">
+                <div class="how-num">3</div>
+                <h3 class="how-title">التقييم</h3>
+                <p class="how-desc">تقييم مباشر من المدرب مع تغذية راجعة تفصيلية</p>
+            </div>
+            <div class="how-step">
+                <div class="how-num">4</div>
+                <h3 class="how-title">الشهادة</h3>
+                <p class="how-desc">إصدار الشهادة برقم فريد وإرسالها على واتساب</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verify CTA -->
+    <section class="verify-cta">
+        <h3>هل عندك <span>شهادة؟</span></h3>
+        <p>تحقق من صحة أي شهادة صادرة عن Team Selwanism برقمها الفريد.</p>
+        <a href="verify.html">🔍 التحقق من شهادة</a>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-links">
+        <a href="home.html">الرئيسية</a>
+        <a href="services.html">الخدمات</a>
+        <a href="team.html">الفريق</a>
+        <a href="lab.html">المختبر</a>
+        <a href="certificates.html">الشهادات</a>
+        <a href="verify.html">التحقق</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="privacy.html">الخصوصية</a>
+    </div>
+    <p>© 2026 Team Selwanism — جميع الحقوق محفوظة</p>
+</footer>
+
+</body>
+</html>

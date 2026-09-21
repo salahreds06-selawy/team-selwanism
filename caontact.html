@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تواصل معنا | Team Selwanism</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #02040a;
+    color: #e6f7ff;
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background: #050b18;
+    border-bottom: 1px solid #1a2a44;
+    padding: 15px 20px;
+    text-align: center;
+}
+.header .logo {
+    color: #00d1ff;
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+.header .nav {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    list-style: none;
+}
+.header .nav a {
+    color: #e6f7ff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.header .nav a:hover,
+.header .nav a.active { color: #00d1ff; }
+
+/* Container */
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* Hero */
+.hero-tag {
+    display: inline-block;
+    color: #00d1ff;
+    border: 1px solid #00d1ff;
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+h1 span { color: #00d1ff; }
+.intro {
+    color: #7a92a8;
+    margin-bottom: 50px;
+    font-size: 1rem;
+}
+
+/* Contact cards */
+.card {
+    background: #0a1424;
+    border: 1px solid #1a2a44;
+    border-radius: 14px;
+    padding: 30px 25px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+.card:hover {
+    transform: translateY(-4px);
+}
+.card.wa:hover { border-color: #25D366; box-shadow: 0 10px 30px rgba(37,211,102,0.15); }
+.card.email:hover { border-color: #00d1ff; box-shadow: 0 10px 30px rgba(0,209,255,0.15); }
+
+.card-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card.wa .card-icon {
+    background: rgba(37,211,102,0.15);
+    border: 2px solid #25D366;
+}
+.card.email .card-icon {
+    background: rgba(0,209,255,0.15);
+    border: 2px solid #00d1ff;
+}
+.card-icon svg { width: 32px; height: 32px; }
+.card.wa .card-icon svg { fill: #25D366; }
+.card.email .card-icon svg { fill: #00d1ff; }
+
+.card h2 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+.card p {
+    color: #7a92a8;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 14px 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    font-family: 'Cairo', sans-serif;
+    cursor: pointer;
+}
+.btn-wa {
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(37,211,102,0.4);
+}
+.btn-wa:hover {
+    background: #20bd5a;
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(37,211,102,0.6);
+}
+.btn-email {
+    background: transparent;
+    color: #00d1ff;
+    border-color: #00d1ff;
+}
+.btn-email:hover {
+    background: #00d1ff;
+    color: #001018;
+    transform: translateY(-3px);
+}
+
+/* ============ FAQ Section ============ */
+.faq-section {
+    margin-top: 60px;
+    padding-top: 50px;
+    border-top: 1px solid #1a2a44;
+    text-align: right;
+}
+.faq-title {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.faq-title span { color: #00d1ff; }
+.faq-sub {
+    text-align: center;
+    color: #7a92a8;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    background: #0a1424;
+    border: 1px solid #1a2a44;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+.faq-item:hover { border-color: rgba(0,209,255,0.4); }
+.faq-item.open { border-color: #00d1ff; }
+
+.faq-q {
+    padding: 18px 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+.faq-q:hover { color: #00d1ff; }
+
+.faq-toggle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(0,209,255,0.1);
+    border: 1px solid #00d1ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00d1ff;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    line-height: 1;
+}
+.faq-item.open .faq-toggle {
+    background: #00d1ff;
+    color: #001018;
+    transform: rotate(45deg);
+}
+
+.faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 22px;
+    color: #7a92a8;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+.faq-item.open .faq-a {
+    max-height: 400px;
+    padding: 0 22px 20px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: #7a92a8;
+    font-size: 0.85rem;
+    border-top: 1px solid #1a2a44;
+    margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    h1 { font-size: 1.6rem; }
+    .card { padding: 25px 20px; }
+    .btn { width: 100%; }
+    .header .nav { gap: 12px; }
+    .header .nav a { font-size: 0.82rem; }
+    .faq-q { padding: 16px 18px; font-size: 0.88rem; }
+    .faq-a { padding: 0 18px; }
+    .faq-item.open .faq-a { padding: 0 18px 18px; }
+    .faq-title { font-size: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+    <a href="home.html" class="logo">SELWANISM</a>
+    <ul class="nav">
+        <li><a href="home.html">الرئيسية</a></li>
+        <li><a href="services.html">الخدمات</a></li>
+        <li><a href="team.html">الفريق</a></li>
+        <li><a href="lab.html">المختبر</a></li>
+        <li><a href="contact.html" class="active">تواصل معنا</a></li>
+    </ul>
+</header>
+
+<main class="container">
+    <span class="hero-tag">GET IN TOUCH</span>
+    <h1>تواصل <span>معنا</span></h1>
+    <p class="intro">اختر طريقة التواصل المناسبة لك. فريقنا جاهز للإجابة على استفساراتك.</p>
+
+    <!-- WhatsApp -->
+    <div class="card wa">
+        <div class="card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+        </div>
+        <h2>واتساب</h2>
+        <p>الطريقة الأسرع للتواصل المباشر مع فريقنا.</p>
+        <a href="https://wa.me/212630084313" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
+            ابدأ المحادثة
+        </a>
+    </div>
+
+    <!-- Email -->
+    <div class="card email">
+        <div class="card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+        </div>
+        <h2>البريد الإلكتروني</h2>
+        <p>cyber.salah.sec@gmail.com</p>
+        <a href="mailto:cyber.salah.sec@gmail.com" class="btn btn-email">
+            أرسل رسالة
+        </a>
+    </div>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq-section">
+        <h2 class="faq-title">الأسئلة <span>الشائعة</span></h2>
+        <p class="faq-sub">إجابات على أكثر الأسئلة تكراراً</p>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span>كيف يمكنني طلب خدمة اختبار اختراق؟</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-a">تواصل معنا عبر واتساب أو البريد الإلكتروني واشرح احتياجك. سنقدم لك عرضاً مخصصاً يشمل النطاق والمدة والتكلفة.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span>هل تعملون بشكل قانوني؟</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-a">نعم، جميع خدماتنا تتم بإذن قانوني مسبق واتفاقية موقعة من الطرفين. نحترم القوانين العربية والدولية، بما في ذلك القانون المغربي 09-08.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span>هل يمكنني الانضمام إلى الفريق؟</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-a">نعم، الفريق في تطور مستمر. إذا كنت تمتلك مهارات في الأمن السيبراني، أرسل سيرتك الذاتية عبر واتساب أو البريد الإلكتروني.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="q-q">
+              
+        <div class="faq-item">
+            <div class="faq-q">
+                <span>هل تقدمون خدمات لخارج الوطن العربي؟</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-a">نعم، نقدم خدماتنا لعملاء من مختلف دول العالم. الفريق يضم خبراء من دول عربية متعددة، ونعمل عن بُعد مع جميع العملاء.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span>ما هي وسائل الدفع المتاحة؟</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-a">نوفر عدة وسائل دفع تناسب العملاء من داخل وخارج الوطن العربي. يتم الاتفاق على وسيلة الدفع بعد مناقشة تفاصيل المشروع.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span>هل تحافظون على سرية المعلومات؟</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-a">نعم، السرية مضمونة 100%. نوقع اتفاقية سرية (NDA) عند الحاجة، وجميع المعلومات والبيانات التي نتعامل معها تبقى محفوظة بسرية تامة.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span>هل تقدمون تقارير مفصلة بعد الاختبار؟</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-a">نعم، نقدم تقريراً مفصلاً يتضمن الثغرات المكتشفة، درجة خطورتها، خطوات إعادة إنتاجها، والتوصيات اللازمة لمعالجتها. كما نوفر جلسة عرض مع الفريق لشرح النتائج.</div>
+        </div>
+
+    </section>
+</main>
+
+<footer class="footer">
+    © 2026 Team Selwanism — جميع الحقوق محفوظة
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="description" content="Team Selwanism - Cybersecurity Services">
+<meta name="theme-color" content="#02040a">
+<title>Team Selwanism | خدماتنا</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Orbitron:wght@500;700;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --cyber-blue: #00d1ff;
+    --cyber-glow: rgba(0, 209, 255, 0.5);
+    --cyber-glow-strong: rgba(0, 209, 255, 0.9);
+    --cyber-dark: #02040a;
+    --cyber-dark-2: #050b18;
+    --cyber-card: #0a1424;
+    --cyber-border: #1a2a44;
+    --text-light: #e6f7ff;
+    --text-dim: #7a92a8;
+    --gold: #ffb800;
+    --font-fancy: 'Cinzel', serif;
+    --font-cyber: 'Orbitron', sans-serif;
+    --font-ar: 'Cairo', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 80px; }
+
+body {
+    font-family: var(--font-ar);
+    background: var(--cyber-dark);
+    color: var(--text-light);
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==================== Header ==================== */
+.site-header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(2, 4, 10, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--cyber-border);
+    transition: all 0.3s ease;
+}
+
+.header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.header-logo svg {
+    width: 45px; height: 45px;
+    filter: drop-shadow(0 0 10px var(--cyber-glow));
+}
+
+.header-logo-text {
+    font-family: var(--font-fancy);
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(180deg, #ffffff 0%, #7dd8ff 50%, #00d1ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px var(--cyber-glow));
+}
+
+.main-nav {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    align-items: center;
+}
+
+.main-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    width: 0; height: 2px;
+    background: var(--cyber-blue);
+    box-shadow: 0 0 10px var(--cyber-glow);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.main-nav a:hover { color: var(--cyber-blue); }
+.main-nav a:hover::after { width: 100%; }
+.main-nav a.active { color: var(--cyber-blue); }
+.main-nav a.active::after { width: 100%; }
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.lang-switch {
+    display: flex;
+    gap: 5px;
+    background: rgba(0, 209, 255, 0.1);
+    border: 1px solid var(--cyber-border);
+    border-radius: 6px;
+    padding: 3px;
+}
+
+.lang-switch button {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+    font-family: var(--font-cyber);
+    letter-spacing: 1px;
+}
+
+.lang-switch button.active {
+    background: var(--cyber-blue);
+    color: #001018;
+    box-shadow: 0 0 15px var(--cyber-glow);
+}
+
+.hamburger {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--cyber-border);
+    border-radius: 6px;
+    width: 42px; height: 42px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 22px; height: 2px;
+    background: var(--cyber-blue);
+    transition: all 0.3s;
+    box-shadow: 0 0 5px var(--cyber-glow);
+}
+
+/* ==================== Page Hero ==================== */
+.page-hero {
+    position: relative;
+    padding: 160px 30px 80px;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--cyber-border);
+}
+
+.page-hero-bg { position: absolute; inset: 0; z-index: 0; }
+
+.page-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 209, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 209, 255, 0.08) 1px, transparent 1px);
+    background-size: 50px 50px;
+    -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
+    mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
+}
+
+.page-hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.pg-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0, 209, 255, 0.35), transparent 70%);
+    top: -200px; right: -150px;
+}
+
+.pg-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(120, 0, 255, 0.25), transparent 70%);
+    bottom: -150px; left: -100px;
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeInUp 1.2s ease-out both;
+}
+
+.page-hero-tag {
+    display: inline-block;
+    font-family: var(--font-cyber);
+    font-size: 0.75rem;
+    letter-spacing: 5px;
+    color: var(--cyber-blue);
+    border: 1px solid var(--cyber-glow);
+    padding: 6px 20px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    background: rgba(0, 209, 255, 0.05);
+    backdrop-filter: blur(5px);
+}
+
+.page-hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.page-hero-title .highlight {
+    background: linear-gradient(180deg, #7dd8ff 0%, #00d1ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 25px var(--cyber-glow));
+}
+
+.page-hero-desc {
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    color: var(--text-dim);
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.9;
+}
+
+/* ==================== الأقسام العامة ==================== */
+.section { padding: 90px 30px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-header { text-align: center; margin-bottom: 60px; }
+
+.section-tag {
+    font-family: var(--font-cyber);
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: var(--cyber-blue);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.section-title .highlight {
+    background: linear-gradient(180deg, #7dd8ff 0%, #00d1ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-desc {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.9;
+}
+
+/* ==================== بطاقات الخدمات ==================== */
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--cyber-card);
+    border: 1px solid var(--cyber-border);
+    border-radius: 16px;
+    padding: 40px 45px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--cyber-blue), transparent);
+    opacity: 0.5;
+    transition: opacity 0.4s;
+}
+
+.service-card:hover {
+    border-color: var(--cyber-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 209, 255, 0.15);
+}
+
+.service-card:hover::before { opacity: 1; }
+
+.service-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.service-num {
+    font-family: var(--font-cyber);
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--cyber-blue);
+    opacity: 0.25;
+    flex-shrink: 0;
+    text-shadow: 0 0 30px var(--cyber-glow);
+}
+
+.service-title-block { flex: 1; min-width: 200px; }
+
+.service-title {
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.service-title-en {
+    font-family: var(--font-cyber);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--cyber-blue);
+    text-transform: uppercase;
+    display: block;
+}
+
+.service-desc {
+    color: var(--text-dim);
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--cyber-border);
+}
+
+.service-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.service-block h4 {
+    font-family: var(--font-cyber);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--cyber-blue);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--cyber-border);
+    font-weight: 700;
+}
+
+.service-features { list-style: none; }
+
+.service-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-light);
+    font-size: 0.92rem;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.service-features li::before {
+    content: '▸';
+    color: var(--cyber-blue);
+    font-weight: 900;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    flex-shrink: 0;
+    text-shadow: 0 0 10px var(--cyber-glow);
+}
+
+.service-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tool-tag {
+    font-family: var(--font-cyber);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: rgba(0, 209, 255, 0.08);
+    border: 1px solid rgba(0, 209, 255, 0.25);
+    color: var(--cyber-blue);
+    transition: all 0.3s;
+}
+
+.tool-tag:hover {
+    background: rgba(0, 209, 255, 0.15);
+    border-color: var(--cyber-blue);
+    transform: translateY(-2px);
+}
+
+/* ==================== منهجية العمل ==================== */
+.process-section {
+    background: var(--cyber-dark-2);
+    border-top: 1px solid var(--cyber-border);
+    border-bottom: 1px solid var(--cyber-border);
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    position: relative;
+}
+
+.process-step {
+    background: var(--cyber-card);
+    border: 1px solid var(--cyber-border);
+    border-radius: 14px;
+    padding: 35px 25px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.process-step:hover {
+    border-color: var(--cyber-blue);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 209, 255, 0.15);
+}
+
+.process-num {
+    font-family: var(--font-cyber);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--cyber-blue);
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--cyber-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 20px var(--cyber-glow);
+    background: rgba(0, 209, 255, 0.05);
+}
+
+.process-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.process-desc {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+/* ==================== CTA ==================== */
+.cta-section {
+    padding: 100px 30px;
+    text-align: center;
+    background:
+        radial-gradient(circle at center, rgba(0, 209, 255, 0.15) 0%, transparent 60%),
+        linear-gradient(180deg, var(--cyber-dark) 0%, #03060d 100%);
+}
+
+.cta-content { max-width: 800px; margin: 0 auto; }
+
+.cta-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.cta-title .highlight {
+    background: linear-gradient(180deg, #7dd8ff 0%, #00d1ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-desc {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    font-family: var(--font-ar);
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--cyber-blue);
+    color: #001018;
+    box-shadow: 0 0 25px var(--cyber-glow);
+}
+
+.btn-primary:hover {
+    background: #00e5ff;
+    transform: translateY(-4px);
+    box-shadow: 0 0 40px var(--cyber-glow-strong);
+}
+
+.btn-outline {
+    background: transparent;
+    border-color: var(--cyber-blue);
+    color: var(--cyber-blue);
+}
+
+.btn-outline:hover {
+    background: var(--cyber-blue);
+    color: #001018;
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px var(--cyber-glow);
+}
+
+/* ==================== Footer ==================== */
+.site-footer {
+    background: #01020a;
+    padding: 70px 30px 30px;
+    border-top: 1px solid var(--cyber-border);
+}
+
+.footer-inner { max-width: 1300px; margin: 0 auto; }
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.footer-brand { max-width: 400px; }
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.footer-logo svg {
+    width: 50px; height: 50px;
+    filter: drop-shadow(0 0 10px var(--cyber-glow));
+}
+
+.footer-logo-text {
+    font-family: var(--font-fancy);
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--cyber-blue);
+    text-shadow: 0 0 15px var(--cyber-glow);
+}
+
+.footer-desc {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+    line-height: 1.9;
+}
+
+.footer-col h4 {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 40px; height: 2px;
+    background: var(--cyber-blue);
+    box-shadow: 0 0 10px var(--cyber-glow);
+}
+
+[dir="ltr"] .footer-col h4::after { right: auto; left: 0; }
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 12px; }
+
+.footer-col ul a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-col ul a::before {
+    content: '›';
+    color: var(--cyber-blue);
+    font-weight: 700;
+}
+
+.footer-col ul a:hover { color: var(--cyber-blue); padding-right: 5px; }
+
+[dir="ltr"] .footer-col ul a:hover { padding-right: 0; padding-left: 5px; }
+
+.footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid var(--cyber-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.footer-bottom-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-bottom-links a:hover { color: var(--cyber-blue); }
+
+.footer-disclaimer {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(26, 42, 68, 0.5);
+    color: #555;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+/* ==================== الحركات ==================== */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 1024px) {
+    .header-inner { padding: 12px 20px; }
+    .main-nav { gap: 18px; }
+    .main-nav a { font-size: 0.88rem; }
+}
+
+@media (max-width: 900px) {
+    .hamburger { display: flex; }
+
+    .main-nav {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 70px);
+        background: rgba(2, 4, 10, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 25px;
+        gap: 5px;
+        transition: right 0.4s ease;
+        border-left: 1px solid var(--cyber-border);
+        overflow-y: auto;
+    }
+
+    [dir="ltr"] .main-nav {
+        right: auto; left: -100%;
+        border-left: none;
+        border-right: 1px solid var(--cyber-border);
+        transition: left 0.4s ease;
+    }
+
+    .main-nav.open { right: 0; }
+    [dir="ltr"] .main-nav.open { left: 0; }
+
+    .main-nav li {
+        width: 100%;
+        border-bottom: 1px solid var(--cyber-border);
+    }
+
+    .main-nav a { display: block; padding: 15px 5px; width: 100%; }
+
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    .service-body { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (max-width: 768px) {
+    .header-logo-text { font-size: 1rem; letter-spacing: 2px; }
+    .header-logo svg { width: 38px; height: 38px; }
+
+    .page-hero { padding: 130px 20px 60px; }
+    .section { padding: 60px 20px; }
+
+    .service-card { padding: 30px 22px; }
+    .service-num { font-size: 2.2rem; }
+
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .footer-bottom-links { justify-content: center; gap: 15px; }
+}
+
+@media (max-width: 480px) {
+    .header-inner { padding: 10px 15px; gap: 10px; }
+    .lang-switch button { padding: 4px 8px; font-size: 0.7rem; }
+
+    .cta-buttons { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; padding: 14px 25px; }
+
+    .service-card-header { flex-direction: column; gap: 15px; }
+    .service-num { font-size: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     Header
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+    <div class="header-inner">
+
+        <a href="home.html" class="header-logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="hLogoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#e8f7ff"/>
+                        <stop offset="50%" stop-color="#00d1ff"/>
+                        <stop offset="100%" stop-color="#005f80"/>
+                    </linearGradient>
+                </defs>
+                <path d="M 50 5 L 88 22 L 88 55 Q 88 82 50 95 Q 12 82 12 55 L 12 22 Z"
+                      fill="none" stroke="url(#hLogoGrad)" stroke-width="3"/>
+                <polygon points="50,20 54,32 67,32 57,40 60,52 50,45 40,52 43,40 33,32 46,32"
+                         fill="none" stroke="#00d1ff" stroke-width="1.5" opacity="0.7"/>
+                <path d="M 63 45 Q 63 38 50 38 Q 37 38 37 47 Q 37 53 50 56 Q 63 59 63 68 Q 63 78 50 78 Q 37 78 37 71"
+                      fill="none" stroke="url(#hLogoGrad)" stroke-width="5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="header-logo-text">SELWANISM</span>
+        </a>
+
+        <ul class="main-nav" id="mainNav">
+            <li><a href="home.html" data-i18n="nav_home">الرئيسية</a></li>
+            <li><a href="services.html" class="active" data-i18n="nav_services">الخدمات</a></li>
+            <li><a href="team.html" data-i18n="nav_team">الفريق</a></li>
+            <li><a href="lab.html" data-i18n="nav_lab">المختبر</a></li>
+            <li><a href="testimonials.html" data-i18n="nav_testimonials">شهادات العملاء</a></li>
+            <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+        </ul>
+
+        <div class="header-actions">
+            <div class="lang-switch">
+                <button data-lang="ar" class="active">AR</button>
+                <button data-lang="en">EN</button>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+    </div>
+</header>
+
+<!-- ============================================================
+     Page Hero
+     ============================================================ -->
+<section class="page-hero">
+    <div class="page-hero-bg">
+        <div class="page-hero-grid"></div>
+        <div class="page-hero-glow pg-1"></div>
+        <div class="page-hero-glow pg-2"></div>
+    </div>
+
+    <div class="page-hero-content">
+        <span class="page-hero-tag" data-i18n="services_hero_tag">OUR SERVICES</span>
+        <h1 class="page-hero-title">
+            <span data-i18n="services_hero_title_1">خدماتنا</span>
+            <span class="highlight" data-i18n="services_hero_title_2">الأمنية</span>
+        </h1>
+        <p class="page-hero-desc" data-i18n="services_hero_desc">
+            نقدم مجموعة شاملة من خدمات الأمن السيبراني وفق أعلى المعايير العالمية، باحترافية والتزام تام بالقوانين والأخلاقيات المهنية.
+        </p>
+    </div>
+</section>
+
+<!-- ============================================================
+     قائمة الخدمات المفصلة
+     ============================================================ -->
+<section class="section">
+    <div class="section-inner">
+        <div class="services-list">
+
+            <!-- ============ 01 — اختبار الاختراق ============ -->
+            <article class="service-card">
+                <div class="service-card-header">
+                    <span class="service-num">01</span>
+                    <div class="service-title-block">
+                        <h3 class="service-title" data-i18n="srv_1_title">اختبار الاختراق</h3>
+                        <span class="service-title-en">Penetration Testing</span>
+                    </div>
+                </div>
+
+                <p class="service-desc" data-i18n="srv_1_desc">
+                    نقوم بمحاكاة هجمات سيبرانية واقعية على أنظمتكم وتطبيقاتكم، بهدف اكتشاف الثغرات الأمنية قبل أن يستغلها المهاجمون الحقيقيون. نغطي تطبيقات الويب، تطبيقات الهاتف، الشبكات الداخلية، والبنية التحتية السحابية، مع تقديم تقرير مفصل يحتوي على الثغرات المكتشفة ودرجة خطورتها وحلول معالجتها.
+                </p>
+
+                <div class="service-body">
+                    <div class="service-block">
+                        <h4 data-i18n="srv_1_features_title">ما نقدمه</h4>
+                        <ul class="service-features">
+                            <li data-i18n="srv_1_f1">اختبار تطبيقات الويب والـ APIs</li>
+                            <li data-i18n="srv_1_f2">اختبار تطبيقات Android و iOS</li>
+                            <li data-i18n="srv_1_f3">اختبار الشبكات والبنية التحتية</li>
+                            <li data-i18n="srv_1_f4">اختبار البيئات السحابية (AWS / Azure / GCP)</li>
+                            <li data-i18n="srv_1_f5">تقرير مفصل مع خطة المعالجة</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-block">
+                        <h4 data-i18n="srv_1_tools_title">الأدوات والتقنيات</h4>
+                        <div class="service-tools">
+                            <span class="tool-tag">Burp Suite</span>
+                            <span class="tool-tag">OWASP ZAP</span>
+                            <span class="tool-tag">Nmap</span>
+                            <span class="tool-tag">Metasploit</span>
+                            <span class="tool-tag">Wireshark</span>
+                            <span class="tool-tag">FFUF</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ============ 02 — الفريق الأحمر ============ -->
+            <article class="service-card">
+                <div class="service-card-header">
+                    <span class="service-num">02</span>
+                    <div class="service-title-block">
+                        <h3 class="service-title" data-i18n="srv_2_title">الفريق الأحمر</h3>
+                        <span class="service-title-en">Red Team</span>
+                    </div>
+                </div>
+
+                <p class="service-desc" data-i18n="srv_2_desc">
+                    محاكاة هجمات سيبرانية متقدمة ومتعددة المراحل تحاكي أساليب المهاجمين المتقدمين (APTs). نختبر استجابة فرق الأمن الداخلي لديكم، ونقيس مدى جاهزيتكم للتعامل مع الهجمات الحقيقية على جميع المستويات: التقني، البشري، والفيزيائي.
+                </p>
+
+                <div class="service-body">
+                    <div class="service-block">
+                        <h4 data-i18n="srv_2_features_title">ما نقدمه</h4>
+                        <ul class="service-features">
+                            <li data-i18n="srv_2_f1">محاكاة هجمات APT متعددة المراحل</li>
+                            <li data-i18n="srv_2_f2">اختبار الهندسة الاجتماعية (Phishing & Vishing)</li>
+                            <li data-i18n="srv_2_f3">اختبار الاختراق المادي عند الحاجة</li>
+                            <li data-i18n="srv_2_f4">قياس زمن الكشف والاستجابة</li>
+                            <li data-i18n="srv_2_f5">تقرير شامل مع خط زمني للهجوم</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-block">
+                        <h4 data-i18n="srv_2_tools_title">الأدوات والتقنيات</h4>
+                        <div class="service-tools">
+                            <span class="tool-tag">Cobalt Strike</span>
+                            <span class="tool-tag">BloodHound</span>
+                            <span class="tool-tag">Empire</span>
+                            <span class="tool-tag">Gophish</span>
+                            <span class="tool-tag">Custom C2</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ============ 03 — الفريق الأزرق ============ -->
+            <article class="service-card">
+                <div class="service-card-header">
+                    <span class="service-num">03</span>
+                    <div class="service-title-block">
+                        <h3 class="service-title" data-i18n="srv_3_title">الفريق الأزرق</h3>
+                        <span class="service-title-en">Blue Team</span>
+                    </div>
+                </div>
+
+                <p class="service-desc" data-i18n="srv_3_desc">
+                    نقدم خدمات الدفاع السيبراني ومراقبة الأنظمة بشكل مستمر، مع تحليل التهديدات والاستجابة لها في الوقت المناسب. نعمل على تقوية البنية الدفاعية لديكم، ونقوم بمحاكاة التهديدات الداخلية والخارجية، مع تدريب فرقكم على أفضل الممارسات الأمنية.
+                </p>
+
+                <div class="service-body">
+                    <div class="service-block">
+                        <h4 data-i18n="srv_3_features_title">ما نقدمه</h4>
+                        <ul class="service-features">
+                            <li data-i18n="srv_3_f1">مراقبة الشبكات والأنظمة في الوقت الحقيقي</li>
+                            <li data-i18n="srv_3_f2">تحليل السجلات (Log Analysis) والكشف عن الشذوذ</li>
+                            <li data-i18n="srv_3_f3">نشر أنظمة IDS / IPS وتقوية الدفاعات</li>
+                            <li data-i18n="srv_3_f4">تدريب الفرق الداخلية على الاستجابة</li>
+                            <li data-i18n="srv_3_f5">لوحات تحكم مخصصة (Dashboards) لتتبع الحالة الأمنية</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-block">
+                        <h4 data-i18n="srv_3_tools_title">الأدوات والتقنيات</h4>
+                        <div class="service-tools">
+                            <span class="tool-tag">Splunk</span>
+                            <span class="tool-tag">ELK Stack</span>
+                            <span class="tool-tag">Wazuh</span>
+                            <span class="tool-tag">Suricata</span>
+                            <span class="tool-tag">Snort</span>
+                            <span class="tool-tag">Zeek</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ============ 04 — مركز العمليات SOC ============ -->
+            <article class="service-card">
+                <div class="service-card-header">
+                    <span class="service-num">04</span>
+                    <div class="service-title-block">
+                        <h3 class="service-title" data-i18n="srv_4_title">مركز عمليات الأمن</h3>
+                        <span class="service-title-en">SOC 24/7</span>
+                    </div>
+                </div>
+
+                <p class="service-desc" data-i18n="srv_4_desc">
+                    مركز عمليات أمني متكامل يعمل على مدار الساعة لمراقبة وتحليل الأحداث الأمنية في أنظمتكم، مع الكشف المبكر عن التهديدات والاستجابة الفورية لها. نوفر لعملائنا رؤية شاملة لوضعهم الأمني مع تقارير دورية ولوحات تحكم تفاعلية.
+                </p>
+
+                <div class="service-body">
+                    <div class="service-block">
+                        <h4 data-i18n="srv_4_features_title">ما نقدمه</h4>
+                        <ul class="service-features">
+                            <li data-i18n="srv_4_f1">مراقبة مستمرة على مدار 24/7</li>
+                            <li data-i18n="srv_4_f2">تحليل التهديدات والاستجابة الفورية</li>
+                            <li data-i18n="srv_4_f3">إدارة أحداث ومعلومات الأمن (SIEM)</li>
+                            <li data-i18n="srv_4_f4">تقارير أمنية يومية وأسبوعية وشهرية</li>
+                            <li data-i18n="srv_4_f5">دعم فني للمستخدمين في الحالات الطارئة</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-block">
+                        <h4 data-i18n="srv_4_tools_title">الأدوات والتقنيات</h4>
+                        <div class="service-tools">
+                            <span class="tool-tag">Splunk ES</span>
+                            <span class="tool-tag">IBM QRadar</span>
+                            <span class="tool-tag">Sentinel</span>
+                            <span class="tool-tag">CrowdStrike</span>
+                            <span class="tool-tag">MISP</span>
+                            <span class="tool-tag">TheHive</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ============ 05 — الاستجابة للحوادث ============ -->
+            <article class="service-card">
+                <div class="service-card-header">
+                    <span class="service-num">05</span>
+                    <div class="service-title-block">
+                        <h3 class="service-title" data-i18n="srv_5_title">الاستجابة للحوادث</h3>
+                        <span class="service-title-en">Incident Response</span>
+                    </div>
+                </div>
+
+                <p class="service-desc" data-i18n="srv_5_desc">
+                    في حالة تعرضكم لهجوم سيبراني أو اختراق أمني، نتحرك بسرعة لاحتواء الحادث، تحليل السبب الجذري، استعادة الأنظمة المتضررة، وتقوية الدفاعات لمنع تكرار الحادث. نضمن لكم استجابة سريعة واحترافية لتقليل الأضرار واستعادة الأعمال في أقصر وقت ممكن.
+                </p>
+
+                <div class="service-body">
+                    <div class="service-block">
+                        <h4 data-i18n="srv_5_features_title">ما نقدمه</h4>
+                        <ul class="service-features">
+                            <li data-i18n="srv_5_f1">استجابة سريعة (خلال ساعات من الإبلاغ)</li>
+                            <li data-i18n="srv_5_f2">احتواء الحادث ومنع انتشاره</li>
+                            <li data-i18n="srv_5_f3">تحليل السبب الجذري (Root Cause Analysis)</li>
+                            <li data-i18n="srv_5_f4">استعادة الأنظمة والبيانات</li>
+                            <li data-i18n="srv_5_f5">تقرير مفصل وتوصيات لتقوية الدفاعات</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-block">
+                        <h4 data-i18n="srv_5_tools_title">الأدوات والتقنيات</h4>
+                        <div class="service-tools">
+                            <span class="tool-tag">Volatility</span>
+                            <span class="tool-tag">Autopsy</span>
+                            <span class="tool-tag">FTK</span>
+                            <span class="tool-tag">Velociraptor</span>
+                            <span class="tool-tag">Rekall</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ============ 06 — التدقيق الأمني ============ -->
+            <article class="service-card">
+                <div class="service-card-header">
+                    <span class="service-num">06</span>
+                    <div class="service-title-block">
+                        <h3 class="service-title" data-i18n="srv_6_title">التدقيق الأمني</h3>
+                        <span class="service-title-en">Security Audit</span>
+                    </div>
+                </div>
+
+                <p class="service-desc" data-i18n="srv_6_desc">
+                    تقييم شامل للبنية التحتية الأمنية لديكم، يشمل فحص السياسات والإجراءات، تحليل المخاطر، وتقييم مدى الامتثال للمعايير الدولية. نقدم توصيات عملية وقابلة للتطبيق لتحسين وضعكم الأمني بشكل ملحوظ.
+                </p>
+
+                <div class="service-body">
+                    <div class="service-block">
+                        <h4 data-i18n="srv_6_features_title">ما نقدمه</h4>
+                        <ul class="service-features">
+                            <li data-i18n="srv_6_f1">تقييم سياسات وإجراءات الأمن</li>
+                            <li data-i18n="srv_6_f2">تحليل المخاطر وتحديد الأولويات</li>
+                            <li data-i18n="srv_6_f3">مطابقة معايير ISO 27001 و NIST</li>
+                            <li data-i18n="srv_6_f4">فحص الإعدادات الأمنية (Configuration Review)</li>
+                            <li data-i18n="srv_6_f5">خطة عمل قابلة للتنفيذ</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-block">
+                        <h4 data-i18n="srv_6_tools_title">المعايير والأطر</h4>
+                        <div class="service-tools">
+                            <span class="tool-tag">ISO 27001</span>
+                            <span class="tool-tag">NIST CSF</span>
+                            <span class="tool-tag">CIS Controls</span>
+                            <span class="tool-tag">PCI DSS</span>
+                            <span class="tool-tag">OWASP ASVS</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ============ 07 — ISO 27001 ============ -->
+            <article class="service-card">
+                <div class="service-card-header">
+                    <span class="service-num">07</span>
+                    <div class="service-title-block">
+                        <h3 class="service-title" data-i18n="srv_7_title">ISO 27001</h3>
+                        <span class="service-title-en">Compliance & Certification</span>
+                    </div>
+                </div>
+
+                <p class="service-desc" data-i18n="srv_7_desc">
+                    نرافقكم خلال رحلتكم نحو الحصول على شهادة ISO 27001، ابتداءً من تحليل الفجوات (Gap Analysis) وتطوير نظام إدارة أمن المعلومات (ISMS)، وصولاً إلى التحضير للتدقيق النهائي والحصول على الشهادة.
+                </p>
+
+                <div class="service-body">
+                    <div class="service-block">
+                        <h4 data-i18n="srv_7_features_title">ما نقدمه</h4>
+                        <ul class="service-features">
+                            <li data-i18n="srv_7_f1">تحليل الفجوات (Gap Analysis)</li>
+                            <li data-i18n="srv_7_f2">تطوير نظام إدارة أمن المعلومات (ISMS)</li>
+                            <li data-i18n="srv_7_f3">إعداد السياسات والإجراءات</li>
+                            <li data-i18n="srv_7_f4">تدريب الفرق على متطلبات المعيار</li>
+                            <li data-i18n="srv_7_f5">التحضير للتدقيق النهائي</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-block">
+                        <h4 data-i18n="srv_7_tools_title">الأطر المرجعية</h4>
+                        <div class="service-tools">
+                            <span class="tool-tag">ISO 27001</span>
+                            <span class="tool-tag">ISO 27002</span>
+                            <span class="tool-tag">ISO 27005</span>
+                            <span class="tool-tag">ISO 27701</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ============ 08 — GDPR / 09-08 ============ -->
+            <article class="service-card">
+                <div class="service-card-header">
+                    <span class="service-num">08</span>
+                    <div class="service-title-block">
+                        <h3 class="service-title" data-i18n="srv_8_title">GDPR / 09-08</h3>
+                        <span class="service-title-en">Data Privacy & Compliance</span>
+                    </div>
+                </div>
+
+                <p class="service-desc" data-i18n="srv_8_desc">
+                    نساعدكم على الامتثال للقوانين المغربية والدولية المتعلقة بحماية البيانات الشخصية، بما في ذلك القانون 09-08 المغربي واللائحة الأوروبية GDPR. نراجع سياساتكم، نعد لكم الوثائق اللازمة، ونقوم بمراجعة شاملة لمعالجة البيانات.
+                </p>
+
+                <div class="service-body">
+                    <div class="service-block">
+                        <h4 data-i18n="srv_8_features_title">ما نقدمه</h4>
+                        <ul class="service-features">
+                            <li data-i18n="srv_8_f1">مراجعة سياسات الخصوصية</li>
+                            <li data-i18n="srv_8_f2">تحديد البيانات الشخصية المخزنة ومعالجتها</li>
+                            <li data-i18n="srv_8_f3">إعداد سجلات المعالجة (Records of Processing)</li>
+                            <li data-i18n="srv_8_f4">تقييم أثر حماية البيانات (DPIA)</li>
+                            <li data-i18n="srv_8_f5">تدريب الفرق على حماية البيانات</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-block">
+                        <h4 data-i18n="srv_8_tools_title">الأطر والقوانين</h4>
+                        <div class="service-tools">
+                            <span class="tool-tag">GDPR</span>
+                            <span class="tool-tag">CNDP 09-08</span>
+                            <span class="tool-tag">CCPA</span>
+                            <span class="tool-tag">ISO 27701</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ============ 09 — التدريب و CTF ============ -->
+            <article class="service-card">
+                <div class="service-card-header">
+                    <span class="service-num">09</span>
+                    <div class="service-title-block">
+                        <h3 class="service-title" data-i18n="srv_9_title">التدريب و CTF</h3>
+                        <span class="service-title-en">Training & Capture The Flag</span>
+                    </div>
+                </div>
+
+                <p class="service-desc" data-i18n="srv_9_desc">
+                    نقدم برامج تدريبية متخصصة في الأمن السيبراني للفرق التقنية، مع تنظيم مسابقات Capture The Flag (CTF) لتعزيز المهارات العملية. برامجنا مخصصة للمبتدئين والمحترفين، ونغطي مواضيع متعددة مثل اختبار الاختراق، التحليل الجنائي، والأمن الدفاعي.
+                </p>
+
+                <div class="service-body">
+                    <div class="service-block">
+                        <h4 data-i18n="srv_9_features_title">ما نقدمه</h4>
+                        <ul class="service-features">
+                            <li data-i18n="srv_9_f1">برامج تدريبية مخصصة للمستويات المختلفة</li>
+                            <li data-i18n="srv_9_f2">تنظيم مسابقات CTF للشركات والجامعات</li>
+                            <li data-i18n="srv_9_f3">ورشات عملية على أدوات اختبار الاختراق</li>
+                            <li data-i18n="srv_9_f4">تدريب الفرق على التحليل الجنائي</li>
+                            <li data-i18n="srv_9_f5">شهادات إتمام للمتدربين</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-block">
+                        <h4 data-i18n="srv_9_tools_title">المواضيع المغطاة</h4>
+                        <div class="service-tools">
+                            <span class="tool-tag">Web Exploitation</span>
+                            <span class="tool-tag">Reverse Engineering</span>
+                            <span class="tool-tag">Forensics</span>
+                            <span class="tool-tag">Cryptography</span>
+                            <span class="tool-tag">OSINT</span>
+                            <span class="tool-tag">Network Pentest</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     منهجية العمل
+     ============================================================ -->
+<section class="section process-section">
+    <div class="section-inner">
+        <div class="section-header">
+            <span class="section-tag" data-i18n="process_tag">OUR PROCESS</span>
+            <h2 class="section-title">
+                <span data-i18n="process_title_1">منهجية</span>
+                <span class="highlight" data-i18n="process_title_2">العمل</span>
+            </h2>
+            <p class="section-desc" data-i18n="process_desc">
+                نعمل بمنهجية واضحة ومنظمة لضمان تقديم خدمات بأعلى جودة واحترافية.
+            </p>
+        </div>
+
+        <div class="process-grid">
+
+            <div class="process-step">
+                <div class="process-num">01</div>
+                <h3 class="process-title" data-i18n="step1_title">التواصل والاتفاق</h3>
+                <p class="process-desc" data-i18n="step1_desc">نستمع لاحتياجاتكم، نحدد النطاق، ونوقع اتفاقية رسمية قبل بدء العمل.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="process-num">02</div>
+                <h3 class="process-title" data-i18n="step2_title">التخطيط والتحضير</h3>
+                <p class="process-desc" data-i18n="step2_desc">نضع خطة عمل مفصلة، ونحدد الأدوات والتقنيات المناسبة للمشروع.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="process-num">03</div>
+                <h3 class="process-title" data-i18n="step3_title">التنفيذ والاختبار</h3>
+                <p class="process-desc" data-i18n="step3_desc">ننفذ الاختبارات والفعاليات وفق الخطة، مع توثيق كل خطوة بدقة.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="process-num">04</div>
+                <h3 class="process-title" data-i18n="step4_title">التقرير والتسليم</h3>
+                <p class="process-desc" data-i18n="step4_desc">نقدم تقريراً مفصلاً بالنتائج والتوصيات، مع جلسة عرض للفريق.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2 class="cta-title">
+            <span data-i18n="cta_title_1">هل تحتاج إلى</span>
+            <span class="highlight" data-i18n="cta_title_2"> أحد خدماتنا؟</span>
+        </h2>
+        <p class="cta-desc" data-i18n="cta_desc">
+            تواصل معنا اليوم لمناقشة احتياجاتك والحصول على عرض مخصص لمشروعك.
+        </p>
+        <div class="cta-buttons">
+            <a href="contact.html" class="btn btn-primary" data-i18n="cta_btn_contact">تواصل معنا</a>
+            <a href="team.html" class="btn btn-outline" data-i18n="cta_btn_team">تعرف على الفريق</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     Footer
+     ============================================================ -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="fLogoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#e8f7ff"/>
+                                <stop offset="50%" stop-color="#00d1ff"/>
+                                <stop offset="100%" stop-color="#005f80"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M 50 5 L 88 22 L 88 55 Q 88 82 50 95 Q 12 82 12 55 L 12 22 Z"
+                              fill="none" stroke="url(#fLogoGrad)" stroke-width="3"/>
+                        <polygon points="50,20 54,32 67,32 57,40 60,52 50,45 40,52 43,40 33,32 46,32"
+                                 fill="none" stroke="#00d1ff" stroke-width="1.5" opacity="0.7"/>
+                        <path d="M 63 45 Q 63 38 50 38 Q 37 38 37 47 Q 37 53 50 56 Q 63 59 63 68 Q 63 78 50 78 Q 37 78 37 71"
+                              fill="none" stroke="url(#fLogoGrad)" stroke-width="5"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="footer-logo-text">SELWANISM</span>
+                </div>
+                <p class="footer-desc" data-i18n="footer_desc">
+                    منصة مغربية متخصصة في الأمن السيبراني. نقدم حلولاً شاملة لحماية الأنظمة والشبكات وفق أعلى المعايير العالمية.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-i18n="footer_links">روابط سريعة</h4>
+                <ul>
+                    <li><a href="home.html" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="services.html" data-i18n="nav_services">الخدمات</a></li>
+                    <li><a href="team.html" data-i18n="nav_team">الفريق</a></li>
+                    <li><a href="lab.html" data-i18n="nav_lab">المختبر</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-i18n="footer_legal">قانوني</h4>
+                <ul>
+                    <li><a href="privacy.html#privacy" data-i18n="legal_privacy">سياسة الخصوصية</a></li>
+                    <li><a href="privacy.html#data" data-i18n="legal_data">حماية المعطيات</a></li>
+                    <li><a href="privacy.html#copyright" data-i18n="legal_copyright">حقوق النشر</a></li>
+                    <li><a href="privacy.html#terms" data-i18n="legal_terms">شروط الاستخدام</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p data-i18n="footer_copy">© 2026 Team Selwanism — جميع الحقوق محفوظة</p>
+            <div class="footer-bottom-links">
+                <a href="privacy.html#privacy" data-i18n="legal_privacy">سياسة الخصوصية</a>
+                <a href="privacy.html#data" data-i18n="legal_data">حماية المعطيات</a>
+                <a href="privacy.html#copyright" data-i18n="legal_copyright">حقوق النشر</a>
+            </div>
+        </div>
+
+        <p class="footer-disclaimer" data-i18n="footer_disclaimer">
+            جميع خدماتنا تتم بإذن قانوني مسبق. نحترم القوانين المغربية (09-08) والدولية. لا نقوم بأي عملية اختراق بدون تصريح رسمي.
+        </p>
+
+    </div>
+</footer>
+<script>
+/* ============================================================
+   1. الترجمة الكاملة (AR / EN)
+   ============================================================ */
+const TRANSLATIONS = {
+    ar: {
+        // Navigation
+        nav_home: "الرئيسية",
+        nav_services: "الخدمات",
+        nav_team: "الفريق",
+        nav_lab: "المختبر",
+        nav_testimonials: "شهادات العملاء",
+        nav_contact: "تواصل معنا",
+
+        // Hero
+        services_hero_tag: "خدماتنا",
+        services_hero_title_1: "خدماتنا",
+        services_hero_title_2: "الأمنية",
+        services_hero_desc: "نقدم مجموعة شاملة من خدمات الأمن السيبراني وفق أعلى المعايير العالمية، باحترافية والتزام تام بالقوانين والأخلاقيات المهنية.",
+
+        // ============ Service 1: Penetration Testing ============
+        srv_1_title: "اختبار الاختراق",
+        srv_1_desc: "نقوم بمحاكاة هجمات سيبرانية واقعية على أنظمتكم وتطبيقاتكم، بهدف اكتشاف الثغرات الأمنية قبل أن يستغلها المهاجمون الحقيقيون. نغطي تطبيقات الويب، تطبيقات الهاتف، الشبكات الداخلية، والبنية التحتية السحابية، مع تقديم تقرير مفصل يحتوي على الثغرات المكتشفة ودرجة خطورتها وحلول معالجتها.",
+        srv_1_features_title: "ما نقدمه",
+        srv_1_tools_title: "الأدوات والتقنيات",
+        srv_1_f1: "اختبار تطبيقات الويب والـ APIs",
+        srv_1_f2: "اختبار تطبيقات Android و iOS",
+        srv_1_f3: "اختبار الشبكات والبنية التحتية",
+        srv_1_f4: "اختبار البيئات السحابية (AWS / Azure / GCP)",
+        srv_1_f5: "تقرير مفصل مع خطة المعالجة",
+
+        // ============ Service 2: Red Team ============
+        srv_2_title: "الفريق الأحمر",
+        srv_2_desc: "محاكاة هجمات سيبرانية متقدمة ومتعددة المراحل تحاكي أساليب المهاجمين المتقدمين (APTs). نختبر استجابة فرق الأمن الداخلي لديكم، ونقيس مدى جاهزيتكم للتعامل مع الهجمات الحقيقية على جميع المستويات: التقني، البشري، والفيزيائي.",
+        srv_2_features_title: "ما نقدمه",
+        srv_2_tools_title: "الأدوات والتقنيات",
+        srv_2_f1: "محاكاة هجمات APT متعددة المراحل",
+        srv_2_f2: "اختبار الهندسة الاجتماعية (Phishing & Vishing)",
+        srv_2_f3: "اختبار الاختراق المادي عند الحاجة",
+        srv_2_f4: "قياس زمن الكشف والاستجابة",
+        srv_2_f5: "تقرير شامل مع خط زمني للهجوم",
+
+        // ============ Service 3: Blue Team ============
+        srv_3_title: "الفريق الأزرق",
+        srv_3_desc: "نقدم خدمات الدفاع السيبراني ومراقبة الأنظمة بشكل مستمر، مع تحليل التهديدات والاستجابة لها في الوقت المناسب. نعمل على تقوية البنية الدفاعية لديكم، ونقوم بمحاكاة التهديدات الداخلية والخارجية، مع تدريب فرقكم على أفضل الممارسات الأمنية.",
+        srv_3_features_title: "ما نقدمه",
+        srv_3_tools_title: "الأدوات والتقنيات",
+        srv_3_f1: "مراقبة الشبكات والأنظمة في الوقت الحقيقي",
+        srv_3_f2: "تحليل السجلات (Log Analysis) والكشف عن الشذوذ",
+        srv_3_f3: "نشر أنظمة IDS / IPS وتقوية الدفاعات",
+        srv_3_f4: "تدريب الفرق الداخلية على الاستجابة",
+        srv_3_f5: "لوحات تحكم مخصصة (Dashboards) لتتبع الحالة الأمنية",
+
+        // ============ Service 4: SOC ============
+        srv_4_title: "مركز عمليات الأمن",
+        srv_4_desc: "مركز عمليات أمني متكامل يعمل على مدار الساعة لمراقبة وتحليل الأحداث الأمنية في أنظمتكم، مع الكشف المبكر عن التهديدات والاستجابة الفورية لها. نوفر لعملائنا رؤية شاملة لوضعهم الأمني مع تقارير دورية ولوحات تحكم تفاعلية.",
+        srv_4_features_title: "ما نقدمه",
+        srv_4_tools_title: "الأدوات والتقنيات",
+        srv_4_f1: "مراقبة مستمرة على مدار 24/7",
+        srv_4_f2: "تحليل التهديدات والاستجابة الفورية",
+        srv_4_f3: "إدارة أحداث ومعلومات الأمن (SIEM)",
+        srv_4_f4: "تقارير أمنية يومية وأسبوعية وشهرية",
+        srv_4_f5: "دعم فني للمستخدمين في الحالات الطارئة",
+
+        // ============ Service 5: Incident Response ============
+        srv_5_title: "الاستجابة للحوادث",
+        srv_5_desc: "في حالة تعرضكم لهجوم سيبراني أو اختراق أمني، نتحرك بسرعة لاحتواء الحادث، تحليل السبب الجذري، استعادة الأنظمة المتضررة، وتقوية الدفاعات لمنع تكرار الحادث. نضمن لكم استجابة سريعة واحترافية لتقليل الأضرار واستعادة الأعمال في أقصر وقت ممكن.",
+        srv_5_features_title: "ما نقدمه",
+        srv_5_tools_title: "الأدوات والتقنيات",
+        srv_5_f1: "استجابة سريعة (خلال ساعات من الإبلاغ)",
+        srv_5_f2: "احتواء الحادث ومنع انتشاره",
+        srv_5_f3: "تحليل السبب الجذري (Root Cause Analysis)",
+        srv_5_f4: "استعادة الأنظمة والبيانات",
+        srv_5_f5: "تقرير مفصل وتوصيات لتقوية الدفاعات",
+
+        // ============ Service 6: Security Audit ============
+        srv_6_title: "التدقيق الأمني",
+        srv_6_desc: "تقييم شامل للبنية التحتية الأمنية لديكم، يشمل فحص السياسات والإجراءات، تحليل المخاطر، وتقييم مدى الامتثال للمعايير الدولية. نقدم توصيات عملية وقابلة للتطبيق لتحسين وضعكم الأمني بشكل ملحوظ.",
+        srv_6_features_title: "ما نقدمه",
+        srv_6_tools_title: "المعايير والأطر",
+        srv_6_f1: "تقييم سياسات وإجراءات الأمن",
+        srv_6_f2: "تحليل المخاطر وتحديد الأولويات",
+        srv_6_f3: "مطابقة معايير ISO 27001 و NIST",
+        srv_6_f4: "فحص الإعدادات الأمنية (Configuration Review)",
+        srv_6_f5: "خطة عمل قابلة للتنفيذ",
+
+        // ============ Service 7: ISO 27001 ============
+        srv_7_title: "ISO 27001",
+        srv_7_desc: "نرافقكم خلال رحلتكم نحو الحصول على شهادة ISO 27001، ابتداءً من تحليل الفجوات (Gap Analysis) وتطوير نظام إدارة أمن المعلومات (ISMS)، وصولاً إلى التحضير للتدقيق النهائي والحصول على الشهادة.",
+        srv_7_features_title: "ما نقدمه",
+        srv_7_tools_title: "الأطر المرجعية",
+        srv_7_f1: "تحليل الفجوات (Gap Analysis)",
+        srv_7_f2: "تطوير نظام إدارة أمن المعلومات (ISMS)",
+        srv_7_f3: "إعداد السياسات والإجراءات",
+        srv_7_f4: "تدريب الفرق على متطلبات المعيار",
+        srv_7_f5: "التحضير للتدقيق النهائي",
+
+        // ============ Service 8: GDPR / 09-08 ============
+        srv_8_title: "GDPR / 09-08",
+        srv_8_desc: "نساعدكم على الامتثال للقوانين المغربية والدولية المتعلقة بحماية البيانات الشخصية، بما في ذلك القانون 09-08 المغربي واللائحة الأوروبية GDPR. نراجع سياساتكم، نعد لكم الوثائق اللازمة، ونقوم بمراجعة شاملة لمعالجة البيانات.",
+        srv_8_features_title: "ما نقدمه",
+        srv_8_tools_title: "الأطر والقوانين",
+        srv_8_f1: "مراجعة سياسات الخصوصية",
+        srv_8_f2: "تحديد البيانات الشخصية المخزنة ومعالجتها",
+        srv_8_f3: "إعداد سجلات المعالجة (Records of Processing)",
+        srv_8_f4: "تقييم أثر حماية البيانات (DPIA)",
+        srv_8_f5: "تدريب الفرق على حماية البيانات",
+
+        // ============ Service 9: Training & CTF ============
+        srv_9_title: "التدريب و CTF",
+        srv_9_desc: "نقدم برامج تدريبية متخصصة في الأمن السيبراني للفرق التقنية، مع تنظيم مسابقات Capture The Flag (CTF) لتعزيز المهارات العملية. برامجنا مخصصة للمبتدئين والمحترفين، ونغطي مواضيع متعددة مثل اختبار الاختراق، التحليل الجنائي، والأمن الدفاعي.",
+        srv_9_features_title: "ما نقدمه",
+        srv_9_tools_title: "المواضيع المغطاة",
+        srv_9_f1: "برامج تدريبية مخصصة للمستويات المختلفة",
+        srv_9_f2: "تنظيم مسابقات CTF للشركات والجامعات",
+        srv_9_f3: "ورشات عملية على أدوات اختبار الاختراق",
+        srv_9_f4: "تدريب الفرق على التحليل الجنائي",
+        srv_9_f5: "شهادات إتمام للمتدربين",
+
+        // Process
+        process_tag: "منهجية العمل",
+        process_title_1: "منهجية",
+        process_title_2: "العمل",
+        process_desc: "نعمل بمنهجية واضحة ومنظمة لضمان تقديم خدمات بأعلى جودة واحترافية.",
+        step1_title: "التواصل والاتفاق",
+        step1_desc: "نستمع لاحتياجاتكم، نحدد النطاق، ونوقع اتفاقية رسمية قبل بدء العمل.",
+        step2_title: "التخطيط والتحضير",
+        step2_desc: "نضع خطة عمل مفصلة، ونحدد الأدوات والتقنيات المناسبة للمشروع.",
+        step3_title: "التنفيذ والاختبار",
+        step3_desc: "ننفذ الاختبارات والفعاليات وفق الخطة، مع توثيق كل خطوة بدقة.",
+        step4_title: "التقرير والتسليم",
+        step4_desc: "نقدم تقريراً مفصلاً بالنتائج والتوصيات، مع جلسة عرض للفريق.",
+
+        // CTA
+        cta_title_1: "هل تحتاج إلى",
+        cta_title_2: "أحد خدماتنا؟",
+        cta_desc: "تواصل معنا اليوم لمناقشة احتياجاتك والحصول على عرض مخصص لمشروعك.",
+        cta_btn_contact: "تواصل معنا",
+        cta_btn_team: "تعرف على الفريق",
+
+        // Footer
+        footer_desc: "منصة مغربية متخصصة في الأمن السيبراني. نقدم حلولاً شاملة لحماية الأنظمة والشبكات وفق أعلى المعايير العالمية.",
+        footer_links: "روابط سريعة",
+        footer_legal: "قانوني",
+        legal_privacy: "سياسة الخصوصية",
+        legal_data: "حماية المعطيات",
+        legal_copyright: "حقوق النشر",
+        legal_terms: "شروط الاستخدام",
+        footer_copy: "© 2026 Team Selwanism — جميع الحقوق محفوظة",
+        footer_disclaimer: "جميع خدماتنا تتم بإذن قانوني مسبق. نحترم القوانين المغربية (09-08) والدولية. لا نقوم بأي عملية اختراق بدون تصريح رسمي."
+    },
+
+    en: {
+        // Navigation
+        nav_home: "Home",
+        nav_services: "Services",
+        nav_team: "Team",
+        nav_lab: "Lab",
+        nav_testimonials: "Testimonials",
+        nav_contact: "Contact Us",
+
+        // Hero
+        services_hero_tag: "OUR SERVICES",
+        services_hero_title_1: "Our",
+        services_hero_title_2: "Services",
+        services_hero_desc: "We provide a comprehensive range of cybersecurity services following the highest international standards, with professionalism and full commitment to laws and professional ethics.",
+
+        // ============ Service 1: Penetration Testing ============
+        srv_1_title: "Penetration Testing",
+        srv_1_desc: "We simulate realistic cyberattacks on your systems and applications to discover security vulnerabilities before real attackers can exploit them. We cover web applications, mobile apps, internal networks, and cloud infrastructure, with a detailed report including discovered vulnerabilities, severity levels, and remediation solutions.",
+        srv_1_features_title: "What We Offer",
+        srv_1_tools_title: "Tools & Technologies",
+        srv_1_f1: "Web applications and APIs testing",
+        srv_1_f2: "Android and iOS applications testing",
+        srv_1_f3: "Networks and infrastructure testing",
+        srv_1_f4: "Cloud environments testing (AWS / Azure / GCP)",
+        srv_1_f5: "Detailed report with remediation plan",
+
+        // ============ Service 2: Red Team ============
+        srv_2_title: "Red Team",
+        srv_2_desc: "Simulation of advanced multi-stage cyberattacks mimicking Advanced Persistent Threats (APTs). We test your internal security team's response and measure your readiness to handle real attacks at all levels: technical, human, and physical.",
+        srv_2_features_title: "What We Offer",
+        srv_2_tools_title: "Tools & Technologies",
+        srv_2_f1: "Multi-stage APT attack simulation",
+        srv_2_f2: "Social engineering testing (Phishing & Vishing)",
+        srv_2_f3: "Physical penetration testing when needed",
+        srv_2_f4: "Detection and response time measurement",
+        srv_2_f5: "Comprehensive report with attack timeline",
+
+        // ============ Service 3: Blue Team ============
+        srv_3_title: "Blue Team",
+        srv_3_desc: "We provide cybersecurity defense and continuous system monitoring services, with threat analysis and timely response. We strengthen your defensive infrastructure, simulate internal and external threats, and train your teams on security best practices.",
+        srv_3_features_title: "What We Offer",
+        srv_3_tools_title: "Tools & Technologies",
+        srv_3_f1: "Real-time network and system monitoring",
+        srv_3_f2: "Log analysis and anomaly detection",
+        srv_3_f3: "IDS / IPS deployment and defense hardening",
+        srv_3_f4: "Training internal teams on incident response",
+        srv_3_f5: "Custom dashboards to track security posture",
+
+        // ============ Service 4: SOC ============
+        srv_4_title: "Security Operations Center",
+        srv_4_desc: "An integrated 24/7 security operations center for monitoring and analyzing security events in your systems, with early threat detection and immediate response. We provide our clients with comprehensive visibility into their security posture with periodic reports and interactive dashboards.",
+        srv_4_features_title: "What We Offer",
+        srv_4_tools_title: "Tools & Technologies",
+        srv_4_f1: "Continuous 24/7 monitoring",
+        srv_4_f2: "Threat analysis and immediate response",
+        srv_4_f3: "Security Information and Event Management (SIEM)",
+        srv_4_f4: "Daily, weekly, and monthly security reports",
+        srv_4_f5: "Technical support for emergencies",
+
+        // ============ Service 5: Incident Response ============
+        srv_5_title: "Incident Response",
+        srv_5_desc: "If you suffer a cyberattack or security breach, we move quickly to contain the incident, analyze the root cause, restore affected systems, and harden defenses to prevent recurrence. We ensure rapid and professional response to minimize damage and restore operations as quickly as possible.",
+        srv_5_features_title: "What We Offer",
+        srv_5_tools_title: "Tools & Technologies",
+        srv_5_f1: "Rapid response (within hours of reporting)",
+        srv_5_f2: "Incident containment and preventing spread",
+        srv_5_f3: "Root Cause Analysis",
+        srv_5_f4: "Systems and data recovery",
+        srv_5_f5: "Detailed report and hardening recommendations",
+
+        // ============ Service 6: Security Audit ============
+        srv_6_title: "Security Audit",
+        srv_6_desc: "A comprehensive assessment of your security infrastructure, including policies and procedures review, risk analysis, and compliance evaluation with international standards. We provide practical and actionable recommendations to significantly improve your security posture.",
+        srv_6_features_title: "What We Offer",
+        srv_6_tools_title: "Standards & Frameworks",
+        srv_6_f1: "Security policies and procedures assessment",
+        srv_6_f2: "Risk analysis and prioritization",
+        srv_6_f3: "ISO 27001 and NIST alignment",
+        srv_6_f4: "Configuration security review",
+        srv_6_f5: "Actionable remediation plan",
+
+        // ============ Service 7: ISO 27001 ============
+        srv_7_title: "ISO 27001",
+        srv_7_desc: "We accompany you on your journey toward ISO 27001 certification, starting from Gap Analysis and developing an Information Security Management System (ISMS), through preparing for the final audit and obtaining certification.",
+        srv_7_features_title: "What We Offer",
+        srv_7_tools_title: "Reference Frameworks",
+        srv_7_f1: "Gap Analysis",
+        srv_7_f2: "Information Security Management System (ISMS) development",
+        srv_7_f3: "Policies and procedures preparation",
+        srv_7_f4: "Team training on standard requirements",
+        srv_7_f5: "Final audit preparation",
+
+        // ============ Service 8: GDPR / 09-08 ============
+        srv_8_title: "GDPR / 09-08",
+        srv_8_desc: "We help you comply with Moroccan and international laws related to personal data protection, including Moroccan Law 09-08 and the European GDPR. We review your policies, prepare necessary documentation, and conduct a comprehensive data processing review.",
+        srv_8_features_title: "What We Offer",
+        srv_8_tools_title: "Frameworks & Laws",
+        srv_8_f1: "Privacy policies review",
+        srv_8_f2: "Identification of stored and processed personal data",
+        srv_8_f3: "Records of Processing preparation",
+        srv_8_f4: "Data Protection Impact Assessment (DPIA)",
+        srv_8_f5: "Team training on data protection",
+
+        // ============ Service 9: Training & CTF ============
+        srv_9_title: "Training & CTF",
+        srv_9_desc: "We provide specialized cybersecurity training programs for technical teams, along with organizing Capture The Flag (CTF) competitions to enhance practical skills. Our programs are designed for beginners and professionals, covering topics such as penetration testing, digital forensics, and defensive security.",
+        srv_9_features_title: "What We Offer",
+        srv_9_tools_title: "Topics Covered",
+        srv_9_f1: "Customized training programs for all levels",
+        srv_9_f2: "CTF competitions for companies and universities",
+        srv_9_f3: "Hands-on workshops on penetration testing tools",
+        srv_9_f4: "Team training on digital forensics",
+        srv_9_f5: "Completion certificates for trainees",
+
+        // Process
+        process_tag: "OUR PROCESS",
+        process_title_1: "Our",
+        process_title_2: "Methodology",
+        process_desc: "We work with a clear and organized methodology to ensure the highest quality and professionalism in our services.",
+        step1_title: "Contact & Agreement",
+        step1_desc: "We listen to your needs, define the scope, and sign a formal agreement before starting.",
+        step2_title: "Planning & Preparation",
+        step2_desc: "We develop a detailed work plan and select the appropriate tools and technologies.",
+        step3_title: "Execution & Testing",
+        step3_desc: "We execute tests and activities according to the plan, documenting each step precisely.",
+        step4_title: "Report & Delivery",
+        step4_desc: "We deliver a detailed report with results and recommendations, plus a presentation session.",
+
+        // CTA
+        cta_title_1: "Do you need",
+        cta_title_2: "one of our services?",
+        cta_desc: "Contact us today to discuss your needs and get a customized quote for your project.",
+        cta_btn_contact: "Contact Us",
+        cta_btn_team: "Meet the Team",
+
+        // Footer
+        footer_desc: "A Moroccan platform specialized in cybersecurity. We provide comprehensive solutions to protect systems and networks following the highest international standards.",
+        footer_links: "Quick Links",
+        footer_legal: "Legal",
+        legal_privacy: "Privacy Policy",
+        legal_data: "Data Protection",
+        legal_copyright: "Copyright",
+        legal_terms: "Terms of Use",
+        footer_copy: "© 2026 Team Selwanism — All Rights Reserved",
+        footer_disclaimer: "All our services are performed with prior legal authorization. We comply with Moroccan (09-08) and international laws. We never perform any hacking without official permission."
+    }
+};
+
+/* ============================================================
+   2. تطبيق اللغة
+   ============================================================ */
+function applyLanguage(lang) {
+    if (!TRANSLATIONS[lang]) lang = 'ar';
+
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (TRANSLATIONS[lang][key] !== undefined) {
+            el.textContent = TRANSLATIONS[lang][key];
+        }
+    });
+
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    try {
+        localStorage.setItem('ts_lang', lang);
+    } catch (e) {}
+}
+
+/* ============================================================
+   3. قائمة الجوال
+   ============================================================ */
+const hamburger = document.getElementById('hamburger');
+const mainNav = document.getElementById('mainNav');
+
+if (hamburger && mainNav) {
+    hamburger.addEventListener('click', () => {
+        mainNav.classList.toggle('open');
+    });
+
+    mainNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => mainNav.classList.remove('open'));
+    });
+}
+
+/* ============================================================
+   4. Header عند السكرول
+   ============================================================ */
+(function initHeaderScroll() {
+    const header = document.getElementById('siteHeader');
+    if (!header) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.style.background = 'rgba(2, 4, 10, 0.98)';
+            header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.5)';
+        } else {
+            header.style.background = 'rgba(2, 4, 10, 0.85)';
+            header.style.boxShadow = 'none';
+        }
+    });
+})();
+
+/* ============================================================
+   5. أزرار اللغة
+   ============================================================ */
+document.querySelectorAll('.lang-switch button').forEach(btn => {
+    btn.addEventListener('click', () => {
+        applyLanguage(btn.dataset.lang);
+    });
+});
+
+/* ============================================================
+   6. تحميل اللغة المحفوظة عند الفتح
+   ============================================================ */
+(function initLanguage() {
+    let savedLang = 'ar';
+    try {
+        savedLang = localStorage.getItem('ts_lang') || 'ar';
+    } catch (e) {}
+
+    // استخراج اللغة من الرابط إن وُجدت
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    if (urlLang && TRANSLATIONS[urlLang]) {
+        savedLang = urlLang;
+    }
+
+    if (!TRANSLATIONS[savedLang]) savedLang = 'ar';
+
+    applyLanguage(savedLang);
+})();
+</script>
+
+<script src="agent.js"></script>
+</body>
+</html>

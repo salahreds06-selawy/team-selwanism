@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المختبر | Team Selwanism</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Cinzel:wght@700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #02040a;
+    color: #e6f7ff;
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background: rgba(5,11,24,0.95);
+    border-bottom: 1px solid #1a2a44;
+    padding: 15px 20px;
+    text-align: center;
+}
+.header .logo {
+    color: #00d1ff;
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+}
+.header .nav {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    list-style: none;
+}
+.header .nav a {
+    color: #e6f7ff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.header .nav a:hover,
+.header .nav a.active { color: #00d1ff; }
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Hero */
+.hero { text-align: center; padding: 40px 20px; margin-bottom: 40px; }
+.hero-tag {
+    display: inline-block;
+    color: #00d1ff;
+    border: 1px solid #00d1ff;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: #fff;
+    margin-bottom: 18px;
+    font-weight: 900;
+}
+h1 span {
+    background: linear-gradient(180deg, #7dd8ff, #00d1ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.intro {
+    color: #b0c4d8;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+/* Info Box */
+.info-box {
+    background: rgba(0,209,255,0.05);
+    border: 1px solid rgba(0,209,255,0.3);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.info-box h2 {
+    color: #00d1ff;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+.info-box p {
+    color: #b0c4d8;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+.info-box strong { color: #fff; }
+
+/* Name Input */
+.name-box {
+    background: #0a1424;
+    border: 2px solid #1a2a44;
+    border-radius: 16px;
+    padding: 35px 30px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.name-box h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+.name-input {
+    width: 100%;
+    padding: 15px 22px;
+    background: #050b18;
+    border: 2px solid #1a2a44;
+    border-radius: 12px;
+    color: #e6f7ff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.3s;
+    margin-bottom: 15px;
+}
+.name-input:focus {
+    outline: none;
+    border-color: #00d1ff;
+    box-shadow: 0 0 25px rgba(0,209,255,0.3);
+}
+.name-input::placeholder { color: #4a5a6a; }
+.name-btn {
+    width: 100%;
+    padding: 15px;
+    background: #00d1ff;
+    color: #001018;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.name-btn:hover:not(:disabled) {
+    background: #00e5ff;
+    transform: translateY(-2px);
+}
+.name-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Quiz */
+.quiz-container {
+    display: none;
+    background: #0a1424;
+    border: 2px solid #1a2a44;
+    border-radius: 16px;
+    padding: 35px 30px;
+}
+.quiz-container.active { display: block; }
+
+.quiz-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1a2a44;
+}
+.quiz-player {
+    color: #00d1ff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.quiz-info {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: #7a92a8;
+}
+.quiz-info strong {
+    color: #00d1ff;
+    font-family: 'Orbitron', sans-serif;
+}
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #050b18;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #25D366, #00d1ff);
+    width: 0%;
+    transition: width 0.4s;
+}
+
+.question-box { margin-bottom: 25px; }
+.question-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    color: #00d1ff;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+.question-text {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.answers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.answer-btn {
+    background: #050b18;
+    border: 2px solid #1a2a44;
+    color: #e6f7ff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.answer-btn:hover:not(:disabled) {
+    border-color: #00d1ff;
+    background: rgba(0,209,255,0.05);
+}
+.answer-btn:disabled { cursor: not-allowed; }
+.answer-btn .letter {
+    width: 30px;
+    height: 30px;
+    background: rgba(0,209,255,0.1);
+    border: 1px solid #00d1ff;
+    color: #00d1ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+.answer-btn.correct {
+    background: rgba(37,211,102,0.15);
+    border-color: #25D366;
+    color: #25D366;
+}
+.answer-btn.correct .letter {
+    background: #25D366;
+    border-color: #25D366;
+    color: #001018;
+}
+.answer-btn.wrong {
+    background: rgba(255,56,96,0.15);
+    border-color: #ff3860;
+    color: #ff3860;
+}
+.answer-btn.wrong .letter {
+    background: #ff3860;
+    border-color: #ff3860;
+    color: #fff;
+}
+
+/* Result */
+.result {
+    display: none;
+    text-align: center;
+    padding: 40px 25px;
+    border-radius: 16px;
+}
+.result.active { display: block; }
+.result.pass {
+    background: rgba(37,211,102,0.08);
+    border: 2px solid #25D366;
+}
+.result.fail {
+    background: rgba(255,56,96,0.08);
+    border: 2px solid #ff3860;
+}
+.result-score {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+.result.pass .result-score { color: #25D366; }
+.result.fail .result-score { color: #ff3860; }
+.result-label {
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+.result-message {
+    color: #b0c4d8;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    max-width: 500px;
+    margin: 0 auto 25px;
+}
+.result-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.btn {
+    display: inline-block;
+    padding: 13px 30px;
+    border-radius: 10px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+.btn-primary {
+    background: #00d1ff;
+    color: #001018;
+}
+.btn-primary:hover {
+    background: #00e5ff;
+    transform: translateY(-3px);
+}
+.btn-wa {
+    background: #25D366;
+    color: #fff;
+}
+.btn-wa:hover {
+    background: #20bd5a;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #7a92a8;
+    font-size: 0.85rem;
+    border-top: 1px solid #1a2a44;
+    margin-top: 40px;
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.footer-links a {
+    color: #7a92a8;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+.footer-links a:hover { color: #00d1ff; }
+
+@media (max-width: 640px) {
+    h1 { font-size: 1.6rem; }
+    .container { padding: 40px 15px; }
+    .quiz-container { padding: 25px 20px; }
+    .question-text { font-size: 1rem; }
+    .answer-btn { font-size: 0.88rem; padding: 12px 15px; }
+    .btn { width: 100%; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+    <a href="home.html" class="logo">SELWANISM</a>
+    <ul class="nav">
+        <li><a href="home.html">الرئيسية</a></li>
+        <li><a href="services.html">الخدمات</a></li>
+        <li><a href="team.html">الفريق</a></li>
+        <li><a href="lab.html" class="active">المختبر</a></li>
+        <li><a href="testimonials.html">شهادات العملاء</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+    </ul>
+</header>
+
+<main class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+        <span class="hero-tag">CYBER LAB</span>
+        <h1>مختبر <span>الأمن السيبراني</span></h1>
+        <p class="intro">
+            اختبر مهاراتك في الأمن السيبراني مع 20 سؤالاً متنوعاً. اجمع 50 نقطة على الأقل للنجاح.
+        </p>
+    </section>
+
+    <!-- Info -->
+    <div class="info-box">
+        <h2>قواعد الاختبار</h2>
+        <p>📝 <strong>20 سؤال</strong></p>
+        <p>🎯 كل جواب صحيح = <strong>5 نقاط</strong></p>
+        <p>✅ الحد الأدنى للنجاح = <strong>50 نقطة</strong></p>
+    </div>
+
+    <!-- Name Input -->
+    <div class="name-box" id="nameBox">
+        <h3>✍️ أدخل اسمك لبدء الاختبار</h3>
+        <input type="text" class="name-input" id="userName" placeholder="اكتب اسمك هنا..." maxlength="40">
+        <button class="name-btn" id="startBtn" onclick="startQuiz()" disabled>ابدأ الاختبار</button>
+    </div>
+
+    <!-- Quiz -->
+    <div class="quiz-container" id="quizContainer">
+        <div class="quiz-header">
+            <p class="quiz-player">المتدرب: <span id="displayName">—</span></p>
+            <div class="quiz-info">
+                <span>السؤال <strong id="qCurrent">1</strong> / <strong>20</strong></span>
+                <span>النقاط: <strong id="qScore">0</strong></span>
+            </div>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="question-box">
+            <div class="question-number" id="questionNumber">السؤال 1</div>
+            <div class="question-text" id="questionText">...</div>
+        </div>
+        <div class="answers-list" id="answersList"></div>
+    </div>
+
+    <!-- Result -->
+    <div class="result" id="resultBox"></div>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-links">
+        <a href="home.html">الرئيسية</a>
+        <a href="services.html">الخدمات</a>
+        <a href="team.html">الفريق</a>
+        <a href="lab.html">المختبر</a>
+        <a href="contact.html">تواصل معنا</a>
+    </div>
+    <p>© 2026 Team Selwanism — جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+/* ============================================================
+   📝 بنك الأسئلة
+   ============================================================ */
+const QUIZ_QUESTIONS = [
+    { q: "ما هو الهدف الأساسي من الهاكينغ الأخلاقي؟",
+      answers: ["سرقة البيانات", "اكتشاف الثغرات بإذن قانوني", "تعطيل المواقع", "بيع المعلومات"],
+      correct: 1 },
+    { q: "ما الأمر لعرض محتويات مجلد في Linux؟",
+      answers: ["ls", "cd", "mkdir", "pwd"], correct: 0 },
+    { q: "أشهر أداة لفحص الشبكات؟",
+      answers: ["Photoshop", "Nmap", "Excel", "Word"], correct: 1 },
+    { q: "ما معنى HTTPS؟",
+      answers: ["نقل عادي", "نقل آمن ومشفر", "فيروس", "لغة برمجة"], correct: 1 },
+    { q: "أقوى كلمة مرور؟",
+      answers: ["123456", "password", "MyP@ssw0rd!2024", "اسمك"], correct: 2 },
+    { q: "ماذا يعني VPN؟",
+      answers: ["لعبة", "شبكة خاصة تشفر الاتصال", "هارد ديسك", "متصفح"], correct: 1 },
+    { q: "ما هو الـ Firewall؟",
+      answers: ["برنامج صور", "نظام يراقب الشبكة", "لعبة", "كابل"], correct: 1 },
+    { q: "ما هي الهندسة الاجتماعية؟",
+      answers: ["بناء", "التلاعب بالبشر", "برمجة", "تصميم"], correct: 1 },
+    { q: "ما هو XSS؟",
+      answers: ["Cross Site Scripting", "Extra Small", "XML", "Xtreme"], correct: 0 },
+    { q: "أشهر قاعدة بيانات للثغرات؟",
+      answers: ["Wikipedia", "CVE", "IMDB", "YouTube"], correct: 1 },
+    { q: "أمر رفع الصلاحيات في Linux؟",
+      answers: ["sudo", "hello", "open", "start"], correct: 0 },
+    { q: "التشفير المتماثل؟",
+      answers: ["مفتاحين", "نفس المفتاح", "بدون مفاتيح", "ضعيف"], correct: 1 },
+    { q: "الفرق بين Virus و Worm؟",
+      answers: ["لا فرق", "Worm ينتشر تلقائياً", "Virus أخطر", "Worm للصور"], correct: 1 },
+    { q: "أشهر أدوات اختراق الويب؟",
+      answers: ["Word", "Burp Suite", "Spotify", "Netflix"], correct: 1 },
+    { q: "ماذا يعني OSINT؟",
+      answers: ["Open Source Intelligence", "Online System", "Operating System", "Open Secure"], correct: 0 },
+    { q: "ما هو Phishing؟",
+      answers: ["صيد الأسماك", "تصيد البيانات", "اختراق فيزيائي", "برمجة"], correct: 1 },
+    { q: "أشهر توزيعة Linux للأمن؟",
+      answers: ["Windows", "macOS", "Kali Linux", "Ubuntu"], correct: 2 },
+    { q: "الفرق بين Red و Blue Team؟",
+      answers: ["لون فقط", "Red يهجم، Blue يدافع", "نفس الشيء", "تصميم"], correct: 1 },
+    { q: "ما هو SQL Injection؟",
+      answers: ["حقن أوامر SQL", "نوع قاعدة بيانات", "بروتوكول", "لغة"], correct: 0 },
+    { q: "الهدف من Hash كلمات المرور؟",
+      answers: ["زيادة الحجم", "تحويل غير قابل للعكس", "تسريع", "حذف"], correct: 1 }
+];
+
+/* ============================================================
+   ⚙️ المتغيرات
+   ============================================================ */
+const PASSING_SCORE = 50;
+const POINTS_PER_CORRECT = 5;
+let currentQuestion = 0;
+let currentScore = 0;
+let userName = '';
+
+/* ============================================================
+   🎯 تشغيل عند التحميل
+   ============================================================ */
+const savedName = localStorage.getItem('ts_user_name');
+const attempted = localStorage.getItem('ts_attempted') === 'true';
+
+if (savedName) {
+    userName = savedName;
+    document.getElementById('userName').value = savedName;
+    checkInput();
+}
+
+if (attempted) {
+    // حاول من قبل - كنبينو النتيجة
+    document.getElementById('nameBox').innerHTML = `
+        <h3 style="color:#ff3860;">⚠️ لقد حاولت الاختبار من قبل</h3>
+        <p style="color:#b0c4d8; margin-bottom:20px;">لا يمكن إعادة الاختبار إلا بعد التواصل معنا.</p>
+        <a href="https://wa.me/212630084313" target="_blank" class="btn btn-wa">تواصل للاشتراك</a>
+    `;
+}
+
+/* ============================================================
+   ✍️ فحص الإدخال
+   ============================================================ */
+const nameInput = document.getElementById('userName');
+const startBtn = document.getElementById('startBtn');
+
+nameInput.addEventListener('input', checkInput);
+nameInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !startBtn.disabled) startQuiz();
+});
+
+function checkInput() {
+    startBtn.disabled = nameInput.value.trim().length < 2;
+}
+
+/* ============================================================
+   🚀 بدء الاختبار
+   ============================================================ */
+function startQuiz() {
+    userName = nameInput.value.trim();
+    if (userName.length < 2) return;
+
+    // حفظ الاسم
+    localStorage.setItem('ts_user_name', userName);
+
+    // إخفاء صندوق الاسم، إظهار الكويز
+    document.getElementById('nameBox').style.display = 'none';
+    document.getElementById('quizContainer').classList.add('active');
+    document.getElementById('displayName').textContent = userName;
+
+    currentQuestion = 0;
+    currentScore = 0;
+
+    renderQuestion();
+}
+
+/* ============================================================
+   🎨 عرض السؤال
+   ============================================================ */
+function renderQuestion() {
+    const q = QUIZ_QUESTIONS[currentQuestion];
+
+    document.getElementById('qCurrent').textContent = currentQuestion + 1;
+    document.getElementById('questionNumber').textContent = 'السؤال ' + (currentQuestion + 1);
+    document.getElementById('questionText').textContent = q.q;
+
+    const progress = (currentQuestion / QUIZ_QUESTIONS.length) * 100;
+    document.getElementById('progressFill').style.width = progress + '%';
+
+    const answersList = document.getElementById('answersList');
+    answersList.innerHTML = '';
+
+    const letters = ['A', 'B', 'C', 'D'];
+    q.answers.forEach((answer, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.innerHTML = `<span class="letter">${letters[index]}</span><span>${answer}</span>`;
+        btn.onclick = () => checkAnswer(index, btn);
+        answersList.appendChild(btn);
+    });
+}
+
+/* ============================================================
+   ✅ التحقق من الإجابة
+   ============================================================ */
+function checkAnswer(selected, btn) {
+    const q = QUIZ_QUESTIONS[currentQuestion];
+    const allBtns = document.querySelectorAll('.answer-btn');
+    allBtns.forEach(b => b.disabled = true);
+
+    if (selected === q.correct) {
+        btn.classList.add('correct');
+        currentScore += POINTS_PER_CORRECT;
+        document.getElementById('qScore').textContent = currentScore;
+    } else {
+        btn.classList.add('wrong');
+        allBtns[q.correct].classList.add('correct');
+    }
+
+    setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < QUIZ_QUESTIONS.length) {
+            renderQuestion();
+        } else {
+            showResult();
+        }
+    }, 1200);
+}
+
+/* ============================================================
+   🏆 عرض النتيجة
+   ============================================================ */
+function showResult() {
+    document.getElementById('quizContainer').classList.remove('active');
+    const resultBox = document.getElementById('resultBox');
+    const passed = currentScore >= PASSING_SCORE;
+
+    // حفظ النتيجة
+    localStorage.setItem('ts_attempted', 'true');
+    localStorage.setItem('ts_score', currentScore);
+    localStorage.setItem('ts_passed', passed ? 'true' : 'false');
+
+    resultBox.className = 'result ' + (passed ? 'pass' : 'fail') + ' active';
+
+    if (passed) {
+        resultBox.innerHTML = `
+            <div class="result-score">${currentScore} / 100</div>
+            <div class="result-label">🎉 مبروك يا ${escapeHtml(userName)}!</div>
+            <p class="result-message">
+                لقد اجتزت الاختبار بنجاح. لمواصلة التعلم والحصول على الشهادة، تواصل معنا.
+            </p>
+            <div class="result-actions">
+                <a href="https://wa.me/212630084313?text=${encodeURIComponent('السلام عليكم، جبت ' + currentScore + ' نقطة في اختبار المبتدئ. اسمي: ' + userName)}" target="_blank" class="btn btn-wa">
+                    تواصل على واتساب
+                </a>
+                <a href="home.html" class="btn btn-primary">الرئيسية</a>
+            </div>
+        `;
+    } else {
+        resultBox.innerHTML = `
+            <div class="result-score">${currentScore} / 100</div>
+            <div class="result-label">للأسف يا ${escapeHtml(userName)}</div>
+            <p class="result-message">
+                الحد الأدنى للنجاح هو 50 نقطة. للأسف لم تجتز الاختبار.<br>
+                تواصل معنا للاشتراك في الكورس.
+            </p>
+            <div class="result-actions">
+                <a href="https://wa.me/212630084313?text=${encodeURIComponent('السلام عليكم، حاولت الاختبار وجبت ' + currentScore + ' نقطة. اسمي: ' + userName)}" target="_blank" class="btn btn-wa">
+                    تواصل على واتساب
+                </a>
+                <a href="home.html" class="btn btn-primary">الرئيسية</a>
+            </div>
+        `;
+    }
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+</script>
+
+<script src="agent.js"></script>
+</body>
+</html>
